@@ -24,6 +24,10 @@ const router = createRouter({
       path: "/workspace",
       component: () => import("@/pages/workspace/index.vue"),
     },
+    {
+      path: "/assets",
+      component: () => import("@/pages/assets/index.vue"),
+    },
   ],
 });
 export default router;

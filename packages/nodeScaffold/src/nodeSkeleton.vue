@@ -13,6 +13,7 @@
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item v-if="assetOutputs.length && saveNodeToAssets" command="saveAsset" :icon="IconFolderPlus">保存到素材库</el-dropdown-item>
+          <el-dropdown-item v-if="assetOutputs.length && saveNodeToLibrary" command="saveLibrary" :icon="IconLibrary">存为资产</el-dropdown-item>
           <el-dropdown-item :divided="!!(assetOutputs.length && saveNodeToAssets)" command="copy" :icon="IconCopy">复制节点</el-dropdown-item>
           <el-dropdown-item command="duplicate" :icon="IconCopyPlus">创建副本</el-dropdown-item>
           <el-dropdown-item command="delete" :icon="IconTrash">删除节点</el-dropdown-item>
@@ -162,6 +163,7 @@ import {
   IconCopy,
   IconCopyPlus,
   IconFolderPlus,
+  IconLibrary,
   IconDownload,
   IconMaximize,
   IconBox,
@@ -364,6 +366,10 @@ const saveNodeToAssets = inject<((label: string, outputs: { label: string; outpu
   "saveNodeToAssets",
   undefined
 );
+const saveNodeToLibrary = inject<((label: string, outputs: { label: string; output: NodeOutput }[], meta?: Record<string, unknown>) => void) | undefined>(
+  "saveNodeToLibrary",
+  undefined
+);
 const assetOutputs = computed(() =>
   props.handles.flatMap((handle) => {
     const output = props.outputs[handle.id];
@@ -374,6 +380,7 @@ const assetOutputs = computed(() =>
 
 async function handleCommand(command: string) {
   if (command === "saveAsset") saveNodeToAssets?.(props.label, assetOutputs.value);
+  if (command === "saveLibrary") saveNodeToLibrary?.(props.label, assetOutputs.value, { ...node.data });
   if (command === "clipboard" && copyNodeToClipboard && !copyingToClipboard.value) {
     copyingToClipboard.value = true;
     try {

@@ -2,9 +2,12 @@
   <el-container class="home">
     <bg class="pageBackground" />
     <el-header class="pageHeader">
-      <el-badge isDot :hidden="!hasDesktopUpdate">
-        <el-button round size="large" :icon="IconSettings" :aria-label="hasDesktopUpdate ? '设置，有新版本可用' : '设置'" @click="settingsVisible = true">设置</el-button>
-      </el-badge>
+      <div class="headerActions">
+        <el-button round size="large" :icon="IconLibrary" aria-label="资产库" @click="router.push('/assets')">资产库</el-button>
+        <el-badge isDot :hidden="!hasDesktopUpdate">
+          <el-button round size="large" :icon="IconSettings" :aria-label="hasDesktopUpdate ? '设置，有新版本可用' : '设置'" @click="settingsVisible = true">设置</el-button>
+        </el-badge>
+      </div>
       <div class="githubAction">
         <span class="arrowHint starHint">
           点个 Star 支持一下
@@ -90,7 +93,7 @@ import { computed, nextTick, onMounted, ref, watch } from "vue";
 import { useRouter } from "vue-router";
 import { ElMessage, ElMessageBox, type InputInstance } from "element-plus";
 import {
-  IconSettings, IconBrandGithub,
+  IconSettings, IconBrandGithub, IconLibrary,
   IconArrowUp, IconLayoutGrid,
   IconList, IconSortDescending,
   IconSortAscending, IconFolder, IconEdit,

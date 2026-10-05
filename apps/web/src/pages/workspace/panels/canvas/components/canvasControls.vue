@@ -21,6 +21,17 @@
             <icon-folders :size="17" />
           </el-button>
         </el-tooltip>
+        <el-tooltip :showArrow="false" :content="assetPanelVisible ? '关闭资产库' : '打开资产库'" placement="top" :hideAfter="0" :enterable="false" :triggerKeys="[]">
+          <el-button
+            class="toolButton"
+            text
+            :type="assetPanelVisible ? 'primary' : 'default'"
+            :aria-pressed="assetPanelVisible"
+            aria-label="资产库"
+            @click="assetPanelVisible = !assetPanelVisible">
+            <icon-library :size="17" />
+          </el-button>
+        </el-tooltip>
         <!-- trigger 用 contextmenu 是为了让整理按钮只由 arrangeNodes 控制显隐，同时仍保留点击外部自动关闭 -->
         <el-tooltip :showArrow="false" content="整理画布" placement="top" :hideAfter="0" :enterable="false" :triggerKeys="[]" :disabled="undoPopoverVisible">
           <span class="toolTrigger">
@@ -171,7 +182,7 @@
 import { computed, onBeforeUnmount, ref, watch } from "vue";
 import { Panel, useVueFlow, type XYPosition } from "@vue-flow/core";
 import { MiniMap } from "@vue-flow/minimap";
-import { IconMap, IconMagnet, IconFocusCentered, IconHelp, IconBook, IconBug, IconBrandWechat, IconBriefcase } from "@tabler/icons-vue";
+import { IconMap, IconMagnet, IconFocusCentered, IconHelp, IconBook, IconBug, IconBrandWechat, IconBriefcase, IconLibrary } from "@tabler/icons-vue";
 import { ElMessage } from "element-plus";
 import { QRCode } from "tdesign-vue-next";
 import { arrangeCanvas } from "../arrangeCanvas";
@@ -184,6 +195,7 @@ const props = defineProps<{
 const snapEnabled = defineModel<boolean>("snapEnabled", { required: true });
 const showEdges = defineModel<boolean>("showEdges", { required: true });
 const assetsVisible = defineModel<boolean>("assetsVisible", { default: false });
+const assetPanelVisible = defineModel<boolean>("assetPanelVisible", { default: false });
 const showMap = ref(false);
 const zoomMenuVisible = ref(false);
 const helpVisible = ref(false);
