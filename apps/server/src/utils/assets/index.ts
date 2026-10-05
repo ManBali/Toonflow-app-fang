@@ -7,3 +7,5 @@ export async function getAssetsDirectory() {
   await mkdir(directory, { recursive: true });
   return realpath(directory);
 }
+
+export * from "./library.ts";

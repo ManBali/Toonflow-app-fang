@@ -54,7 +54,7 @@ export async function createApp({
   app.use(cors());
   app.use(languageRequest);
   app.use("/a2a", express.json({ limit: "2mb" }));
-  app.use(["/api/workspaces/files/write", "/api/assets/save"], express.raw({ type: "application/octet-stream", limit: "100mb" }));
+  app.use(["/api/workspaces/files/write", "/api/assets/save", "/api/assets/library/upload"], express.raw({ type: "application/octet-stream", limit: "100mb" }));
   app.use(express.json({ limit: "100mb" }));
   app.use(express.urlencoded({ extended: true, limit: "100mb" }));
   app.use("/api/desktop", desktopRequest);
@@ -76,6 +76,8 @@ export async function createApp({
   }));
   const { createA2aRouter } = await import("@/agent/a2a");
   app.use("/a2a", createA2aRouter());
+  const { getLibraryDirectory } = await import("@/utils/assets");
+  app.use("/api/assets/library/files", express.static(await getLibraryDirectory()));
   app.use(express.static(webRoot));
 
   // 错误处理
