@@ -14,7 +14,12 @@ const outputNames = new Set(["output", "addOutput", "save", "saveToFile", "conca
 
 function serializeError(error: unknown) {
   return error instanceof Error
-    ? { name: error.name, message: error.message, ...("code" in error ? { code: error.code } : {}), ...("i18nMessage" in error ? { i18nMessage: error.i18nMessage } : {}) }
+    ? {
+      name: error.name,
+      message: error.message,
+      ...("code" in error ? { code: error.code } : {}),
+      ...("i18nMessage" in error ? { i18nMessage: error.i18nMessage } : {}),
+    }
     : { name: "Error", message: String(error) };
 }
 
@@ -56,8 +61,9 @@ export async function executeRemoteFfmpeg(
       };
       const fail = (error: unknown, ...args: unknown[]) => finish("error", [serializeError(error), ...args]);
       const cancel = () => {
+        const reason = signal.reason ?? new DOMException("FFmpeg 已取消", "AbortError");
         command.kill("SIGKILL");
-        fail(signal.reason ?? new DOMException("FFmpeg 已取消", "AbortError"));
+        fail(reason);
       };
       signal.addEventListener("abort", cancel, { once: true });
       // ACT: 取消可能早于 spawn；保留监听，准备阶段结束后立即终止，且接住迟到的 error。

@@ -70,10 +70,11 @@ function wait(signal: AbortSignal) {
 }
 
 async function generateTask(context: ProviderContext, mediaType: "image" | "video", body: unknown) {
-  // ACT: 单次生成最多等待 30 分钟；供应商开放任务恢复能力后再单独保存任务 ID。
+  // ACT: 单次生成最多等待 30 分钟；任务 ID 在提交后立即上报宿主落盘，进程中断后可由宿主按 ID 恢复结果。
   const signal = AbortSignal.any([AbortSignal.timeout(30 * 60_000), ...(context.signal ? [context.signal] : [])]);
   const task = await fetchJson(context, `${mediaType}/generate${mediaType === "image" ? "Image" : "Video"}`, body, signal);
   if (typeof task.data !== "string" || !task.data.trim()) throw new Error("TF-router 未返回任务 ID");
+  try { context.tool.reportTask?.({ mediaType, taskICode: task.data }); } catch { /* ACT: 上报失败不影响生成本身。 */ }
   while (true) {
     const result = await fetchJson(context, `${mediaType}/get${mediaType === "image" ? "Image" : "Video"}Status`, { taskICode: task.data }, signal);
     const data = result.data == null ? {} : object(result.data);
@@ -84,6 +85,17 @@ async function generateTask(context: ProviderContext, mediaType: "image" | "vide
     }
     await wait(signal);
   }
+}
+
+async function taskStatus(context: ProviderContext, mediaType: "image" | "video", taskICode: string) {
+  const result = await fetchJson(context, `${mediaType}/get${mediaType === "image" ? "Image" : "Video"}Status`, { taskICode });
+  const data = result.data == null ? {} : object(result.data);
+  const status = String(result.status ?? data.status ?? "").toLowerCase();
+  if (status === "success" || status === "completed") return mediaAsset(data.data, mediaType);
+  if (status === "failed" || status === "failure") {
+    throw new Error(context.tool.errorMessage?.(result) || (typeof data.failReason === "string" ? data.failReason : `${mediaType === "image" ? "图片" : "视频"}生成失败`));
+  }
+  return [];
 }
 
 export default {
@@ -278,5 +290,9 @@ export default {
       resolution: request.resolution,
       metadata,
     });
+  },
+  async getPendingTask(request: { mediaType: "image" | "video" | "audio"; taskICode: string }): Promise<MediaAsset[]> {
+    if (request.mediaType !== "image" && request.mediaType !== "video") throw new Error("TF-router 暂不支持此媒体类型的任务恢复");
+    return taskStatus(this, request.mediaType, request.taskICode);
   },
 } satisfies ProviderDefinition<typeof rules>;

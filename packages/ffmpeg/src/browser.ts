@@ -24,9 +24,11 @@ function createCall(method: string, args: unknown[]): FfmpegCall {
   return snapshot({ method, args, undefinedArgs: args.flatMap((value, index) => value === undefined ? [index] : []) });
 }
 
-function remoteError(value: unknown) {
-  const details = value as { message?: string; name?: string; code?: string };
-  return Object.assign(new Error(details.message || "FFmpeg 执行失败"), details);
+function remoteError(value: unknown, stdout?: string | null, stderr?: string | null) {
+  const details = value as { message?: string; name?: string; code?: string; stdout?: string | null; stderr?: string | null };
+  const diagnostics = [details.stderr ?? stderr, details.stdout ?? stdout].filter(Boolean).join("\n").trim().slice(-12000);
+  const message = [details.message || "FFmpeg 执行失败", diagnostics].filter(Boolean).join("\n");
+  return Object.assign(new Error(message), details);
 }
 
 async function request(input: BrowserFfmpegRequest, signal?: AbortSignal) {
@@ -96,7 +98,7 @@ export async function createBrowserFfmpeg(directory: string, signal?: AbortSigna
               active = undefined;
             }
             if (event === "error") {
-              const error = remoteError(args[0]);
+              const error = remoteError(args[0], args[1] as string | null | undefined, args[2] as string | null | undefined);
               if (callback) callback(error);
               else emit("error", [error, ...args.slice(1)]);
             } else if (event === "result") callback?.(null, args[0]);

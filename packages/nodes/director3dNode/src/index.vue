@@ -55,7 +55,7 @@ const mediaFiles = useNodeFiles();
 const exportingVideo = ref(false);
 const exportingImage = ref("");
 const exportProgress = ref(0);
-const exportController = new AbortController();
+let exportController: AbortController | undefined;
 nodeEvent.on("delete", () => { if (exportingVideo.value || exportingImage.value) throw new Error("正在导出，请完成后再删除导演节点"); });
 const data = computed(() => node.data as typeof node.data & {
   modelPath?: string;
@@ -92,7 +92,10 @@ const modelError = ref("");
 const addingMannequin = ref(false);
 let modelSaving = Promise.resolve();
 let disposed = false;
-onBeforeUnmount(() => { disposed = true; exportController.abort(new Error("导演节点已关闭，导出已停止")); });
+onBeforeUnmount(() => {
+  disposed = true;
+  exportController?.abort(new Error("导演节点已关闭，导出已停止"));
+});
 
 function getModelPath() {
   if (!node.id || /[\\/]/.test(node.id) || node.id === "." || node.id === "..") throw new Error("节点 ID 不能作为文件夹名称");
@@ -202,6 +205,7 @@ async function exportToCanvas(kind: "image" | "video", key: string, aspect: numb
   if (!nodeTypes?.value?.[type]) return void ElMessage.error(`请先启用${kind === "image" ? "图片" : "视频"}节点插件`);
   if (kind === "video") { exportingVideo.value = true; exportProgress.value = 0; }
   else exportingImage.value = key;
+  const controller = exportController = new AbortController();
   const id = crypto.randomUUID();
   let exportNode: ReturnType<typeof findNode<NodeData & { exportProgress?: number }>>;
   let discarded = false;
@@ -233,12 +237,12 @@ async function exportToCanvas(kind: "image" | "video", key: string, aspect: numb
         if (!discarded) exportNode!.data.exportProgress = progress;
       }, { flush: "sync" });
     }
-    const file = await render(exportController.signal);
-    exportController.signal.throwIfAborted();
+    const file = await render(controller.signal);
+    controller.signal.throwIfAborted();
     if (discarded) return;
     uploadStarted = true;
     const path = await mediaFiles.uploadFile(id, file);
-    exportController.signal.throwIfAborted();
+    controller.signal.throwIfAborted();
     if (discarded) return;
     if (findNode(node.id) !== node || !nodeTypes?.value?.[type]) throw new Error("画布节点已变化，请重新导出");
     exportNode ??= addExportNode(file.name.replace(/\.[^.]+$/, ""));
@@ -264,6 +268,7 @@ async function exportToCanvas(kind: "image" | "video", key: string, aspect: numb
     }
     if (kind === "video") exportingVideo.value = false;
     else exportingImage.value = "";
+    if (exportController === controller) exportController = undefined;
   }
 }
 

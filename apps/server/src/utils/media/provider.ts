@@ -321,7 +321,14 @@ export async function deleteMediaProvider(fileName: string, revision: string) {
   } finally { release(); }
 }
 
-export async function loadMediaProviderSource(source: string, config: Record<string, unknown> = {}, signal?: AbortSignal, fetchRequest = fetch, cwd?: string) {
+export async function loadMediaProviderSource(
+  source: string,
+  config: Record<string, unknown> = {},
+  signal?: AbortSignal,
+  fetchRequest = fetch,
+  cwd?: string,
+  onTask?: (task: { mediaType: "image" | "video" | "audio"; taskICode: string }) => void,
+) {
   signal?.throwIfAborted();
   const { id } = parseProvider(source);
   // ACT: VM 只隔离可信供应商的全局上下文；不可信代码需要独立进程等更强隔离。
@@ -359,6 +366,12 @@ export async function loadMediaProviderSource(source: string, config: Record<str
         if (!cwd) throw new Error("当前操作没有工作目录，无法使用 FFmpeg");
         return createWorkspaceFfmpeg(cwd, signal);
       },
+      ...(onTask ? {
+        // ACT: 供应商上报的任务 ID 落盘后才能在进程中断后恢复已计费的结果；上报异常不影响生成。
+        reportTask: (task: { mediaType: "image" | "video" | "audio"; taskICode: string }) => {
+          try { onTask(task); } catch { /* 忽略落盘失败，生成本身继续。 */ }
+        },
+      } : {}),
     } satisfies ProviderTools,
   };
   for (const name of ["generateImage", "generateVideo", "generateAudio"] as const) {

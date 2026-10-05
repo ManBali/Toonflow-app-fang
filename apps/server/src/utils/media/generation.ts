@@ -1,6 +1,7 @@
 import { t, translateMessage } from "@/lib/i18n";
-import { mkdir, readFile, realpath, stat, unlink } from "@toonflow/file";
-import { join, relative } from "node:path";
+import { readFileSync } from "node:fs";
+import { mkdir, readFile, realpath, stat, unlink, writeFile } from "@toonflow/file";
+import { dirname, join, relative } from "node:path";
 import { mediaProviders, type Provider } from "@toonflow/providers";
 import type { GeneratedMedia, MediaGenerationRequest, MediaModel, MediaReference } from "@toonflow/tools-scaffold/runtime";
 import conf from "@/utils/conf";
@@ -15,6 +16,50 @@ const mediaExtensions: Record<string, string> = {
   "audio/mpeg": "mp3", "audio/wav": "wav", "audio/ogg": "ogg", "audio/webm": "webm",
   "audio/flac": "flac", "audio/aac": "aac", "audio/mp4": "m4a", "audio/opus": "opus", "audio/pcm": "pcm",
 };
+
+/** 已提交到供应商但尚未取回结果的异步任务；进程中断后由后台恢复流程按 ID 取回，避免已计费任务作废。 */
+interface PendingMediaTask {
+  taskICode: string;
+  providerId: string;
+  mediaType: "image" | "video" | "audio";
+  cwd: string;
+  outputDirectory: string;
+  createdAt: string;
+  updatedAt: string;
+  status: "running" | "done" | "failed";
+  error?: string;
+}
+
+const activeTaskCodes = new Set<string>();
+let resuming = false;
+let journalQueue: Promise<unknown> = Promise.resolve();
+
+function journalFile() {
+  return join(dirname(conf.path), "media-generation-tasks.json");
+}
+
+function readJournal(): PendingMediaTask[] {
+  try {
+    const parsed = JSON.parse(readFileSync(journalFile(), "utf8"));
+    return Array.isArray(parsed) ? parsed.filter((item: unknown): item is PendingMediaTask =>
+      !!item && typeof item === "object" && typeof (item as PendingMediaTask).taskICode === "string") : [];
+  } catch { return []; }
+}
+
+function writeJournal(entries: PendingMediaTask[]) {
+  // ACT: 串行化写盘，避免并发恢复与生成请求互相覆盖；写入失败只影响恢复能力，不阻断生成。
+  journalQueue = journalQueue.then(() =>
+    writeFile(journalFile(), JSON.stringify(entries, null, 2)).catch(() => {})).catch(() => {});
+}
+
+function updateJournalEntry(taskICode: string, patch: Partial<PendingMediaTask>, remove = false) {
+  const entries = readJournal();
+  const index = entries.findIndex(item => item.taskICode === taskICode);
+  if (index < 0) return;
+  if (remove) entries.splice(index, 1);
+  else entries[index] = { ...entries[index], ...patch, updatedAt: new Date().toISOString() };
+  writeJournal(entries);
+}
 
 function invalid(message: string): never {
   throw Object.assign(new Error(message), { status: 400 });
@@ -127,6 +172,89 @@ async function assetBytes(asset: MediaAsset, mediaType: "image" | "video" | "aud
   return { bytes, mimeType };
 }
 
+async function writeGeneratedAssets(
+  cwd: string,
+  mediaType: "image" | "video" | "audio",
+  assets: MediaAsset[],
+  outputDirectory: string,
+  signal?: AbortSignal,
+): Promise<GeneratedMedia[]> {
+  const written: string[] = [];
+  const result: GeneratedMedia[] = [];
+  try {
+    for (const asset of assets) {
+      signal?.throwIfAborted();
+      const { bytes, mimeType } = await assetBytes(asset, mediaType, signal);
+      signal?.throwIfAborted();
+      const output = await resolveWorkspacePath(cwd, outputDirectory, true);
+      const release = lockWorkspaceFiles([output.path]);
+      try {
+        await mkdir(output.path, { recursive: true });
+        const file = join(outputDirectory, `${mediaType}${crypto.randomUUID()}.${mediaExtensions[mimeType]}`);
+        const { path } = await resolveWorkspacePath(cwd, file);
+        signal?.throwIfAborted();
+        await writeWorkspaceFile(path, bytes, true);
+        written.push(path);
+        result.push({ path: relative(cwd, path).replace(/\\/g, "/"), mimeType, mediaType });
+      } finally { release(); }
+    }
+    signal?.throwIfAborted();
+    return result;
+  } catch (err) {
+    // ACT: 只回滚本次创建的文件，保留目录中已有的节点资源。
+    await Promise.all(written.map(path => unlink(path).catch((error: NodeJS.ErrnoException) => { if (error.code !== "ENOENT") throw error; })));
+    throw err;
+  }
+}
+
+async function recoverPendingTask(entry: PendingMediaTask): Promise<MediaAsset[]> {
+  const providerInfo = await getMediaProvider(entry.providerId);
+  const configurations = record(conf.get("settings", {}).mediaProviderConfigs);
+  const provider = await loadMediaProviderSource(providerInfo.source, record(configurations[providerInfo.id]), undefined, fetch, entry.cwd);
+  if (typeof provider.getPendingTask !== "function") throw new Error("供应商不支持任务恢复");
+  return provider.getPendingTask({ mediaType: entry.mediaType, taskICode: entry.taskICode });
+}
+
+/**
+ * 后台恢复已提交但未取回结果的供应商任务（进程崩溃或客户端断开导致请求中断时）。
+ * 只按任务 ID 查询结果，绝不重新提交，避免重复计费；成功后把媒体写入原工作区目录。
+ */
+export async function resumePendingMediaTasks() {
+  if (resuming) return;
+  resuming = true;
+  try {
+    const entries = readJournal().filter(item => item.status === "running" && !activeTaskCodes.has(item.taskICode));
+    for (const entry of entries) {
+      const age = Date.now() - Date.parse(entry.createdAt);
+      if (age < 60_000) continue;
+      if (age > 48 * 3600_000) {
+        updateJournalEntry(entry.taskICode, { status: "failed", error: "超过 48 小时未能取回结果，停止重试" });
+        continue;
+      }
+      try {
+        const assets = await recoverPendingTask(entry);
+        if (!assets.length) continue;
+        await writeGeneratedAssets(entry.cwd, entry.mediaType, assets, entry.outputDirectory);
+        updateJournalEntry(entry.taskICode, { status: "done" });
+      } catch (error) {
+        updateJournalEntry(entry.taskICode, { status: "failed", error: error instanceof Error ? error.message : String(error) });
+      }
+    }
+    const current = readJournal();
+    const cutoff = Date.now() - 7 * 24 * 3600_000;
+    const kept = current.filter(item => item.status === "running" || Date.parse(item.updatedAt) >= cutoff);
+    if (kept.length !== current.length) writeJournal(kept);
+  } finally { resuming = false; }
+}
+
+/** 服务启动时开启后台恢复扫描。 */
+export function startMediaTaskResume() {
+  const timer = setTimeout(() => { void resumePendingMediaTasks(); }, 20_000);
+  const interval = setInterval(() => { void resumePendingMediaTasks(); }, 120_000);
+  timer.unref?.();
+  interval.unref?.();
+}
+
 export async function generateMedia(
   cwd: string,
   mediaType: "image" | "video" | "audio",
@@ -142,7 +270,19 @@ export async function generateMedia(
   const model = providerInfo.models.find(model => model.id === request.modelId && model.type === mediaType);
   if (!model) invalid("所选媒体模型不存在或类型不匹配，请重新选择");
   const configurations = record(conf.get("settings", {}).mediaProviderConfigs);
-  const provider = await loadMediaProviderSource(providerInfo.source, record(configurations[providerInfo.id]), signal, undefined, directory);
+  const reportedTasks: PendingMediaTask[] = [];
+  const onTask = (task: { mediaType: "image" | "video" | "audio"; taskICode: string }) => {
+    if (reportedTasks.some(item => item.taskICode === task.taskICode)) return;
+    const now = new Date().toISOString();
+    const entry: PendingMediaTask = {
+      taskICode: task.taskICode, providerId: providerInfo.id, mediaType,
+      cwd: directory, outputDirectory, createdAt: now, updatedAt: now, status: "running",
+    };
+    reportedTasks.push(entry);
+    activeTaskCodes.add(task.taskICode);
+    writeJournal([...readJournal().filter(item => item.taskICode !== task.taskICode), entry]);
+  };
+  const provider = await loadMediaProviderSource(providerInfo.source, record(configurations[providerInfo.id]), signal, undefined, directory, onTask);
   const generate = mediaType === "image" ? provider.generateImage : mediaType === "video" ? provider.generateVideo : provider.generateAudio;
   if (typeof generate !== "function") invalid(t`此供应商不支持${translateMessage({ image: "图片", video: "视频", audio: "音频" }[mediaType])}生成`);
   const rules = Array.isArray(provider.rules) ? provider.rules : [];
@@ -166,30 +306,18 @@ export async function generateMedia(
       generateAudio: request.generateAudio, mode: request.mode,
     });
   if (!Array.isArray(assets) || !assets.length) invalid("供应商未返回生成结果");
-  const written: string[] = [];
-  const result: GeneratedMedia[] = [];
   try {
-    for (const asset of assets) {
-      signal?.throwIfAborted();
-      const { bytes, mimeType } = await assetBytes(asset, mediaType, signal);
-      signal?.throwIfAborted();
-      const output = await resolveWorkspacePath(directory, outputDirectory, true);
-      const release = lockWorkspaceFiles([output.path]);
-      try {
-        await mkdir(output.path, { recursive: true });
-        const file = join(outputDirectory, `${mediaType}${crypto.randomUUID()}.${mediaExtensions[mimeType]}`);
-        const { path } = await resolveWorkspacePath(directory, file);
-        signal?.throwIfAborted();
-        await writeWorkspaceFile(path, bytes, true);
-        written.push(path);
-        result.push({ path: relative(directory, path).replace(/\\/g, "/"), mimeType, mediaType });
-      } finally { release(); }
+    const result = await writeGeneratedAssets(directory, mediaType, assets, outputDirectory, signal);
+    // 成功取回并落盘，任务记录完成使命，移除。
+    for (const entry of reportedTasks) {
+      activeTaskCodes.delete(entry.taskICode);
+      updateJournalEntry(entry.taskICode, {}, true);
     }
-    signal?.throwIfAborted();
     return result;
-  } catch (err) {
-    // ACT: 只回滚本次创建的文件，保留目录中已有的节点资源。
-    await Promise.all(written.map(path => unlink(path).catch((error: NodeJS.ErrnoException) => { if (error.code !== "ENOENT") throw error; })));
-    throw err;
+  } catch (error) {
+    // ACT: 中断（客户端断开/进程退出）或失败时保留 running 记录；恢复流程会向供应商确认最终状态——
+    // 明确失败只多一次状态查询，而轮询中的瞬时网络错误若在此删除记录会让已计费任务永久丢失。
+    for (const entry of reportedTasks) activeTaskCodes.delete(entry.taskICode);
+    throw error;
   }
 }
