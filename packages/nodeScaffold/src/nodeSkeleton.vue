@@ -385,6 +385,8 @@ const mediaOutputs = computed(() =>
   assetOutputs.value.filter(({ output }) => output && typeof output.value === "object" && output.value.url)
 );
 const downloadingResources = ref(false);
+// inject 只能在 setup 期间解析，先在顶层取好引用，下载时再用。
+const nodeFiles = useNodeFiles();
 
 /** 右键菜单下载：读取节点媒体输出并按原文件名触发浏览器下载。 */
 async function downloadMediaOutputs() {
@@ -394,7 +396,7 @@ async function downloadMediaOutputs() {
     for (const { output } of mediaOutputs.value) {
       const url = (output.value as { url: string }).url;
       const name = decodeURIComponent(url.split(/[\\/]/).pop() ?? "资源");
-      const content = await useNodeFiles().getWorkspaceFiles().read(url);
+      const content = await nodeFiles.getWorkspaceFiles().read(url);
       const objectUrl = URL.createObjectURL(new Blob([content]));
       const link = document.createElement("a");
       link.href = objectUrl;
