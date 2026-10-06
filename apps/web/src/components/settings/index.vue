@@ -2,7 +2,7 @@
   <el-dialog v-model="visible" title="设置" width="min(1080px, calc(100vw - 32px))" alignCenter appendToBody>
     <div class="settings">
       <aside class="sidebar" aria-label="设置分类">
-        <template v-for="item in settingsPanels" :key="item.id">
+        <template v-for="item in visiblePanels" :key="item.id">
           <h3 v-if="item.groupLabel" class="settingsGroupLabel">{{ item.groupLabel }}</h3>
           <button class="settingsItem" type="button" :aria-label="item.id === 'about' && hasDesktopUpdate ? `${item.label}，有新版本可用` : item.label" :aria-pressed="activePanel.id === item.id" @click="activePanel = item">
             <el-badge class="panelIcon" isDot :hidden="item.id !== 'about' || !hasDesktopUpdate">
@@ -11,6 +11,10 @@
             <span>{{ item.label }}</span>
           </button>
         </template>
+        <button class="settingsItem logoutItem" type="button" aria-label="退出登录" @click="confirmLogout">
+          <component :is="IconLogout" :size="18" aria-hidden="true" />
+          <span>退出登录</span>
+        </button>
       </aside>
       <section class="content" :aria-label="activePanel.label" tabindex="0">
         <h2 class="panelTitle">{{ activePanel.label }}</h2>
@@ -29,8 +33,10 @@
 </template>
 
 <script setup lang="ts">
-import { defineAsyncComponent, shallowRef } from "vue";
+import { computed, defineAsyncComponent, shallowRef } from "vue";
+import { ElMessageBox } from "element-plus";
 import { hasDesktopUpdate } from "@/stores/desktopUpdate";
+import { useAuthStore } from "@/stores/auth";
 import {
   IconPalette,
   IconSettings,
@@ -42,6 +48,8 @@ import {
   IconPlugConnected,
   IconUserCog,
   IconSubtitlesAi,
+  IconUsersGroup,
+  IconLogout,
 } from "@tabler/icons-vue";
 
 const settingsPanels = [
@@ -64,12 +72,27 @@ const settingsPanels = [
   },
   { id: "mcp", label: "MCP", icon: IconPlugConnected, groupLabel: "其他", component: defineAsyncComponent(() => import("./panels/mcp/index.vue")) },
   { id: "personalization", label: "个性化", icon: IconUserCog, component: defineAsyncComponent(() => import("./panels/personalization.vue")) },
+  { id: "users", label: "用户管理", icon: IconUsersGroup, groupLabel: "其他", component: defineAsyncComponent(() => import("./panels/users/index.vue")) },
   { id: "privacy", label: "隐私", icon: IconShieldLock, component: defineAsyncComponent(() => import("./panels/privacy.vue")) },
   { id: "developer", label: "开发者选项", icon: IconCode, component: defineAsyncComponent(() => import("./panels/developer/index.vue")) },
   { id: "about", label: "关于", icon: IconInfoCircle, component: defineAsyncComponent(() => import("./panels/about.vue")) },
 ];
+const authStore = useAuthStore();
+// 用户管理仅管理员可见。
+const visiblePanels = computed(() => settingsPanels.filter(item => item.id !== "users" || authStore.isAdmin));
 const activePanel = shallowRef(settingsPanels[0]!);
 const visible = defineModel<boolean>({ default: false });
+
+async function confirmLogout() {
+  visible.value = false;
+  const confirmed = await ElMessageBox.confirm("确定要退出当前账号吗？", "退出登录", {
+    confirmButtonText: "退出", cancelButtonText: "取消", type: "warning",
+  }).then(() => true, () => false);
+  if (!confirmed) return;
+  await authStore.logout();
+  // 退出后整页重载，由登录守卫引导到登录页。
+  window.location.reload();
+}
 </script>
 
 <style lang="scss" scoped>
@@ -126,6 +149,13 @@ const visible = defineModel<boolean>({ default: false });
       &:focus-visible {
         outline: 2px solid var(--el-color-primary);
       }
+    }
+
+    .logoutItem {
+      margin-top: 14px;
+      color: var(--el-color-danger);
+
+      &:hover { background: var(--el-color-danger-light-9); }
     }
   }
 

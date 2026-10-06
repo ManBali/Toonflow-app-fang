@@ -3,6 +3,7 @@ import { z } from "zod";
 import { toolNameSchema } from "@toonflow/tools-scaffold/runtime";
 import { mediaModelsSchema, mediaProviderFileSchema } from "@/utils/media/provider";
 import { getMcpRuntime } from "@/utils/mcp/runtime";
+import { internalRequestToken } from "@/utils/users";
 
 const maxBytes = 20 * 1024 * 1024;
 const directory = z.string().min(1).max(4096);
@@ -148,7 +149,7 @@ export async function runAppOperation(name: string, parameters: Record<string, u
   const origin = getMcpRuntime().appOrigin;
   if (!origin) throw new Error("Toonflow 服务尚未就绪");
   const url = new URL(operation.path, origin);
-  const headers: Record<string, string> = { "x-toonflow-workspace": "1", Origin: origin, Referer: `${origin}/`, "Accept-Language": getLocale() };
+  const headers: Record<string, string> = { "x-toonflow-internal": internalRequestToken, "x-toonflow-workspace": "1", Origin: origin, Referer: `${origin}/`, "Accept-Language": getLocale() };
   let body: string | ArrayBuffer | undefined;
   if (operation.name === "saveAsset") {
     url.searchParams.set("path", args.path as string);

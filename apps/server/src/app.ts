@@ -5,6 +5,7 @@ import { resolve } from "node:path";
 import type { Request, Response, NextFunction } from "express";
 import buildRoute from "@/core";
 import { error } from "@/lib/responseFormat";
+import { authRequest } from "@/lib/auth";
 import desktopRequest from "@/lib/desktop";
 import initializePlugins from "@/utils/plugins/initialize";
 import { languageRequest, resolveRequestLocale, runWithLocale, setLocaleFallback, translateError, translateMessage } from "@/lib/i18n";
@@ -58,6 +59,8 @@ export async function createApp({
   app.use(express.json({ limit: "100mb" }));
   app.use(express.urlencoded({ extended: true, limit: "100mb" }));
   app.use("/api/desktop", desktopRequest);
+  // 登录系统：/api 全部要求登录（白名单见 lib/auth.ts），MCP 与 A2A 接口保留各自授权机制。
+  app.use("/api", authRequest);
 
   const { default: initializeProviderModels } = await import("@/utils/ai/initialize");
   await initializeProviderModels();

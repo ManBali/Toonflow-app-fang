@@ -84,6 +84,7 @@ declare module 'vue' {
     IconFolders: typeof import('@tabler/icons-vue')['IconFolders']
     IconKey: typeof import('@tabler/icons-vue')['IconKey']
     IconLanguage: typeof import('@tabler/icons-vue')['IconLanguage']
+    IconLibrary: typeof import('@tabler/icons-vue')['IconLibrary']
     IconLoader2: typeof import('@tabler/icons-vue')['IconLoader2']
     IconLogin: typeof import('@tabler/icons-vue')['IconLogin']
     IconMovie: typeof import('@tabler/icons-vue')['IconMovie']
@@ -115,6 +116,7 @@ declare module 'vue' {
     ToolMessage: typeof import('./../components/agent/toolMessage.vue')['default']
     Ui: typeof import('./../components/settings/panels/ui.vue')['default']
     UpdateBox: typeof import('./../components/updateBox.vue')['default']
+    Users: typeof import('./../components/settings/panels/users/index.vue')['default']
   }
   export interface GlobalDirectives {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']

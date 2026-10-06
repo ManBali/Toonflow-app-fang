@@ -20,6 +20,7 @@ import * as mcpRuntime from "@/utils/mcp/runtime";
 import * as teams from "@/utils/teams";
 import * as a2aSettings from "@/agent/a2a/settings";
 import * as personalization from "@/utils/personalization";
+import * as users from "@/utils/users";
 import * as mentionFiles from "@/agent/mentionFiles";
 
 export default {
@@ -46,5 +47,6 @@ export default {
   teams,
   a2aSettings,
   personalization,
+  users,
   mentionFiles,
 };
