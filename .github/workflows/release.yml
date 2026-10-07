@@ -124,7 +124,7 @@ jobs:
         with:
           tag_name: v${{ needs.build.outputs.version }}
           target_commitish: ${{ needs.build.outputs.commit }}
-          name: Toonflow ${{ needs.build.outputs.version }}
+          name: Catflow ${{ needs.build.outputs.version }}
           make_latest: true
           body_path: releaseBody.md
           generate_release_notes: true

@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Toonflow&fontSize=90&fontColor=ffffff&animation=fadeIn&fontAlignY=50" alt="Toonflow" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Catflow&fontSize=90&fontColor=ffffff&animation=fadeIn&fontAlignY=50" alt="Catflow" width="100%" />
 
 <p>
   <a href="https://github.com/HBAI-Ltd/Toonflow-app">
@@ -45,13 +45,13 @@
 <div align="center">
 
 <p align="center">
-  <img src="../images/logo.png" alt="نشان Toonflow" width="120" height="120" />
+  <img src="../images/logo.png" alt="نشان Catflow" width="120" height="120" />
 </p>
 
 <a href="https://git.io/typing-svg">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Toonflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" />
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=000000&center=true&vCenter=true&width=600&lines=Toonflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" alt="Toonflow · استودیوی سریال کوتاه با هوش مصنوعی · ایده‌ها را به داستان تبدیل کنید" width="600" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Catflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=000000&center=true&vCenter=true&width=600&lines=Catflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" alt="Catflow · استودیوی سریال کوتاه با هوش مصنوعی · ایده‌ها را به داستان تبدیل کنید" width="600" />
   </picture>
 </a>
 
@@ -112,12 +112,12 @@
     <tr>
       <td width="50%" align="center">
         <a href="../images/gStar.png">
-          <img src="../images/gStar.png" alt="گواهی AtomGit G-Star شمارهٔ 540 برای Toonflow" width="100%" />
+          <img src="../images/gStar.png" alt="گواهی AtomGit G-Star شمارهٔ 540 برای Catflow" width="100%" />
         </a>
       </td>
       <td width="50%" align="center">
         <a href="../images/gvp.jpg">
-          <img src="../images/gvp.jpg" alt="گواهی Gitee GVP برای Toonflow" width="100%" />
+          <img src="../images/gvp.jpg" alt="گواهی Gitee GVP برای Catflow" width="100%" />
         </a>
       </td>
     </tr>
@@ -136,7 +136,7 @@
 
 ## 1. 💛 حامیان و پشتیبانی
 
-از شرکای زیر برای حمایت از پروژهٔ متن‌باز Toonflow سپاسگزاریم.
+از شرکای زیر برای حمایت از پروژهٔ متن‌باز Catflow سپاسگزاریم.
 
 <table>
   <tr>
@@ -178,7 +178,7 @@
 
 ## 2. 🌟 قابلیت‌های برجسته
 
-Toonflow پلتفرمی متن‌باز برای خلق سریال‌های کوتاه، کمیک‌های متحرک و ویدیوهای کوتاه با هوش مصنوعی است که فیلم‌نامه‌ها، دارایی‌ها و کلیپ‌های ویدیویی را روی یک بوم بی‌نهایت گرد هم می‌آورد.
+Catflow پلتفرمی متن‌باز برای خلق سریال‌های کوتاه، کمیک‌های متحرک و ویدیوهای کوتاه با هوش مصنوعی است که فیلم‌نامه‌ها، دارایی‌ها و کلیپ‌های ویدیویی را روی یک بوم بی‌نهایت گرد هم می‌آورد.
 
 | قابلیت | توضیح |
 | --- | --- |
@@ -202,25 +202,25 @@ Toonflow پلتفرمی متن‌باز برای خلق سریال‌های کو
 
 <div align="center">
 
-<a href="../images/screenshots/projectHome.png"><img src="../images/screenshots/projectHome.png" alt="Toonflow · صفحهٔ اصلی پروژه و ایده‌پردازی" width="80%" /></a><br /><sub>صفحهٔ اصلی پروژه و ایده‌پردازی</sub>
+<a href="../images/screenshots/projectHome.png"><img src="../images/screenshots/projectHome.png" alt="Catflow · صفحهٔ اصلی پروژه و ایده‌پردازی" width="80%" /></a><br /><sub>صفحهٔ اصلی پروژه و ایده‌پردازی</sub>
 
-<a href="../images/screenshots/quickStart.png"><img src="../images/screenshots/quickStart.png" alt="Toonflow · اجرای نخست و راه‌اندازی سریع" width="80%" /></a><br /><sub>اجرای نخست و راه‌اندازی سریع</sub>
+<a href="../images/screenshots/quickStart.png"><img src="../images/screenshots/quickStart.png" alt="Catflow · اجرای نخست و راه‌اندازی سریع" width="80%" /></a><br /><sub>اجرای نخست و راه‌اندازی سریع</sub>
 
-<a href="../images/screenshots/canvasDark.png"><img src="../images/screenshots/canvasDark.png" alt="Toonflow · بوم خلاقیت · پوستهٔ تیره" width="80%" /></a><br /><sub>بوم خلاقیت · پوستهٔ تیره</sub>
+<a href="../images/screenshots/canvasDark.png"><img src="../images/screenshots/canvasDark.png" alt="Catflow · بوم خلاقیت · پوستهٔ تیره" width="80%" /></a><br /><sub>بوم خلاقیت · پوستهٔ تیره</sub>
 
-<a href="../images/screenshots/canvasLight.png"><img src="../images/screenshots/canvasLight.png" alt="Toonflow · بوم خلاقیت · پوستهٔ روشن" width="80%" /></a><br /><sub>بوم خلاقیت · پوستهٔ روشن</sub>
+<a href="../images/screenshots/canvasLight.png"><img src="../images/screenshots/canvasLight.png" alt="Catflow · بوم خلاقیت · پوستهٔ روشن" width="80%" /></a><br /><sub>بوم خلاقیت · پوستهٔ روشن</sub>
 
-<a href="../images/screenshots/assetCanvas.png"><img src="../images/screenshots/assetCanvas.png" alt="Toonflow · دارایی‌های شخصیت‌ها، صحنه‌ها و اشیای صحنه" width="80%" /></a><br /><sub>دارایی‌های شخصیت‌ها، صحنه‌ها و اشیای صحنه</sub>
+<a href="../images/screenshots/assetCanvas.png"><img src="../images/screenshots/assetCanvas.png" alt="Catflow · دارایی‌های شخصیت‌ها، صحنه‌ها و اشیای صحنه" width="80%" /></a><br /><sub>دارایی‌های شخصیت‌ها، صحنه‌ها و اشیای صحنه</sub>
 
-<a href="../images/screenshots/directorStudio.png"><img src="../images/screenshots/directorStudio.png" alt="Toonflow · استودیوی سه‌بعدی کارگردانی و پیش‌نمایش نماها" width="80%" /></a><br /><sub>استودیوی سه‌بعدی کارگردانی و پیش‌نمایش نماها</sub>
+<a href="../images/screenshots/directorStudio.png"><img src="../images/screenshots/directorStudio.png" alt="Catflow · استودیوی سه‌بعدی کارگردانی و پیش‌نمایش نماها" width="80%" /></a><br /><sub>استودیوی سه‌بعدی کارگردانی و پیش‌نمایش نماها</sub>
 
-<a href="../images/screenshots/characterImageGeneration.png"><img src="../images/screenshots/characterImageGeneration.png" alt="Toonflow · برگه‌های سه‌نمای شخصیت و تولید تصویر" width="80%" /></a><br /><sub>برگه‌های سه‌نمای شخصیت و تولید تصویر</sub>
+<a href="../images/screenshots/characterImageGeneration.png"><img src="../images/screenshots/characterImageGeneration.png" alt="Catflow · برگه‌های سه‌نمای شخصیت و تولید تصویر" width="80%" /></a><br /><sub>برگه‌های سه‌نمای شخصیت و تولید تصویر</sub>
 
-<a href="../images/screenshots/videoGeneration.png"><img src="../images/screenshots/videoGeneration.png" alt="Toonflow · تولید ویدیو با چند دارایی مرجع" width="80%" /></a><br /><sub>تولید ویدیو با چند دارایی مرجع</sub>
+<a href="../images/screenshots/videoGeneration.png"><img src="../images/screenshots/videoGeneration.png" alt="Catflow · تولید ویدیو با چند دارایی مرجع" width="80%" /></a><br /><sub>تولید ویدیو با چند دارایی مرجع</sub>
 
-<a href="../images/screenshots/nodeMenu.png"><img src="../images/screenshots/nodeMenu.png" alt="Toonflow · منوی گره‌ها و عملیات گروه‌بندی" width="80%" /></a><br /><sub>منوی گره‌ها و عملیات گروه‌بندی</sub>
+<a href="../images/screenshots/nodeMenu.png"><img src="../images/screenshots/nodeMenu.png" alt="Catflow · منوی گره‌ها و عملیات گروه‌بندی" width="80%" /></a><br /><sub>منوی گره‌ها و عملیات گروه‌بندی</sub>
 
-<a href="../images/screenshots/pluginMarket.png"><img src="../images/screenshots/pluginMarket.png" alt="Toonflow · بازار افزونه‌ها" width="80%" /></a><br /><sub>بازار افزونه‌ها</sub>
+<a href="../images/screenshots/pluginMarket.png"><img src="../images/screenshots/pluginMarket.png" alt="Catflow · بازار افزونه‌ها" width="80%" /></a><br /><sub>بازار افزونه‌ها</sub>
 
 </div>
 
@@ -237,14 +237,14 @@ Toonflow پلتفرمی متن‌باز برای خلق سریال‌های کو
 
 نصب‌کنندهٔ Windows به‌طور خودکار WebView2 را شناسایی و نصب می‌کند. اگر برنامه پس از نصب بلافاصله بسته شد، محیط اجرا را از [صفحهٔ دانلود WebView2](https://developer.microsoft.com/microsoft-edge/webview2/) دریافت و دستی نصب کنید.
 
-در macOS ‏(Apple Silicon)، ‏Toonflow را به پوشهٔ Applications بکشید و مستقیماً باز کنید. نیازی به اجرای دستور در ترمینال از قبل نیست. اگر macOS هشدار امنیتی نشان داد، مراحل زیر را به‌ترتیب دنبال کنید.
+در macOS ‏(Apple Silicon)، ‏Catflow را به پوشهٔ Applications بکشید و مستقیماً باز کنید. نیازی به اجرای دستور در ترمینال از قبل نیست. اگر macOS هشدار امنیتی نشان داد، مراحل زیر را به‌ترتیب دنبال کنید.
 
 <details>
-<summary><strong>اگر نصب یا باز کردن Toonflow در macOS ممکن نیست</strong></summary>
+<summary><strong>اگر نصب یا باز کردن Catflow در macOS ممکن نیست</strong></summary>
 
-**1. در بخش حریم خصوصی و امنیت، اجازهٔ اجرای Toonflow را بدهید**
+**1. در بخش حریم خصوصی و امنیت، اجازهٔ اجرای Catflow را بدهید**
 
-اگر هشداری دربارهٔ تأیید نشدن توسعه‌دهنده یا ناتوانی Apple در بررسی بدافزار نشان داده شد، ابتدا برای باز کردن Toonflow تلاش کنید. سپس به تنظیمات سیستم ← حریم خصوصی و امنیت بروید، پیام مسدود شدن Toonflow را پیدا کنید، «باز کردن در هر صورت» را بزنید و تأیید کنید. [راهنمای رسمی Apple](https://support.apple.com/zh-cn/102445) را ببینید.
+اگر هشداری دربارهٔ تأیید نشدن توسعه‌دهنده یا ناتوانی Apple در بررسی بدافزار نشان داده شد، ابتدا برای باز کردن Catflow تلاش کنید. سپس به تنظیمات سیستم ← حریم خصوصی و امنیت بروید، پیام مسدود شدن Catflow را پیدا کنید، «باز کردن در هر صورت» را بزنید و تأیید کنید. [راهنمای رسمی Apple](https://support.apple.com/zh-cn/102445) را ببینید.
 
 **2. اگر محدودیت قرنطینه همچنان مانع اجراست، ویژگی قرنطینه را حذف کنید**
 
@@ -283,7 +283,7 @@ sudo spctl --master-disable
 
 ```sh
 git clone https://github.com/HBAI-Ltd/Toonflow-app.git
-cd Toonflow-app
+cd Catflow-app
 docker compose up -d --build
 ```
 
@@ -337,7 +337,7 @@ bun --version
 
 ```sh
 git clone https://github.com/HBAI-Ltd/Toonflow-app.git
-cd Toonflow-app
+cd Catflow-app
 bun install --frozen-lockfile
 
 # Build bundled nodes, tools, Web, and Server
@@ -363,7 +363,7 @@ bun run start:server
 
 ### 4.5 استقرار ابری
 
-شریک ما [AI Galaxy (智星云)](https://www.ai-galaxy.com/) ایمیج تجاری Toonflow را با مجوز رسمی و محیطی آمادهٔ استفاده ارائه می‌کند. برای دستورالعمل‌ها، [راهنمای تصویری استقرار ایمیج](https://mp.weixin.qq.com/s/lq9X1ovQ1_TKeXMOLgicKg?scene=1) را ببینید.
+شریک ما [AI Galaxy (智星云)](https://www.ai-galaxy.com/) ایمیج تجاری Catflow را با مجوز رسمی و محیطی آمادهٔ استفاده ارائه می‌کند. برای دستورالعمل‌ها، [راهنمای تصویری استقرار ایمیج](https://mp.weixin.qq.com/s/lq9X1ovQ1_TKeXMOLgicKg?scene=1) را ببینید.
 
 ---
 
@@ -393,19 +393,19 @@ https://github.com/user-attachments/assets/2d9fddac-dfdf-4640-b030-b09d7f7287e9
   </a>
 </p>
 
-TF-Router درگاه رسمی مدل‌های Toonflow است که خودمان آن را اداره می‌کنیم. از استفادهٔ شما استقبال می‌کنیم. تمام کد منبع آن متن‌باز است و می‌توانید آن را خودتان میزبانی و بررسی کنید: [HBAI-Ltd/TF-Router](https://github.com/HBAI-Ltd/TF-Router).
+TF-Router درگاه رسمی مدل‌های Catflow است که خودمان آن را اداره می‌کنیم. از استفادهٔ شما استقبال می‌کنیم. تمام کد منبع آن متن‌باز است و می‌توانید آن را خودتان میزبانی و بررسی کنید: [HBAI-Ltd/TF-Router](https://github.com/HBAI-Ltd/TF-Router).
 
 <details>
-<summary><strong>نامه‌ای به جامعهٔ Toonflow (منتشرشده در 2026-06-08)</strong></summary>
+<summary><strong>نامه‌ای به جامعهٔ Catflow (منتشرشده در 2026-06-08)</strong></summary>
 
-> ### نامه‌ای به جامعهٔ Toonflow
+> ### نامه‌ای به جامعهٔ Catflow
 > 130 روز.
 > زمان زیادی نیست، اما کافی بود تا بعضی چیزها را روشن‌تر ببینیم.
 > از نخستین خط کدی که ثبت کردیم تا امروز، 130 روز گذشته است. 20 نسخه منتشر کرده‌ایم، بیش از 800 کامیت داشته‌ایم و 213,765 خط کد شامل 640,810 نویسه نوشته‌ایم.
 > دو بازنویسی، یک سیستم ارائه‌دهندگان و یک گردش کار که به آن افتخار می‌کنیم.
 > فکر می‌کردیم همین کافی است.
 > اما کافی نبود.
-> بعضی‌ها گفتند می‌خواستند ماژول خودشان را به Toonflow اضافه کنند، اما پس از ساعت‌ها تلاش هنوز نمی‌دانستند چطور آن را تغییر دهند.
+> بعضی‌ها گفتند می‌خواستند ماژول خودشان را به Catflow اضافه کنند، اما پس از ساعت‌ها تلاش هنوز نمی‌دانستند چطور آن را تغییر دهند.
 > بعضی‌ها گفتند جامعه کوچک است و وقتی به مشکل می‌خورند، کسی را برای کمک پیدا نمی‌کنند.
 > بعضی‌ها گفتند شروط تجاری مانع استفادهٔ عملی از پروژه‌هایشان می‌شود.
 > حرفتان را شنیدیم.
@@ -413,7 +413,7 @@ TF-Router درگاه رسمی مدل‌های Toonflow است که خودمان 
 > نه چون پول زیادی داریم.
 > چون باور داریم این کار ارزش انجام دادن دارد.
 > پس تصمیم گرفته‌ایم برای سومین بار پروژه را بازنویسی کنیم.
-> هر بازنویسی Toonflow گامی به‌سوی بازتر و متن‌بازتر شدن بوده است.
+> هر بازنویسی Catflow گامی به‌سوی بازتر و متن‌بازتر شدن بوده است.
 > این بار تصمیم گرفته‌ایم همه‌چیز را باز کنیم.
 >
 > 1. MIT License
@@ -448,9 +448,9 @@ TF-Router درگاه رسمی مدل‌های Toonflow است که خودمان 
 > بازنویسی زمان می‌برد. در این فاصله سرورها باید کار کنند، دامنه‌ها تمدید شوند، تیم تا دیروقت بیدار می‌ماند و قهوه گران‌تر می‌شود.
 > نه سرمایه‌گذار داریم، نه تبلیغات و نه برنامهٔ تجاری پنهان.
 > اما برای تمام کردن کاری که شروع کرده‌ایم، باید بتوانیم دوام بیاوریم.
-> به همین دلیل TF-Router، درگاه رسمی مدل‌های Toonflow را راه‌اندازی کردیم.
+> به همین دلیل TF-Router، درگاه رسمی مدل‌های Catflow را راه‌اندازی کردیم.
 > راستش مدت زیادی دربارهٔ ساخت این پلتفرم تردید داشتیم.
-> چیزی نبود که بخواهیم بسازیم. نمی‌خواستیم یک درگاه باعث شود مردم فکر کنند Toonflow شروع به «پول درآوردن از آن‌ها» کرده است.
+> چیزی نبود که بخواهیم بسازیم. نمی‌خواستیم یک درگاه باعث شود مردم فکر کنند Catflow شروع به «پول درآوردن از آن‌ها» کرده است.
 > این نگرانی مدت‌ها روی دوشمان بود.
 > اما بسیاری از کاربران نمی‌توانستند مجوز دسترسی به Seedance 2.0 بگیرند و مدام می‌پرسیدند آیا راهی برای استفاده از آن هست.
 > پس از فکر بسیار، سرانجام تصمیم گرفتیم خودمان یکی بسازیم و یک توافق‌نامهٔ چارچوب سالانه برای Seedance با Volcengine امضا کردیم.
@@ -460,11 +460,11 @@ TF-Router درگاه رسمی مدل‌های Toonflow است که خودمان 
 > به ما اعتماد ندارید؟ اشکالی ندارد. کد را بخوانید، خودتان مستقرش کنید و خودتان اجرایش کنید.
 > موضع ما همین است.
 > اگر تصمیم بگیرید آن را امتحان کنید، به تنها راهی اعتماد کرده‌اید که فعلاً برای ادامهٔ این کار داریم.
-> اگر هم نخواستید، هیچ اشکالی ندارد. به استفاده از Toonflow، نقد کردن ما و درخواست قابلیت‌ها ادامه دهید.
+> اگر هم نخواستید، هیچ اشکالی ندارد. به استفاده از Catflow، نقد کردن ما و درخواست قابلیت‌ها ادامه دهید.
 > ما اینجا هستیم.
 > و حرف آخر، از ته دل:
 > ما فقط گروهی از آدم‌های معمولی هستیم که باور دارند ابزارهای خلاقیت باید متعلق به همه باشند.
-> Toonflow هرگز محصولی متعلق به ما به‌تنهایی نبوده است.
+> Catflow هرگز محصولی متعلق به ما به‌تنهایی نبوده است.
 > داستانی است که با هم می‌نویسیم.
 > بازنویسی سوم خط پایان نیست.
 > شروع دوبارهٔ ماست.
@@ -480,7 +480,7 @@ TF-Router درگاه رسمی مدل‌های Toonflow است که خودمان 
 
 برای تماس با دستیار دعوت به گروه، کد QR را اسکن کنید:
 
-<img src="../images/qr.png" alt="کد QR جامعهٔ Toonflow" height="400"/>
+<img src="../images/qr.png" alt="کد QR جامعهٔ Catflow" height="400"/>
 
 همچنین می‌توانید با کلیک روی نماد زیر به Discord بپیوندید:
 
@@ -492,15 +492,15 @@ TF-Router درگاه رسمی مدل‌های Toonflow است که خودمان 
 
 ## 8. 💌 تماس با ما
 
-📧 ایمیل: [ltlctools@outlook.com](mailto:ltlctools@outlook.com?subject=Toonflow咨询)
+📧 ایمیل: [ltlctools@outlook.com](mailto:ltlctools@outlook.com?subject=Catflow咨询)
 
 ---
 
 ## 9. 📜 مجوز متن‌باز
 
-Toonflow تحت [MIT License](../../LICENSE) منتشر می‌شود. وابستگی‌ها و دارایی‌های شخص ثالث همچنان تابع مجوزها و اعلامیه‌های حق نشر خود هستند.
+Catflow تحت [MIT License](../../LICENSE) منتشر می‌شود. وابستگی‌ها و دارایی‌های شخص ثالث همچنان تابع مجوزها و اعلامیه‌های حق نشر خود هستند.
 
-[![تاریخچهٔ ستاره‌های Toonflow](https://api.star-history.com/svg?repos=HBAI-Ltd/Toonflow-app&type=Date)](https://www.star-history.com/#HBAI-Ltd/Toonflow-app&Date)
+[![تاریخچهٔ ستاره‌های Catflow](https://api.star-history.com/svg?repos=HBAI-Ltd/Toonflow-app&type=Date)](https://www.star-history.com/#HBAI-Ltd/Toonflow-app&Date)
 
 > **بند عدم عطف به ماسبق**: کاربرانی که نسخه‌های پیش از v1.0.8 را تحت AGPL-3.0 استفاده کرده‌اند، همچنان تابع AGPL-3.0 هستند. نسخه‌های v1.0.8 تا v1.1.8 همچنان تابع Apache-2.0 و توافق‌نامهٔ تکمیلی آن هستند. این تغییر مجوز شامل آن کاربران نمی‌شود.
 
@@ -521,4 +521,4 @@ Xi'an Zhongxing Digital Intelligence Technology Co., Ltd. (西安中星数字智
 
 </div>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=90&section=footer" alt="پاورقی Toonflow" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=90&section=footer" alt="پاورقی Catflow" width="100%" />

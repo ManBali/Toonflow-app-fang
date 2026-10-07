@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Toonflow&fontSize=90&fontColor=ffffff&animation=fadeIn&fontAlignY=50" alt="Toonflow" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Catflow&fontSize=90&fontColor=ffffff&animation=fadeIn&fontAlignY=50" alt="Catflow" width="100%" />
 
 <p>
   <a href="https://github.com/HBAI-Ltd/Toonflow-app">
@@ -45,13 +45,13 @@
 <div align="center">
 
 <p align="center">
-  <img src="../images/logo.png" alt="Logo Toonflow" width="120" height="120" />
+  <img src="../images/logo.png" alt="Logo Catflow" width="120" height="120" />
 </p>
 
 <a href="https://git.io/typing-svg">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Toonflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" />
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=000000&center=true&vCenter=true&width=600&lines=Toonflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" alt="Toonflow · Studio Drama Pendek AI · Jadikan idea sebagai cerita" width="600" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Catflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=000000&center=true&vCenter=true&width=600&lines=Catflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" alt="Catflow · Studio Drama Pendek AI · Jadikan idea sebagai cerita" width="600" />
   </picture>
 </a>
 
@@ -112,12 +112,12 @@
     <tr>
       <td width="50%" align="center">
         <a href="../images/gStar.png">
-          <img src="../images/gStar.png" alt="Sijil AtomGit G-Star No.540 Toonflow" width="100%" />
+          <img src="../images/gStar.png" alt="Sijil AtomGit G-Star No.540 Catflow" width="100%" />
         </a>
       </td>
       <td width="50%" align="center">
         <a href="../images/gvp.jpg">
-          <img src="../images/gvp.jpg" alt="Sijil Gitee GVP Toonflow" width="100%" />
+          <img src="../images/gvp.jpg" alt="Sijil Gitee GVP Catflow" width="100%" />
         </a>
       </td>
     </tr>
@@ -136,7 +136,7 @@
 
 ## 1. 💛 Penaja dan Sokongan
 
-Terima kasih kepada rakan kongsi berikut kerana menyokong projek sumber terbuka Toonflow.
+Terima kasih kepada rakan kongsi berikut kerana menyokong projek sumber terbuka Catflow.
 
 <table>
   <tr>
@@ -178,7 +178,7 @@ Terima kasih kepada rakan kongsi berikut kerana menyokong projek sumber terbuka 
 
 ## 2. 🌟 Ciri Utama
 
-Toonflow ialah platform penciptaan AI sumber terbuka untuk drama pendek, komik animasi dan video pendek, yang menghimpunkan skrip, aset dan klip video pada satu kanvas tanpa had.
+Catflow ialah platform penciptaan AI sumber terbuka untuk drama pendek, komik animasi dan video pendek, yang menghimpunkan skrip, aset dan klip video pada satu kanvas tanpa had.
 
 | Keupayaan | Penerangan |
 | --- | --- |
@@ -202,25 +202,25 @@ Bahasa yang disokong: 简体中文, 繁體中文, English, 日本語, Русск
 
 <div align="center">
 
-<a href="../images/screenshots/projectHome.png"><img src="../images/screenshots/projectHome.png" alt="Toonflow · Halaman utama projek dan penciptaan idea" width="80%" /></a><br /><sub>Halaman utama projek dan penciptaan idea</sub>
+<a href="../images/screenshots/projectHome.png"><img src="../images/screenshots/projectHome.png" alt="Catflow · Halaman utama projek dan penciptaan idea" width="80%" /></a><br /><sub>Halaman utama projek dan penciptaan idea</sub>
 
-<a href="../images/screenshots/quickStart.png"><img src="../images/screenshots/quickStart.png" alt="Toonflow · Pelancaran pertama dan persediaan pantas" width="80%" /></a><br /><sub>Pelancaran pertama dan persediaan pantas</sub>
+<a href="../images/screenshots/quickStart.png"><img src="../images/screenshots/quickStart.png" alt="Catflow · Pelancaran pertama dan persediaan pantas" width="80%" /></a><br /><sub>Pelancaran pertama dan persediaan pantas</sub>
 
-<a href="../images/screenshots/canvasDark.png"><img src="../images/screenshots/canvasDark.png" alt="Toonflow · Kanvas kreatif · Tema gelap" width="80%" /></a><br /><sub>Kanvas kreatif · Tema gelap</sub>
+<a href="../images/screenshots/canvasDark.png"><img src="../images/screenshots/canvasDark.png" alt="Catflow · Kanvas kreatif · Tema gelap" width="80%" /></a><br /><sub>Kanvas kreatif · Tema gelap</sub>
 
-<a href="../images/screenshots/canvasLight.png"><img src="../images/screenshots/canvasLight.png" alt="Toonflow · Kanvas kreatif · Tema cerah" width="80%" /></a><br /><sub>Kanvas kreatif · Tema cerah</sub>
+<a href="../images/screenshots/canvasLight.png"><img src="../images/screenshots/canvasLight.png" alt="Catflow · Kanvas kreatif · Tema cerah" width="80%" /></a><br /><sub>Kanvas kreatif · Tema cerah</sub>
 
-<a href="../images/screenshots/assetCanvas.png"><img src="../images/screenshots/assetCanvas.png" alt="Toonflow · Aset watak, adegan dan prop" width="80%" /></a><br /><sub>Aset watak, adegan dan prop</sub>
+<a href="../images/screenshots/assetCanvas.png"><img src="../images/screenshots/assetCanvas.png" alt="Catflow · Aset watak, adegan dan prop" width="80%" /></a><br /><sub>Aset watak, adegan dan prop</sub>
 
-<a href="../images/screenshots/directorStudio.png"><img src="../images/screenshots/directorStudio.png" alt="Toonflow · Studio pengarah 3D dan prapenggambaran syot" width="80%" /></a><br /><sub>Studio pengarah 3D dan prapenggambaran syot</sub>
+<a href="../images/screenshots/directorStudio.png"><img src="../images/screenshots/directorStudio.png" alt="Catflow · Studio pengarah 3D dan prapenggambaran syot" width="80%" /></a><br /><sub>Studio pengarah 3D dan prapenggambaran syot</sub>
 
-<a href="../images/screenshots/characterImageGeneration.png"><img src="../images/screenshots/characterImageGeneration.png" alt="Toonflow · Helaian watak tiga pandangan dan penjanaan imej" width="80%" /></a><br /><sub>Helaian watak tiga pandangan dan penjanaan imej</sub>
+<a href="../images/screenshots/characterImageGeneration.png"><img src="../images/screenshots/characterImageGeneration.png" alt="Catflow · Helaian watak tiga pandangan dan penjanaan imej" width="80%" /></a><br /><sub>Helaian watak tiga pandangan dan penjanaan imej</sub>
 
-<a href="../images/screenshots/videoGeneration.png"><img src="../images/screenshots/videoGeneration.png" alt="Toonflow · Penjanaan video dengan pelbagai aset rujukan" width="80%" /></a><br /><sub>Penjanaan video dengan pelbagai aset rujukan</sub>
+<a href="../images/screenshots/videoGeneration.png"><img src="../images/screenshots/videoGeneration.png" alt="Catflow · Penjanaan video dengan pelbagai aset rujukan" width="80%" /></a><br /><sub>Penjanaan video dengan pelbagai aset rujukan</sub>
 
-<a href="../images/screenshots/nodeMenu.png"><img src="../images/screenshots/nodeMenu.png" alt="Toonflow · Menu nod dan operasi pengelompokan" width="80%" /></a><br /><sub>Menu nod dan operasi pengelompokan</sub>
+<a href="../images/screenshots/nodeMenu.png"><img src="../images/screenshots/nodeMenu.png" alt="Catflow · Menu nod dan operasi pengelompokan" width="80%" /></a><br /><sub>Menu nod dan operasi pengelompokan</sub>
 
-<a href="../images/screenshots/pluginMarket.png"><img src="../images/screenshots/pluginMarket.png" alt="Toonflow · Pasaran Pemalam" width="80%" /></a><br /><sub>Pasaran Pemalam</sub>
+<a href="../images/screenshots/pluginMarket.png"><img src="../images/screenshots/pluginMarket.png" alt="Catflow · Pasaran Pemalam" width="80%" /></a><br /><sub>Pasaran Pemalam</sub>
 
 </div>
 
@@ -237,14 +237,14 @@ Bahasa yang disokong: 简体中文, 繁體中文, English, 日本語, Русск
 
 Pemasang Windows mengesan dan memasang WebView2 secara automatik. Jika aplikasi terus tertutup selepas pemasangan, muat turun dan pasang persekitaran masa jalan secara manual daripada [halaman muat turun WebView2](https://developer.microsoft.com/microsoft-edge/webview2/).
 
-Pada macOS (Apple Silicon), seret Toonflow ke folder Applications dan bukanya terus. Anda tidak perlu menjalankan arahan terminal terlebih dahulu. Jika macOS memaparkan amaran keselamatan, ikuti langkah di bawah mengikut urutan.
+Pada macOS (Apple Silicon), seret Catflow ke folder Applications dan bukanya terus. Anda tidak perlu menjalankan arahan terminal terlebih dahulu. Jika macOS memaparkan amaran keselamatan, ikuti langkah di bawah mengikut urutan.
 
 <details>
-<summary><strong>Jika Toonflow tidak dapat dipasang atau dibuka pada macOS</strong></summary>
+<summary><strong>Jika Catflow tidak dapat dipasang atau dibuka pada macOS</strong></summary>
 
-**1. Benarkan Toonflow dalam Privasi & Keselamatan**
+**1. Benarkan Catflow dalam Privasi & Keselamatan**
 
-Jika anda melihat amaran bahawa pembangun tidak dapat disahkan atau Apple tidak dapat memeriksa aplikasi untuk perisian hasad, cuba buka Toonflow terlebih dahulu. Kemudian pergi ke Tetapan Sistem → Privasi & Keselamatan, cari mesej bahawa Toonflow telah disekat, klik Buka Juga dan sahkan apabila diminta. Rujuk [arahan rasmi Apple](https://support.apple.com/zh-cn/102445).
+Jika anda melihat amaran bahawa pembangun tidak dapat disahkan atau Apple tidak dapat memeriksa aplikasi untuk perisian hasad, cuba buka Catflow terlebih dahulu. Kemudian pergi ke Tetapan Sistem → Privasi & Keselamatan, cari mesej bahawa Catflow telah disekat, klik Buka Juga dan sahkan apabila diminta. Rujuk [arahan rasmi Apple](https://support.apple.com/zh-cn/102445).
 
 **2. Jika sekatan kuarantin masih menghalang aplikasi dibuka, cuba buang atribut kuarantin**
 
@@ -283,7 +283,7 @@ Klon kod sumber dan jalankan arahan berikut dalam direktori akar repositori:
 
 ```sh
 git clone https://github.com/HBAI-Ltd/Toonflow-app.git
-cd Toonflow-app
+cd Catflow-app
 docker compose up -d --build
 ```
 
@@ -337,7 +337,7 @@ Klon kod sumber dan mulakan perkhidmatan:
 
 ```sh
 git clone https://github.com/HBAI-Ltd/Toonflow-app.git
-cd Toonflow-app
+cd Catflow-app
 bun install --frozen-lockfile
 
 # Build bundled nodes, tools, Web, and Server
@@ -363,7 +363,7 @@ Apabila anda melihat “服务启动成功” (perkhidmatan berjaya dimulakan), 
 
 ### 4.5 Pemasangan di Awan
 
-Rakan kongsi kami [AI Galaxy (智星云)](https://www.ai-galaxy.com/) menyediakan imej komersial Toonflow yang mendapat kebenaran rasmi, lengkap dengan persekitaran sedia guna. Untuk arahan, rujuk [panduan bergambar pemasangan imej](https://mp.weixin.qq.com/s/lq9X1ovQ1_TKeXMOLgicKg?scene=1).
+Rakan kongsi kami [AI Galaxy (智星云)](https://www.ai-galaxy.com/) menyediakan imej komersial Catflow yang mendapat kebenaran rasmi, lengkap dengan persekitaran sedia guna. Untuk arahan, rujuk [panduan bergambar pemasangan imej](https://mp.weixin.qq.com/s/lq9X1ovQ1_TKeXMOLgicKg?scene=1).
 
 ---
 
@@ -393,19 +393,19 @@ Kos ini ialah angka yang direkodkan untuk contoh ini dan diberikan sebagai rujuk
   </a>
 </p>
 
-TF-Router ialah gerbang model rasmi Toonflow yang kami kendalikan sendiri. Anda dialu-alukan untuk menggunakannya. Seluruh kod sumbernya bersifat sumber terbuka dan boleh dihoskan sendiri serta diaudit: [HBAI-Ltd/TF-Router](https://github.com/HBAI-Ltd/TF-Router).
+TF-Router ialah gerbang model rasmi Catflow yang kami kendalikan sendiri. Anda dialu-alukan untuk menggunakannya. Seluruh kod sumbernya bersifat sumber terbuka dan boleh dihoskan sendiri serta diaudit: [HBAI-Ltd/TF-Router](https://github.com/HBAI-Ltd/TF-Router).
 
 <details>
-<summary><strong>Surat kepada Komuniti Toonflow (diterbitkan pada 2026-06-08)</strong></summary>
+<summary><strong>Surat kepada Komuniti Catflow (diterbitkan pada 2026-06-08)</strong></summary>
 
-> ### Surat kepada Komuniti Toonflow
+> ### Surat kepada Komuniti Catflow
 > 130 hari.
 > Tidak lama, tetapi cukup untuk kami melihat beberapa perkara dengan jelas.
 > Dari baris kod pertama yang kami komitkan hingga hari ini, 130 hari telah berlalu. Kami telah menerbitkan 20 versi, membuat lebih 800 komit dan menulis 213,765 baris kod yang mengandungi 640,810 aksara.
 > Dua penulisan semula, satu sistem penyedia dan aliran kerja yang kami banggakan.
 > Kami sangka itu sudah mencukupi.
 > Tetapi rupanya tidak.
-> Ada yang memberitahu kami bahawa mereka mahu menambah modul sendiri pada Toonflow, tetapi masih tidak memahami cara mengubah kodnya walaupun sudah mencuba selama berjam-jam.
+> Ada yang memberitahu kami bahawa mereka mahu menambah modul sendiri pada Catflow, tetapi masih tidak memahami cara mengubah kodnya walaupun sudah mencuba selama berjam-jam.
 > Ada yang berkata komunitinya terlalu kecil dan mereka tidak dapat mencari bantuan apabila menghadapi masalah.
 > Ada juga yang berkata syarat komersial menghalang mereka daripada menggunakan projek mereka secara nyata.
 > Kami mendengar suara anda.
@@ -413,7 +413,7 @@ TF-Router ialah gerbang model rasmi Toonflow yang kami kendalikan sendiri. Anda 
 > Bukan kerana kami mempunyai banyak wang.
 > Tetapi kerana kami percaya usaha ini berbaloi.
 > Jadi, kami memutuskan untuk melakukan penulisan semula kali ketiga.
-> Setiap penulisan semula Toonflow membawa kami ke arah keterbukaan dan sumber terbuka yang lebih luas.
+> Setiap penulisan semula Catflow membawa kami ke arah keterbukaan dan sumber terbuka yang lebih luas.
 > Kali ini, kami memilih untuk membuka semuanya.
 >
 > 1. MIT License
@@ -448,9 +448,9 @@ TF-Router ialah gerbang model rasmi Toonflow yang kami kendalikan sendiri. Anda 
 > Penulisan semula mengambil masa. Sepanjang tempoh itu, pelayan terus berjalan, domain perlu diperbaharui, pasukan bekerja hingga larut malam dan kopi semakin mahal.
 > Kami tiada dana pelaburan, tiada iklan dan tiada rancangan komersial tersembunyi.
 > Tetapi kami perlu terus bertahan untuk menyiapkan apa yang telah dimulakan.
-> Itulah sebabnya kami melancarkan TF-Router, gerbang model rasmi Toonflow.
+> Itulah sebabnya kami melancarkan TF-Router, gerbang model rasmi Catflow.
 > Sejujurnya, kami lama teragak-agak tentang platform ini.
-> Ia bukan sesuatu yang kami mahu bina. Kami tidak mahu sebuah gerbang membuatkan orang berasa bahawa Toonflow sudah mula “mengaut keuntungan”.
+> Ia bukan sesuatu yang kami mahu bina. Kami tidak mahu sebuah gerbang membuatkan orang berasa bahawa Catflow sudah mula “mengaut keuntungan”.
 > Beban itu kami pikul untuk sekian lama.
 > Tetapi ramai pengguna tidak mendapat kelulusan akses ke Seedance 2.0 dan terus bertanya sama ada ada cara untuk menggunakannya.
 > Setelah berfikir panjang, akhirnya kami memutuskan untuk membina platform sendiri dan menandatangani perjanjian rangka kerja tahunan Seedance dengan Volcengine.
@@ -460,11 +460,11 @@ TF-Router ialah gerbang model rasmi Toonflow yang kami kendalikan sendiri. Anda 
 > Tidak mempercayai kami? Tidak mengapa. Baca kodnya, pasang sendiri dan jalankan sendiri.
 > Itulah pendirian kami.
 > Jika anda memilih untuk mencubanya, anda meletakkan kepercayaan pada satu-satunya cara yang kami ada sekarang untuk meneruskan usaha ini.
-> Jika tidak, itu juga tidak mengapa. Teruskan menggunakan Toonflow, teruskan mengkritik kami dan teruskan meminta ciri baharu.
+> Jika tidak, itu juga tidak mengapa. Teruskan menggunakan Catflow, teruskan mengkritik kami dan teruskan meminta ciri baharu.
 > Kami ada di sini.
 > Satu perkara terakhir, dari hati:
 > Kami hanyalah sekumpulan orang biasa yang percaya bahawa alat kreatif sepatutnya menjadi milik semua.
-> Toonflow tidak pernah menjadi produk kami semata-mata.
+> Catflow tidak pernah menjadi produk kami semata-mata.
 > Ia ialah kisah yang kita tulis bersama.
 > Penulisan semula kali ketiga bukan garisan penamat.
 > Inilah tempat kami bermula semula.
@@ -480,7 +480,7 @@ TF-Router ialah gerbang model rasmi Toonflow yang kami kendalikan sendiri. Anda 
 
 Imbas kod QR untuk menghubungi pembantu jemputan kumpulan:
 
-<img src="../images/qr.png" alt="Kod QR komuniti Toonflow" height="400"/>
+<img src="../images/qr.png" alt="Kod QR komuniti Catflow" height="400"/>
 
 Anda juga boleh mengklik ikon untuk menyertai Discord:
 
@@ -492,15 +492,15 @@ Atau gunakan pautan jemputan: [https://discord.gg/HEjKmpNpAZ](https://discord.gg
 
 ## 8. 💌 Hubungi Kami
 
-📧 E-mel: [ltlctools@outlook.com](mailto:ltlctools@outlook.com?subject=Toonflow咨询)
+📧 E-mel: [ltlctools@outlook.com](mailto:ltlctools@outlook.com?subject=Catflow咨询)
 
 ---
 
 ## 9. 📜 Lesen Sumber Terbuka
 
-Toonflow dilesenkan di bawah [MIT License](../../LICENSE). Kebergantungan dan aset pihak ketiga kekal tertakluk pada lesen serta notis hak cipta masing-masing.
+Catflow dilesenkan di bawah [MIT License](../../LICENSE). Kebergantungan dan aset pihak ketiga kekal tertakluk pada lesen serta notis hak cipta masing-masing.
 
-[![Sejarah Bintang Toonflow](https://api.star-history.com/svg?repos=HBAI-Ltd/Toonflow-app&type=Date)](https://www.star-history.com/#HBAI-Ltd/Toonflow-app&Date)
+[![Sejarah Bintang Catflow](https://api.star-history.com/svg?repos=HBAI-Ltd/Toonflow-app&type=Date)](https://www.star-history.com/#HBAI-Ltd/Toonflow-app&Date)
 
 > **Klausa tiada kuat kuasa kebelakangan**: Pengguna yang menggunakan versi sebelum v1.0.8 di bawah AGPL-3.0 kekal tertakluk pada AGPL-3.0. Versi v1.0.8 hingga v1.1.8 kekal tertakluk pada Apache-2.0 dan perjanjian tambahannya. Perubahan lesen ini tidak terpakai kepada pengguna tersebut.
 
@@ -521,4 +521,4 @@ Hak Cipta © 2026 北京爱阿科技有限公司
 
 </div>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=90&section=footer" alt="Pengaki Toonflow" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=90&section=footer" alt="Pengaki Catflow" width="100%" />

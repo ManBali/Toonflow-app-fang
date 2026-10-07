@@ -1,5 +1,5 @@
 services:
-  toonflow:
+  catflow:
     build: .
     init: true
     restart: unless-stopped

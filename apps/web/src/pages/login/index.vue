@@ -1,10 +1,10 @@
 <template>
   <div class="login">
     <bg class="pageBackground" />
-    <form class="loginCard" aria-label="登录 Toonflow" @submit.prevent="submit">
+    <form class="loginCard" aria-label="登录 Catflow" @submit.prevent="submit">
       <div class="brand">
-        <el-image class="brandLogo" :src="logoUrl" fit="contain" alt="Toonflow" />
-        <h1>Toonflow</h1>
+        <el-image class="brandLogo" :src="logoUrl" fit="contain" alt="Catflow" />
+        <h1>Catflow</h1>
       </div>
       <el-input v-model="form.username" size="large" placeholder="用户名" autocomplete="username" aria-label="用户名" />
       <el-input v-model="form.password" size="large" type="password" showPassword placeholder="密码" autocomplete="current-password" aria-label="密码" />

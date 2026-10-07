@@ -37,7 +37,7 @@ async function notifyDesktopReady(failed = false) {
 
 // ACT: 已安装客户端的自动更新不经过 NSIS；启动时阻止缺少所需 API 的旧 WebView2 进入业务页面。
 (requiresWebView2Update
-  ? Promise.reject(new Error("当前 Microsoft Edge WebView2 Runtime 版本过旧。请以管理员身份运行微软最新版安装器；若仍提示已安装，请修复 WebView2 或联系管理员检查更新服务。更新完成后，请完全退出 Toonflow 再重新打开。"))
+  ? Promise.reject(new Error("当前 Microsoft Edge WebView2 Runtime 版本过旧。请以管理员身份运行微软最新版安装器；若仍提示已安装，请修复 WebView2 或联系管理员检查更新服务。更新完成后，请完全退出 Catflow 再重新打开。"))
   : loadSettings().catch((startupError) => {
       // 未登录时照常挂载，由路由守卫引导到登录页；其余启动错误仍进入错误页。
       if (axios.isAxiosError(startupError) && startupError.response?.status === 401) return;
