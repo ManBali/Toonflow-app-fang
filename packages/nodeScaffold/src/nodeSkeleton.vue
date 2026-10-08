@@ -17,6 +17,7 @@
           <el-dropdown-item v-if="mediaOutputs.length" command="download" :icon="IconDownload" :disabled="downloadingResources">
             {{ downloadingResources ? "正在下载…" : "下载资源" }}
           </el-dropdown-item>
+          <el-dropdown-item v-if="imageOutputs.length" command="fullscreen" :icon="IconMaximize">全屏预览</el-dropdown-item>
           <el-dropdown-item :divided="!!(assetOutputs.length && saveNodeToAssets)" command="copy" :icon="IconCopy">复制节点</el-dropdown-item>
           <el-dropdown-item command="duplicate" :icon="IconCopyPlus">创建副本</el-dropdown-item>
           <el-dropdown-item command="delete" :icon="IconTrash">删除节点</el-dropdown-item>
@@ -384,6 +385,7 @@ const assetOutputs = computed(() =>
 const mediaOutputs = computed(() =>
   assetOutputs.value.filter(({ output }) => output && typeof output.value === "object" && output.value.url)
 );
+const imageOutputs = computed(() => assetOutputs.value.filter(({ output }) => output.dataType === "IMAGE"));
 const downloadingResources = ref(false);
 // inject 只能在 setup 期间解析，先在顶层取好引用，下载时再用。
 const nodeFiles = useNodeFiles();
@@ -412,6 +414,7 @@ async function downloadMediaOutputs() {
 }
 
 async function handleCommand(command: string) {
+  if (command === "fullscreen") emit("fullscreen");
   if (command === "saveAsset") saveNodeToAssets?.(props.label, assetOutputs.value);
   if (command === "saveLibrary") saveNodeToLibrary?.(props.label, assetOutputs.value, { ...node.data });
   if (command === "download") void downloadMediaOutputs();
