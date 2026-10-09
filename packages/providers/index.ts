@@ -6,6 +6,7 @@ import tfRouterMedia from "./src/media/tfRouter";
 import apiMart from "./src/media/apiMart";
 import meta from "./src/media/meta";
 import ttImage from "./src/media/ttImage";
+import safillu from "./src/media/safillu";
 
 export type Provider = ProviderDefinition;
 export type ProviderTools = ProviderContext["tool"];
@@ -13,4 +14,4 @@ export type AudioConvertOptions = Parameters<ProviderTools["audio"]["convert"]>[
 export type { FfmpegFactory, FfmpegCommand } from "@toonflow/ffmpeg/types";
 
 export const languageProviders = [tfRouterLanguage, deepSeek] as const;
-export const mediaProviders = [tfRouterMedia, apiMart, meta, ttImage] as const;
+export const mediaProviders = [tfRouterMedia, apiMart, meta, ttImage, safillu] as const;
