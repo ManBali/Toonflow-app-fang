@@ -33,3 +33,4 @@ apps/updateServer/build
 **/*.keychain-db
 .DS_Store
 Thumbs.db
+01-*
