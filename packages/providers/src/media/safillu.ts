@@ -8,7 +8,7 @@ const rules = [
   },
 ] as const;
 
-const apiUrl = "https://api.safillu.com/v1";
+const apiUrl = "https://api.safillu.com/tfrouter-frames/v1";
 
 function object(value: unknown): Record<string, unknown> {
   if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error("Safillu 响应格式错误");
@@ -42,6 +42,20 @@ function mediaUrl(input: MediaInput) {
   }
   const data = input.type === "binary" ? Buffer.from(input.data).toString("base64") : input.data;
   return data.startsWith("data:") ? data : `data:${input.mimeType};base64,${data}`;
+}
+
+// ACT: Safillu 接口限制——参考文件解码后单个 30 MiB、合计 64 MiB、合计 4 个；提交前本地拦截，避免无意义请求。
+function checkReferences(inputs: MediaInput[]) {
+  let total = 0;
+  for (const input of inputs) {
+    const bytes = input.type === "binary" ? input.data.byteLength
+      : input.type === "base64" ? Math.floor((input.data.startsWith("data:") ? input.data.slice(input.data.indexOf(",") + 1) : input.data).length * 3 / 4)
+      : 0;
+    total += bytes;
+    if (bytes > 30 * 1024 * 1024) throw new Error("Safillu 参考文件解码后单个不能超过 30 MiB");
+  }
+  if (total > 64 * 1024 * 1024) throw new Error("Safillu 参考文件解码后合计不能超过 64 MiB");
+  if (inputs.length > 4) throw new Error("Safillu 参考文件合计不能超过 4 个");
 }
 
 function mediaAsset(value: unknown): MediaAsset[] {
@@ -96,31 +110,34 @@ export default {
   id: "safillu",
   label: "Safillu",
   version: "2.0.0",
-  readme: "Safillu 视频生成（api.safillu.com）：当前提供 MiniMax-H3，4–15 秒、768p/2k，强制生成音频；参考图最多 9 张、参考音频最多 3 条。",
+  readme: "Safillu 视频生成（api.safillu.com）：当前提供 MiniMax-H3，4–15 秒、768p/2k，生成音轨。混合参考：图 ≤3、音频 ≤1、视频 ≤1，合计 ≤4；首尾帧模式需同时提供首帧与尾帧。参考文件解码后单个 ≤30 MiB、合计 ≤64 MiB。生成结果为上游地址，非永久存储，请及时使用。",
   rules,
   models: [
     {
       id: "MiniMax-H3",
       label: "MiniMax-H3",
       type: "video",
-      mode: ["text", "startFrameOptional", ["imageReference:9", "audioReference:3"]],
+      mode: ["text", "startEndRequired", ["imageReference:3", "audioReference:1", "videoReference:1"]],
       durationResolutionMap: [{ duration: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], resolution: ["768p", "2k"] }],
       audio: true,
     },
   ] satisfies ProviderModel[],
   async generateVideo(request: VideoRequest): Promise<MediaAsset[]> {
+    checkReferences([request.firstFrame, request.lastFrame, ...(request.images ?? []), ...(request.videos ?? []), ...(request.audios ?? [])].filter((item): item is MediaInput => !!item));
     const images = (request.images ?? []).map(mediaUrl);
+    const videos = (request.videos ?? []).map(mediaUrl);
     const audios = (request.audios ?? []).map(mediaUrl);
     const frames = [
       ...(request.firstFrame ? [{ url: mediaUrl(request.firstFrame), role: "first_frame" }] : []),
       ...(request.lastFrame ? [{ url: mediaUrl(request.lastFrame), role: "last_frame" }] : []),
     ];
-    const mode = request.mode ?? (frames.length ? "endFrameOptional" : audios.length ? [] : images.length ? "singleImage" : "text");
+    const mode = request.mode ?? (frames.length ? "startEndRequired" : audios.length ? [] : images.length ? "singleImage" : "text");
     const isFrames = mode === "startEndRequired" || mode === "endFrameOptional" || mode === "startFrameOptional";
     const frameImages = frames.length ? frames : images.map((url, index) => ({ url, role: index === 0 ? "first_frame" : "last_frame" }));
     const references: Record<string, unknown>[] = [];
     if (Array.isArray(mode)) {
       references.push(...images.map((url) => ({ role: "reference_image", type: "image_url", image_url: { url } })));
+      references.push(...videos.map((url) => ({ role: "reference_video", type: "video_url", video_url: { url } })));
       references.push(...audios.map((url) => ({ role: "reference_audio", type: "audio_url", audio_url: { url } })));
     } else if (isFrames) {
       references.push(...frameImages.map(({ url, role }) => ({ role, type: "image_url", image_url: { url } })));
