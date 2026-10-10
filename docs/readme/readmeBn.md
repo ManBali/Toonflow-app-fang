@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Toonflow&fontSize=90&fontColor=ffffff&animation=fadeIn&fontAlignY=50" alt="Toonflow" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Catflow&fontSize=90&fontColor=ffffff&animation=fadeIn&fontAlignY=50" alt="Catflow" width="100%" />
 
 <p>
   <a href="https://github.com/HBAI-Ltd/Toonflow-app">
@@ -45,13 +45,13 @@
 <div align="center">
 
 <p align="center">
-  <img src="../images/logo.png" alt="Toonflow লোগো" width="120" height="120" />
+  <img src="../images/logo.png" alt="Catflow লোগো" width="120" height="120" />
 </p>
 
 <a href="https://git.io/typing-svg">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Toonflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" />
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=000000&center=true&vCenter=true&width=600&lines=Toonflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" alt="Toonflow · AI শর্ট ড্রামা স্টুডিও · ধারণাগুলিকে গল্পে পরিণত করুন" width="600" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Catflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=000000&center=true&vCenter=true&width=600&lines=Catflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" alt="Catflow · AI শর্ট ড্রামা স্টুডিও · ধারণাগুলিকে গল্পে পরিণত করুন" width="600" />
   </picture>
 </a>
 
@@ -97,7 +97,7 @@
 
 <p align="center">
   <a href="https://trendshift.io/repositories/24197?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-24197" target="_blank" rel="noopener noreferrer">
-    <img src="https://trendshift.io/api/badge/trendshift/repositories/24197/daily?language=TypeScript" alt="HBAI-Ltd/Toonflow-অ্যাপ | ট্রেন্ডশিফ্ট" width="250" height="55" />
+    <img src="https://trendshift.io/api/badge/trendshift/repositories/24197/daily?language=TypeScript" alt="HBAI-Ltd/Catflow-অ্যাপ | ট্রেন্ডশিফ্ট" width="250" height="55" />
   </a>
 </p>
 
@@ -112,12 +112,12 @@
     <tr>
       <td width="50%" align="center">
         <a href="../images/gStar.png">
-          <img src="../images/gStar.png" alt="Toonflow AtomGit G-স্টার সার্টিফিকেট নং.540" width="100%" />
+          <img src="../images/gStar.png" alt="Catflow AtomGit G-স্টার সার্টিফিকেট নং.540" width="100%" />
         </a>
       </td>
       <td width="50%" align="center">
         <a href="../images/gvp.jpg">
-          <img src="../images/gvp.jpg" alt="Toonflow Gitee GVP শংসাপত্র" width="100%" />
+          <img src="../images/gvp.jpg" alt="Catflow Gitee GVP শংসাপত্র" width="100%" />
         </a>
       </td>
     </tr>
@@ -136,7 +136,7 @@
 
 ## 1. 💛 পৃষ্ঠপোষক ও সহযোগী
 
-Toonflow ওপেন সোর্স প্রকল্পকে সমর্থন করার জন্য নিম্নলিখিত অংশীদারদের ধন্যবাদ৷
+Catflow ওপেন সোর্স প্রকল্পকে সমর্থন করার জন্য নিম্নলিখিত অংশীদারদের ধন্যবাদ৷
 
 <table>
   <tr>
@@ -178,7 +178,7 @@ Toonflow ওপেন সোর্স প্রকল্পকে সমর্�
 
 ## 2. 🌟 বিশেষ সুবিধা
 
-Toonflow স্বল্পদৈর্ঘ্য নাটক, অ্যানিমেটেড কমিকস ও ছোট ভিডিও তৈরির একটি ওপেন-সোর্স AI প্ল্যাটফর্ম। চিত্রনাট্য, উপকরণ ও ভিডিও ক্লিপ—সবকিছু এক অসীম ক্যানভাসে একত্রিত করে।
+Catflow স্বল্পদৈর্ঘ্য নাটক, অ্যানিমেটেড কমিকস ও ছোট ভিডিও তৈরির একটি ওপেন-সোর্স AI প্ল্যাটফর্ম। চিত্রনাট্য, উপকরণ ও ভিডিও ক্লিপ—সবকিছু এক অসীম ক্যানভাসে একত্রিত করে।
 
 | সুবিধা | বিবরণ |
 | --- | --- |
@@ -202,25 +202,25 @@ Toonflow স্বল্পদৈর্ঘ্য নাটক, অ্যান�
 
 <div align="center">
 
-<a href="../images/screenshots/projectHome.png"><img src="../images/screenshots/projectHome.png" alt="Toonflow · প্রকল্পের মূল পৃষ্ঠা ও ধারণা তৈরি" width="80%" /></a><br /><sub>প্রকল্পের মূল পৃষ্ঠা ও ধারণা তৈরি</sub>
+<a href="../images/screenshots/projectHome.png"><img src="../images/screenshots/projectHome.png" alt="Catflow · প্রকল্পের মূল পৃষ্ঠা ও ধারণা তৈরি" width="80%" /></a><br /><sub>প্রকল্পের মূল পৃষ্ঠা ও ধারণা তৈরি</sub>
 
-<a href="../images/screenshots/quickStart.png"><img src="../images/screenshots/quickStart.png" alt="Toonflow · প্রথমবার চালু করা ও দ্রুত সেটআপ" width="80%" /></a><br /><sub>প্রথমবার চালু করা ও দ্রুত সেটআপ</sub>
+<a href="../images/screenshots/quickStart.png"><img src="../images/screenshots/quickStart.png" alt="Catflow · প্রথমবার চালু করা ও দ্রুত সেটআপ" width="80%" /></a><br /><sub>প্রথমবার চালু করা ও দ্রুত সেটআপ</sub>
 
-<a href="../images/screenshots/canvasDark.png"><img src="../images/screenshots/canvasDark.png" alt="Toonflow · সৃজনশীল ক্যানভাস · গাঢ় থিম" width="80%" /></a><br /><sub>সৃজনশীল ক্যানভাস · গাঢ় থিম</sub>
+<a href="../images/screenshots/canvasDark.png"><img src="../images/screenshots/canvasDark.png" alt="Catflow · সৃজনশীল ক্যানভাস · গাঢ় থিম" width="80%" /></a><br /><sub>সৃজনশীল ক্যানভাস · গাঢ় থিম</sub>
 
-<a href="../images/screenshots/canvasLight.png"><img src="../images/screenshots/canvasLight.png" alt="Toonflow · সৃজনশীল ক্যানভাস · হালকা থিম" width="80%" /></a><br /><sub>সৃজনশীল ক্যানভাস · হালকা থিম</sub>
+<a href="../images/screenshots/canvasLight.png"><img src="../images/screenshots/canvasLight.png" alt="Catflow · সৃজনশীল ক্যানভাস · হালকা থিম" width="80%" /></a><br /><sub>সৃজনশীল ক্যানভাস · হালকা থিম</sub>
 
-<a href="../images/screenshots/assetCanvas.png"><img src="../images/screenshots/assetCanvas.png" alt="Toonflow · চরিত্র, দৃশ্য ও প্রপের উপকরণ" width="80%" /></a><br /><sub>চরিত্র, দৃশ্য ও প্রপের উপকরণ</sub>
+<a href="../images/screenshots/assetCanvas.png"><img src="../images/screenshots/assetCanvas.png" alt="Catflow · চরিত্র, দৃশ্য ও প্রপের উপকরণ" width="80%" /></a><br /><sub>চরিত্র, দৃশ্য ও প্রপের উপকরণ</sub>
 
-<a href="../images/screenshots/directorStudio.png"><img src="../images/screenshots/directorStudio.png" alt="Toonflow · 3D পরিচালকের স্টুডিও ও শটের পূর্বদর্শন" width="80%" /></a><br /><sub>3D পরিচালকের স্টুডিও ও শটের পূর্বদর্শন</sub>
+<a href="../images/screenshots/directorStudio.png"><img src="../images/screenshots/directorStudio.png" alt="Catflow · 3D পরিচালকের স্টুডিও ও শটের পূর্বদর্শন" width="80%" /></a><br /><sub>3D পরিচালকের স্টুডিও ও শটের পূর্বদর্শন</sub>
 
-<a href="../images/screenshots/characterImageGeneration.png"><img src="../images/screenshots/characterImageGeneration.png" alt="Toonflow · চরিত্রের তিন দিকের দৃশ্য ও ছবি তৈরি" width="80%" /></a><br /><sub>চরিত্রের তিন দিকের দৃশ্য ও ছবি তৈরি</sub>
+<a href="../images/screenshots/characterImageGeneration.png"><img src="../images/screenshots/characterImageGeneration.png" alt="Catflow · চরিত্রের তিন দিকের দৃশ্য ও ছবি তৈরি" width="80%" /></a><br /><sub>চরিত্রের তিন দিকের দৃশ্য ও ছবি তৈরি</sub>
 
-<a href="../images/screenshots/videoGeneration.png"><img src="../images/screenshots/videoGeneration.png" alt="Toonflow · একাধিক রেফারেন্স উপকরণ দিয়ে ভিডিও তৈরি" width="80%" /></a><br /><sub>একাধিক রেফারেন্স উপকরণ দিয়ে ভিডিও তৈরি</sub>
+<a href="../images/screenshots/videoGeneration.png"><img src="../images/screenshots/videoGeneration.png" alt="Catflow · একাধিক রেফারেন্স উপকরণ দিয়ে ভিডিও তৈরি" width="80%" /></a><br /><sub>একাধিক রেফারেন্স উপকরণ দিয়ে ভিডিও তৈরি</sub>
 
-<a href="../images/screenshots/nodeMenu.png"><img src="../images/screenshots/nodeMenu.png" alt="Toonflow · নোড মেনু ও গ্রুপের কাজ" width="80%" /></a><br /><sub>নোড মেনু ও গ্রুপের কাজ</sub>
+<a href="../images/screenshots/nodeMenu.png"><img src="../images/screenshots/nodeMenu.png" alt="Catflow · নোড মেনু ও গ্রুপের কাজ" width="80%" /></a><br /><sub>নোড মেনু ও গ্রুপের কাজ</sub>
 
-<a href="../images/screenshots/pluginMarket.png"><img src="../images/screenshots/pluginMarket.png" alt="Toonflow · প্লাগইন মার্কেটপ্লেস" width="80%" /></a><br /><sub>প্লাগইন মার্কেটপ্লেস</sub>
+<a href="../images/screenshots/pluginMarket.png"><img src="../images/screenshots/pluginMarket.png" alt="Catflow · প্লাগইন মার্কেটপ্লেস" width="80%" /></a><br /><sub>প্লাগইন মার্কেটপ্লেস</sub>
 
 </div>
 
@@ -237,14 +237,14 @@ Toonflow স্বল্পদৈর্ঘ্য নাটক, অ্যান�
 
 Windows ইনস্টলার স্বয়ংক্রিয়ভাবে WebView2 সনাক্ত করে এবং ইনস্টল করে। ইনস্টলেশনের পরপরই অ্যাপটি বন্ধ হয়ে গেলে, [WebView2 ডাউনলোড পৃষ্ঠা](https://developer.microsoft.com/microsoft-edge/webview2/) থেকে ম্যানুয়ালি রানটাইম ডাউনলোড করুন এবং ইনস্টল করুন।
 
-macOS (Apple Silicon)-এ Toonflow-কে Applications ফোল্ডারে টেনে রেখে সরাসরি খুলুন। আগে থেকে Terminal-এ কোনো কমান্ড চালানোর দরকার নেই। macOS নিরাপত্তা সতর্কতা দেখালে নিচের ধাপগুলো ক্রমানুসারে অনুসরণ করুন।
+macOS (Apple Silicon)-এ Catflow-কে Applications ফোল্ডারে টেনে রেখে সরাসরি খুলুন। আগে থেকে Terminal-এ কোনো কমান্ড চালানোর দরকার নেই। macOS নিরাপত্তা সতর্কতা দেখালে নিচের ধাপগুলো ক্রমানুসারে অনুসরণ করুন।
 
 <details>
-<summary><strong>If Toonflow macOS</strong></summary> এ ইনস্টল বা খোলা যাবে না
+<summary><strong>If Catflow macOS</strong></summary> এ ইনস্টল বা খোলা যাবে না
 
-**1. গোপনীয়তা ও নিরাপত্তায় Toonflow অনুমতি দিন**
+**1. গোপনীয়তা ও নিরাপত্তায় Catflow অনুমতি দিন**
 
-ডেভেলপারকে যাচাই করা যাচ্ছে না বা Apple ক্ষতিকর সফ্টওয়্যারের জন্য অ্যাপটি পরীক্ষা করতে পারছে না—এমন সতর্কতা দেখলে প্রথমে Toonflow খোলার চেষ্টা করুন। এরপর System Settings → Privacy & Security-এ গিয়ে Toonflow ব্লক হওয়ার বার্তাটি খুঁজুন, Open Anyway-এ ক্লিক করুন এবং নির্দেশ অনুযায়ী অনুমতি দিন। বিস্তারিত দেখুন [Apple-এর আনুষ্ঠানিক নির্দেশনায়](https://support.apple.com/zh-cn/102445)।
+ডেভেলপারকে যাচাই করা যাচ্ছে না বা Apple ক্ষতিকর সফ্টওয়্যারের জন্য অ্যাপটি পরীক্ষা করতে পারছে না—এমন সতর্কতা দেখলে প্রথমে Catflow খোলার চেষ্টা করুন। এরপর System Settings → Privacy & Security-এ গিয়ে Catflow ব্লক হওয়ার বার্তাটি খুঁজুন, Open Anyway-এ ক্লিক করুন এবং নির্দেশ অনুযায়ী অনুমতি দিন। বিস্তারিত দেখুন [Apple-এর আনুষ্ঠানিক নির্দেশনায়](https://support.apple.com/zh-cn/102445)।
 
 **2. যদি কোয়ারেন্টাইন বিধিনিষেধ এখনও খোলার বাধা দেয়, তাহলে কোয়ারেন্টাইন বৈশিষ্ট্যটি সরানোর চেষ্টা করুন**
 
@@ -283,7 +283,7 @@ sudo spctl --master-disable
 
 ```sh
 git clone https://github.com/HBAI-Ltd/Toonflow-app.git
-cd Toonflow-app
+cd Catflow-app
 docker compose up -d --build
 ```
 
@@ -337,7 +337,7 @@ bun --version
 
 ```sh
 git clone https://github.com/HBAI-Ltd/Toonflow-app.git
-cd Toonflow-app
+cd Catflow-app
 bun install --frozen-lockfile
 
 # Build bundled nodes, tools, Web, and Server
@@ -363,7 +363,7 @@ bun run start:server
 
 ### 4.5 ক্লাউড স্থাপনা
 
-আমাদের সহযোগী [AI Galaxy (智星云)](https://www.ai-galaxy.com/) আনুষ্ঠানিক অনুমোদিত বাণিজ্যিক Toonflow ইমেজ দেয়, যাতে আগে থেকেই ব্যবহারের উপযোগী পরিবেশ প্রস্তুত থাকে। নির্দেশনার জন্য [ছবিসহ ইমেজ স্থাপনের নির্দেশিকা](https://mp.weixin.qq.com/s/lq9X1ovQ1_TKeXMOLgicKg?scene=1) দেখুন।
+আমাদের সহযোগী [AI Galaxy (智星云)](https://www.ai-galaxy.com/) আনুষ্ঠানিক অনুমোদিত বাণিজ্যিক Catflow ইমেজ দেয়, যাতে আগে থেকেই ব্যবহারের উপযোগী পরিবেশ প্রস্তুত থাকে। নির্দেশনার জন্য [ছবিসহ ইমেজ স্থাপনের নির্দেশিকা](https://mp.weixin.qq.com/s/lq9X1ovQ1_TKeXMOLgicKg?scene=1) দেখুন।
 
 ---
 
@@ -393,19 +393,19 @@ https://github.com/user-attachments/assets/2d9fddac-dfdf-4640-b030-b09d7f7287e9
   </a>
 </p>
 
-TF-Router হলো Toonflow-এর নিজস্ব পরিচালিত আনুষ্ঠানিক মডেল গেটওয়ে। আপনি এটি ব্যবহার করতে পারেন। এর সম্পূর্ণ সোর্স কোড উন্মুক্ত; নিজে স্থাপন ও যাচাই করতে পারবেন: [HBAI-Ltd/TF-Router](https://github.com/HBAI-Ltd/TF-Router)।
+TF-Router হলো Catflow-এর নিজস্ব পরিচালিত আনুষ্ঠানিক মডেল গেটওয়ে। আপনি এটি ব্যবহার করতে পারেন। এর সম্পূর্ণ সোর্স কোড উন্মুক্ত; নিজে স্থাপন ও যাচাই করতে পারবেন: [HBAI-Ltd/TF-Router](https://github.com/HBAI-Ltd/TF-Router)।
 
 <details>
-<summary><strong>A Toonflow সম্প্রদায়ের কাছে চিঠি (প্রকাশিত 2026-06-08) </strong></summary>
+<summary><strong>A Catflow সম্প্রদায়ের কাছে চিঠি (প্রকাশিত 2026-06-08) </strong></summary>
 
-> ### Toonflow সম্প্রদায়ের কাছে একটি চিঠি
+> ### Catflow সম্প্রদায়ের কাছে একটি চিঠি
 > 130 দিন।
 > দীর্ঘ নয়, তবে আমাদের জন্য কিছু জিনিস পরিষ্কারভাবে দেখতে যথেষ্ট দীর্ঘ।
 > প্রথম কোড জমা দেওয়া থেকে আজ পর্যন্ত 130 দিন পেরিয়েছে। আমরা 20টি সংস্করণ প্রকাশ করেছি, 800টির বেশি কমিট করেছি এবং 640,810 অক্ষরের মোট 213,765 লাইন কোড লিখেছি।
 > দুবার নতুন করে লেখা, একটি প্রদানকারী ব্যবস্থা এবং এমন এক কর্মপ্রবাহ, যা নিয়ে আমরা গর্বিত।
 > আমরা ভেবেছিলাম যে যথেষ্ট হবে।
 > কিন্তু তা হয়নি।
-> কিছু লোক আমাদের বলেছিল যে তারা Toonflow-এ তাদের নিজস্ব মডিউল যোগ করতে চায়, কিন্তু কীভাবে এটি পরিবর্তন করা যায় তা বোঝার জন্য ঘণ্টার পর ঘণ্টা ব্যয় করেছে।
+> কিছু লোক আমাদের বলেছিল যে তারা Catflow-এ তাদের নিজস্ব মডিউল যোগ করতে চায়, কিন্তু কীভাবে এটি পরিবর্তন করা যায় তা বোঝার জন্য ঘণ্টার পর ঘণ্টা ব্যয় করেছে।
 > কেউ কেউ আমাদের বলেছিলেন যে সম্প্রদায়টি খুব ছোট এবং তারা সমস্যায় পড়লে তারা সাহায্য খুঁজে পায়নি।
 > কেউ কেউ আমাদের বলেছিলেন যে বাণিজ্যিক শর্তাবলী তাদের প্রকল্পগুলি ব্যবহার করতে বাধা দেয়।
 > আমরা আপনার কথা শুনেছি।
@@ -413,7 +413,7 @@ TF-Router হলো Toonflow-এর নিজস্ব পরিচালিত 
 > আমাদের অনেক টাকা আছে বলে নয়।
 > কিন্তু কারণ আমরা বিশ্বাস করি এটা করা মূল্যবান।
 > তাই আমরা তৃতীয়বার নতুন করে লেখার সিদ্ধান্ত নিয়েছি।
-> প্রতিটি Toonflow পুনর্লিখন বৃহত্তর উন্মুক্ততা এবং ওপেন সোর্সের দিকে চলে গেছে।
+> প্রতিটি Catflow পুনর্লিখন বৃহত্তর উন্মুক্ততা এবং ওপেন সোর্সের দিকে চলে গেছে।
 > এই সময়, আমরা সবকিছু খুলতে বেছে নিয়েছি।
 >
 > 1. MIT License
@@ -448,9 +448,9 @@ TF-Router হলো Toonflow-এর নিজস্ব পরিচালিত 
 > পুনর্লিখন সময় নেয়. সেই সময়ে, সার্ভারগুলি চলতে থাকে, ডোমেনগুলিকে পুনর্নবীকরণের প্রয়োজন হয়, দলটি দেরিতে কাজ করে এবং কফি আরও ব্যয়বহুল হয়৷
 > আমাদের কোনো বিনিয়োগ তহবিল নেই, কোনো বিজ্ঞাপন নেই এবং কোনো গোপন বাণিজ্যিক পরিকল্পনা নেই৷
 > কিন্তু যে কাজ শুরু করেছি তা শেষ করতে হলে আমাদের টিকে থাকতে হবে।
-> এজন্যই আমরা TF-Router চালু করেছি, অফিসিয়াল Toonflow মডেল গেটওয়ে।
+> এজন্যই আমরা TF-Router চালু করেছি, অফিসিয়াল Catflow মডেল গেটওয়ে।
 > সত্যি বলতে, আমরা এই প্ল্যাটফর্মটি নিয়ে দীর্ঘকাল ধরে দ্বিধায় ছিলাম।
-> এটি আমরা তৈরি করতে চাইনি। শুধু একটি গেটওয়ে চালুর জন্য যেন কেউ না ভাবেন যে Toonflow “টাকা কামাতে নেমেছে”—সেটাই চেয়েছিলাম।
+> এটি আমরা তৈরি করতে চাইনি। শুধু একটি গেটওয়ে চালুর জন্য যেন কেউ না ভাবেন যে Catflow “টাকা কামাতে নেমেছে”—সেটাই চেয়েছিলাম।
 > সেই ভার আমরা বহুদিন বয়ে নিয়েছি।
 > কিন্তু অনেক ব্যবহারকারী Seedance 2.0-এ অনুমোদিত অ্যাক্সেস পেতে পারেনি এবং এটি ব্যবহার করার কোনো উপায় আছে কিনা তা আমাদের জিজ্ঞাসা করতে থাকে।
 > অনেক ভেবেচিন্তে শেষ পর্যন্ত নিজেরাই এটি তৈরির সিদ্ধান্ত নিয়েছি এবং Volcengine-এর সঙ্গে Seedance-এর বার্ষিক কাঠামোগত চুক্তি করেছি।
@@ -460,11 +460,11 @@ TF-Router হলো Toonflow-এর নিজস্ব পরিচালিত 
 > আমাদের বিশ্বাস না হলেও অসুবিধা নেই। কোড দেখুন, নিজে স্থাপন করুন, নিজেই চালান।
 > সেখানেই আমরা দাঁড়িয়েছি।
 > আপনি চেষ্টা করে দেখলে, এই কাজ চালিয়ে যাওয়ার জন্য বর্তমানে আমাদের একমাত্র উপায়টির ওপর আস্থা রাখছেন।
-> না করলে সেটাও ভালো। Toonflow ব্যবহার করা চালিয়ে যান, আমাদের সমালোচনা করতে থাকুন এবং বৈশিষ্ট্যের জন্য জিজ্ঞাসা করতে থাকুন।
+> না করলে সেটাও ভালো। Catflow ব্যবহার করা চালিয়ে যান, আমাদের সমালোচনা করতে থাকুন এবং বৈশিষ্ট্যের জন্য জিজ্ঞাসা করতে থাকুন।
 > আমরা এখানে আছি।
 > একটি শেষ কথা, হৃদয় থেকে:
 > আমরা সাধারণ মানুষের একটি দল যারা বিশ্বাস করি যে সৃজনশীল সরঞ্জাম সকলেরই হওয়া উচিত।
-> Toonflow কখনো কেবল আমাদের পণ্য ছিল না।
+> Catflow কখনো কেবল আমাদের পণ্য ছিল না।
 > এটি আমাদের সবার একসঙ্গে লেখা গল্প।
 > তৃতীয়বার নতুন করে লেখা কোনো সমাপ্তি নয়।
 > এখান থেকেই আমাদের আবার শুরু।
@@ -480,7 +480,7 @@ TF-Router হলো Toonflow-এর নিজস্ব পরিচালিত 
 
 গ্রুপ আমন্ত্রণ সহকারীর সাথে যোগাযোগ করতে QR কোড স্ক্যান করুন:
 
-<img src="../images/qr.png" alt="Toonflow সম্প্রদায়ের QR কোড" height="400"/>
+<img src="../images/qr.png" alt="Catflow সম্প্রদায়ের QR কোড" height="400"/>
 
 এছাড়াও আপনি Discord এ যোগ দিতে আইকনে ক্লিক করতে পারেন:
 
@@ -492,15 +492,15 @@ TF-Router হলো Toonflow-এর নিজস্ব পরিচালিত 
 
 ## 8. 💌 যোগাযোগ
 
-📧 ইমেইল: [ltlctools@outlook.com](mailto:ltlctools@outlook.com?subject=Toonflow咨询)
+📧 ইমেইল: [ltlctools@outlook.com](mailto:ltlctools@outlook.com?subject=Catflow咨询)
 
 ---
 
 ## 9. 📜 ওপেন-সোর্স লাইসেন্স
 
-Toonflow [MIT License](../../LICENSE) এর অধীনে লাইসেন্সপ্রাপ্ত। তৃতীয় পক্ষের নির্ভরতা এবং সম্পদ তাদের নিজ নিজ লাইসেন্স এবং কপিরাইট নোটিশের সাপেক্ষে থাকে।
+Catflow [MIT License](../../LICENSE) এর অধীনে লাইসেন্সপ্রাপ্ত। তৃতীয় পক্ষের নির্ভরতা এবং সম্পদ তাদের নিজ নিজ লাইসেন্স এবং কপিরাইট নোটিশের সাপেক্ষে থাকে।
 
-[![Toonflow তারকা ইতিহাস](https://api.star-history.com/svg?repos=HBAI-Ltd/Toonflow-app&type=Date)](https://www.star-history.com/#HBAI-Ltd/Toonflow-app&Date)
+[![Catflow তারকা ইতিহাস](https://api.star-history.com/svg?repos=HBAI-Ltd/Toonflow-app&type=Date)](https://www.star-history.com/#HBAI-Ltd/Toonflow-app&Date)
 
 > **নন-রেট্রোঅ্যাকটিভিটি ক্লজ**: যে ব্যবহারকারীরা AGPL-3.0 এর অধীনে v1.0.8 এর আগে সংস্করণ ব্যবহার করেছেন তারা AGPL-3.0 এর অধীন থাকবে। v1.0.8 থেকে v1.1.8 সংস্করণগুলি Apache-2.0 এবং এর অতিরিক্ত চুক্তির সাপেক্ষে থাকবে। এই ব্যবহারকারীরা এই লাইসেন্স পরিবর্তন দ্বারা আবদ্ধ নয়.
 
@@ -521,4 +521,4 @@ Xi'an Zhongxing Digital Intelligence Technology Co., Ltd. (西安中星数字智
 
 </div>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=90&section=footer" alt="Toonflow ফুটার" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=90&section=footer" alt="Catflow ফুটার" width="100%" />

@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Toonflow&fontSize=90&fontColor=ffffff&animation=fadeIn&fontAlignY=50" alt="Toonflow" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Catflow&fontSize=90&fontColor=ffffff&animation=fadeIn&fontAlignY=50" alt="Catflow" width="100%" />
 
 <p>
   <a href="https://github.com/HBAI-Ltd/Toonflow-app">
@@ -45,13 +45,13 @@
 <div align="center">
 
 <p align="center">
-  <img src="../images/logo.png" alt="Toonflow Logo" width="120" height="120" />
+  <img src="../images/logo.png" alt="Catflow Logo" width="120" height="120" />
 </p>
 
 <a href="https://git.io/typing-svg">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Toonflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" />
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=000000&center=true&vCenter=true&width=600&lines=Toonflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" alt="Toonflow · AI Short Drama Studio · Turn ideas into stories" width="600" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Catflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=000000&center=true&vCenter=true&width=600&lines=Catflow;AI%20Short%20Drama%20Studio;Turn%20ideas%20into%20stories" alt="Catflow · AI Short Drama Studio · Turn ideas into stories" width="600" />
   </picture>
 </a>
 
@@ -112,12 +112,12 @@
     <tr>
       <td width="50%" align="center">
         <a href="../images/gStar.png">
-          <img src="../images/gStar.png" alt="Toonflow AtomGit G-Star Certificate No.540" width="100%" />
+          <img src="../images/gStar.png" alt="Catflow AtomGit G-Star Certificate No.540" width="100%" />
         </a>
       </td>
       <td width="50%" align="center">
         <a href="../images/gvp.jpg">
-          <img src="../images/gvp.jpg" alt="Toonflow Gitee GVP Certificate" width="100%" />
+          <img src="../images/gvp.jpg" alt="Catflow Gitee GVP Certificate" width="100%" />
         </a>
       </td>
     </tr>
@@ -136,7 +136,7 @@
 
 ## 1. 💛 Sponsors and Support
 
-Thank you to the following partners for supporting the Toonflow open-source project.
+Thank you to the following partners for supporting the Catflow open-source project.
 
 <table>
   <tr>
@@ -178,7 +178,7 @@ Thank you to the following partners for supporting the Toonflow open-source proj
 
 ## 2. 🌟 Highlights
 
-Toonflow is an open-source AI creation platform for short dramas, animated comics, and short videos, bringing scripts, assets, and video clips together on one infinite canvas.
+Catflow is an open-source AI creation platform for short dramas, animated comics, and short videos, bringing scripts, assets, and video clips together on one infinite canvas.
 
 | Capability | Description |
 | --- | --- |
@@ -202,25 +202,25 @@ Supported languages: 简体中文, 繁體中文, English, 日本語, Русск�
 
 <div align="center">
 
-<a href="../images/screenshots/projectHome.png"><img src="../images/screenshots/projectHome.png" alt="Toonflow project home and idea creation" width="80%" /></a><br /><sub>Project home and idea creation</sub>
+<a href="../images/screenshots/projectHome.png"><img src="../images/screenshots/projectHome.png" alt="Catflow project home and idea creation" width="80%" /></a><br /><sub>Project home and idea creation</sub>
 
-<a href="../images/screenshots/quickStart.png"><img src="../images/screenshots/quickStart.png" alt="Toonflow first launch and quick setup" width="80%" /></a><br /><sub>First launch and quick setup</sub>
+<a href="../images/screenshots/quickStart.png"><img src="../images/screenshots/quickStart.png" alt="Catflow first launch and quick setup" width="80%" /></a><br /><sub>First launch and quick setup</sub>
 
-<a href="../images/screenshots/canvasDark.png"><img src="../images/screenshots/canvasDark.png" alt="Toonflow dark canvas and AI assistant" width="80%" /></a><br /><sub>Creative canvas · Dark theme</sub>
+<a href="../images/screenshots/canvasDark.png"><img src="../images/screenshots/canvasDark.png" alt="Catflow dark canvas and AI assistant" width="80%" /></a><br /><sub>Creative canvas · Dark theme</sub>
 
-<a href="../images/screenshots/canvasLight.png"><img src="../images/screenshots/canvasLight.png" alt="Toonflow light canvas and AI assistant" width="80%" /></a><br /><sub>Creative canvas · Light theme</sub>
+<a href="../images/screenshots/canvasLight.png"><img src="../images/screenshots/canvasLight.png" alt="Catflow light canvas and AI assistant" width="80%" /></a><br /><sub>Creative canvas · Light theme</sub>
 
-<a href="../images/screenshots/assetCanvas.png"><img src="../images/screenshots/assetCanvas.png" alt="Toonflow canvas for character, scene, and prop assets" width="80%" /></a><br /><sub>Character, scene, and prop assets</sub>
+<a href="../images/screenshots/assetCanvas.png"><img src="../images/screenshots/assetCanvas.png" alt="Catflow canvas for character, scene, and prop assets" width="80%" /></a><br /><sub>Character, scene, and prop assets</sub>
 
-<a href="../images/screenshots/directorStudio.png"><img src="../images/screenshots/directorStudio.png" alt="Toonflow 3D director's studio and shot previsualization" width="80%" /></a><br /><sub>3D director's studio and shot previsualization</sub>
+<a href="../images/screenshots/directorStudio.png"><img src="../images/screenshots/directorStudio.png" alt="Catflow 3D director's studio and shot previsualization" width="80%" /></a><br /><sub>3D director's studio and shot previsualization</sub>
 
-<a href="../images/screenshots/characterImageGeneration.png"><img src="../images/screenshots/characterImageGeneration.png" alt="Toonflow three-view character sheets and image generation" width="80%" /></a><br /><sub>Three-view character sheets and image generation</sub>
+<a href="../images/screenshots/characterImageGeneration.png"><img src="../images/screenshots/characterImageGeneration.png" alt="Catflow three-view character sheets and image generation" width="80%" /></a><br /><sub>Three-view character sheets and image generation</sub>
 
-<a href="../images/screenshots/videoGeneration.png"><img src="../images/screenshots/videoGeneration.png" alt="Toonflow video generation with multiple reference assets" width="80%" /></a><br /><sub>Video generation with multiple reference assets</sub>
+<a href="../images/screenshots/videoGeneration.png"><img src="../images/screenshots/videoGeneration.png" alt="Catflow video generation with multiple reference assets" width="80%" /></a><br /><sub>Video generation with multiple reference assets</sub>
 
-<a href="../images/screenshots/nodeMenu.png"><img src="../images/screenshots/nodeMenu.png" alt="Toonflow node menu and grouping operations" width="80%" /></a><br /><sub>Node menu and grouping operations</sub>
+<a href="../images/screenshots/nodeMenu.png"><img src="../images/screenshots/nodeMenu.png" alt="Catflow node menu and grouping operations" width="80%" /></a><br /><sub>Node menu and grouping operations</sub>
 
-<a href="../images/screenshots/pluginMarket.png"><img src="../images/screenshots/pluginMarket.png" alt="Toonflow Plugin Marketplace" width="80%" /></a><br /><sub>Plugin Marketplace</sub>
+<a href="../images/screenshots/pluginMarket.png"><img src="../images/screenshots/pluginMarket.png" alt="Catflow Plugin Marketplace" width="80%" /></a><br /><sub>Plugin Marketplace</sub>
 
 </div>
 
@@ -237,14 +237,14 @@ Supported languages: 简体中文, 繁體中文, English, 日本語, Русск�
 
 The Windows installer automatically detects and installs WebView2. If the app closes immediately after installation, download and install the runtime manually from the [WebView2 download page](https://developer.microsoft.com/microsoft-edge/webview2/).
 
-On macOS (Apple Silicon), drag Toonflow into Applications and open it directly. No terminal commands are required beforehand. If macOS displays a security warning, follow the steps below in order.
+On macOS (Apple Silicon), drag Catflow into Applications and open it directly. No terminal commands are required beforehand. If macOS displays a security warning, follow the steps below in order.
 
 <details>
-<summary><strong>If Toonflow cannot be installed or opened on macOS</strong></summary>
+<summary><strong>If Catflow cannot be installed or opened on macOS</strong></summary>
 
-**1. Allow Toonflow in Privacy & Security**
+**1. Allow Catflow in Privacy & Security**
 
-If you see a warning that the developer cannot be verified or that Apple cannot check the app for malicious software, first try opening Toonflow. Then go to System Settings → Privacy & Security, find the message stating that Toonflow was blocked, click Open Anyway, and confirm as prompted. See [Apple's official instructions](https://support.apple.com/zh-cn/102445).
+If you see a warning that the developer cannot be verified or that Apple cannot check the app for malicious software, first try opening Catflow. Then go to System Settings → Privacy & Security, find the message stating that Catflow was blocked, click Open Anyway, and confirm as prompted. See [Apple's official instructions](https://support.apple.com/zh-cn/102445).
 
 **2. If quarantine restrictions still prevent opening, try removing the quarantine attribute**
 
@@ -283,7 +283,7 @@ Clone the source and run the following in the repository root:
 
 ```sh
 git clone https://github.com/HBAI-Ltd/Toonflow-app.git
-cd Toonflow-app
+cd Catflow-app
 docker compose up -d --build
 ```
 
@@ -337,7 +337,7 @@ Clone the source and start the service:
 
 ```sh
 git clone https://github.com/HBAI-Ltd/Toonflow-app.git
-cd Toonflow-app
+cd Catflow-app
 bun install --frozen-lockfile
 
 # Build bundled nodes, tools, Web, and Server
@@ -363,7 +363,7 @@ When you see “服务启动成功” (service started successfully), open `http
 
 ### 4.5 Cloud Deployment
 
-Our partner [AI Galaxy (智星云)](https://www.ai-galaxy.com/) provides an officially authorized commercial Toonflow image with a ready-to-use environment. For instructions, see the [illustrated image deployment guide](https://mp.weixin.qq.com/s/lq9X1ovQ1_TKeXMOLgicKg?scene=1).
+Our partner [AI Galaxy (智星云)](https://www.ai-galaxy.com/) provides an officially authorized commercial Catflow image with a ready-to-use environment. For instructions, see the [illustrated image deployment guide](https://mp.weixin.qq.com/s/lq9X1ovQ1_TKeXMOLgicKg?scene=1).
 
 ---
 
@@ -393,19 +393,19 @@ These costs are the recorded figures for this example and are provided for refer
   </a>
 </p>
 
-TF-Router is Toonflow's official, self-operated model gateway. You are welcome to use it. Its entire source code is open source and available for self-hosting and auditing: [HBAI-Ltd/TF-Router](https://github.com/HBAI-Ltd/TF-Router).
+TF-Router is Catflow's official, self-operated model gateway. You are welcome to use it. Its entire source code is open source and available for self-hosting and auditing: [HBAI-Ltd/TF-Router](https://github.com/HBAI-Ltd/TF-Router).
 
 <details>
-<summary><strong>A Letter to the Toonflow Community (published 2026-06-08)</strong></summary>
+<summary><strong>A Letter to the Catflow Community (published 2026-06-08)</strong></summary>
 
-> ### A Letter to the Toonflow Community
+> ### A Letter to the Catflow Community
 > 130 days.
 > Not long, but long enough for us to see some things clearly.
 > From our first line of committed code to today, 130 days have passed. We have released 20 versions, made 800+ commits, and written 213,765 lines of code containing 640,810 characters.
 > Two rewrites, a provider system, and a workflow we are proud of.
 > We thought that would be enough.
 > But it was not.
-> Some people told us they wanted to add their own module to Toonflow, but still could not figure out how to change it after hours of trying.
+> Some people told us they wanted to add their own module to Catflow, but still could not figure out how to change it after hours of trying.
 > Some told us the community was too small and they could not find help when they ran into problems.
 > Some told us the commercial terms prevented them from putting their projects into use.
 > We heard you.
@@ -413,7 +413,7 @@ TF-Router is Toonflow's official, self-operated model gateway. You are welcome t
 > Not because we have a lot of money.
 > But because we believe this is worth doing.
 > So we have decided to undertake a third rewrite.
-> Every Toonflow rewrite has moved toward greater openness and open source.
+> Every Catflow rewrite has moved toward greater openness and open source.
 > This time, we have chosen to open everything up.
 >
 > 1. MIT License
@@ -448,9 +448,9 @@ TF-Router is Toonflow's official, self-operated model gateway. You are welcome t
 > Rewrites take time. During that time, the servers keep running, domains need renewing, the team works late, and coffee gets more expensive.
 > We have no investment funding, no advertising, and no hidden commercial plans.
 > But we need to stay afloat to finish what we have started.
-> That is why we launched TF-Router, the official Toonflow model gateway.
+> That is why we launched TF-Router, the official Catflow model gateway.
 > Honestly, we hesitated over this platform for a long time.
-> It was not something we wanted to build. We did not want a gateway to make people feel that Toonflow had started “cashing in.”
+> It was not something we wanted to build. We did not want a gateway to make people feel that Catflow had started “cashing in.”
 > We carried that burden for a long time.
 > But many users could not get approved access to Seedance 2.0 and kept asking us whether there was a way to use it.
 > After much thought, we finally decided to build one ourselves and signed an annual Seedance framework agreement with Volcengine.
@@ -460,11 +460,11 @@ TF-Router is Toonflow's official, self-operated model gateway. You are welcome t
 > Do not trust us? That is fine. Read the code, deploy it yourself, and run it yourself.
 > That is where we stand.
 > If you choose to try it, you are placing your trust in the only way we currently have to keep this work going.
-> If you do not, that is fine too. Keep using Toonflow, keep criticizing us, and keep asking for features.
+> If you do not, that is fine too. Keep using Catflow, keep criticizing us, and keep asking for features.
 > We are here.
 > One last thing, from the heart:
 > We are just a group of ordinary people who believe that creative tools should belong to everyone.
-> Toonflow has never been just our product.
+> Catflow has never been just our product.
 > It is the story we are writing together.
 > The third rewrite is not the finish line.
 > It is where we start again.
@@ -480,7 +480,7 @@ TF-Router is Toonflow's official, self-operated model gateway. You are welcome t
 
 Scan the QR code to contact the group invitation assistant:
 
-<img src="../images/qr.png" alt="Toonflow community QR code" height="400"/>
+<img src="../images/qr.png" alt="Catflow community QR code" height="400"/>
 
 You can also click the icon to join Discord:
 
@@ -492,15 +492,15 @@ Or use the invitation link: [https://discord.gg/HEjKmpNpAZ](https://discord.gg/H
 
 ## 8. 💌 Contact Us
 
-📧 Email: [ltlctools@outlook.com](mailto:ltlctools@outlook.com?subject=Toonflow咨询)
+📧 Email: [ltlctools@outlook.com](mailto:ltlctools@outlook.com?subject=Catflow咨询)
 
 ---
 
 ## 9. 📜 Open-Source License
 
-Toonflow is licensed under the [MIT License](../../LICENSE). Third-party dependencies and assets remain subject to their respective licenses and copyright notices.
+Catflow is licensed under the [MIT License](../../LICENSE). Third-party dependencies and assets remain subject to their respective licenses and copyright notices.
 
-[![Toonflow Star History](https://api.star-history.com/svg?repos=HBAI-Ltd/Toonflow-app&type=Date)](https://www.star-history.com/#HBAI-Ltd/Toonflow-app&Date)
+[![Catflow Star History](https://api.star-history.com/svg?repos=HBAI-Ltd/Toonflow-app&type=Date)](https://www.star-history.com/#HBAI-Ltd/Toonflow-app&Date)
 
 > **Non-retroactivity clause**: Users who used versions before v1.0.8 under AGPL-3.0 remain subject to AGPL-3.0. Versions v1.0.8 through v1.1.8 remain subject to Apache-2.0 and its additional agreement. These users are not bound by this license change.
 
@@ -521,4 +521,4 @@ Copyright © 2026 北京爱阿科技有限公司
 
 </div>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=90&section=footer" alt="Toonflow footer" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=90&section=footer" alt="Catflow footer" width="100%" />

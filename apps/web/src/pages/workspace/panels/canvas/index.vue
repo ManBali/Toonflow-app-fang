@@ -62,10 +62,13 @@
       <background :gap="16" pattern-color="var(--el-border-color)" />
       <canvasMenu ref="canvasMenuRef" v-model:canvasId="canvasId" :directory="project?.directory" :initialCanvasId="initialCanvasId" :activateCanvas="activateCanvas" :flushSave="flushCanvases ?? flushCanvasSave">
         <assetLibrary ref="assetLibraryRef" v-model="assetsVisible" :directory="project?.directory" />
+        <assetPanel ref="assetPanelRef" v-model="assetPanelVisible" />
       </canvasMenu>
+      <assetSaveDialog ref="assetSaveRef" @saved="assetPanelRef?.refresh()" />
       <canvasControls
         ref="canvasControlsRef"
         v-model:assetsVisible="assetsVisible"
+        v-model:assetPanelVisible="assetPanelVisible"
         v-model:snapEnabled="snapEnabled"
         v-model:showEdges="showEdges"
         :canvasId="canvasId"
@@ -154,6 +157,8 @@ import remoteNode from "./components/remoteNode.vue";
 import canvasMenu from "./components/canvasMenu.vue";
 import canvasControls from "./components/canvasControls.vue";
 import assetLibrary from "./components/assetLibrary.vue";
+import assetPanel from "./components/assetPanel.vue";
+import assetSaveDialog from "@/components/assetLibrary/saveDialog.vue";
 import groupNode from "./components/groupNode.vue";
 import selectionToolbar from "./components/selectionToolbar.vue";
 import nodeSearch from "./components/nodeSearch.vue";
@@ -166,6 +171,7 @@ import { useWorkspaceStore } from "@/stores/workspace";
 import { generalSettings } from "@/stores/settings";
 import { getShortcutBindings, shortcutLabel, shortcutMatches, shortcutPressed } from "@/lib/canvasShortcuts";
 import useWorkspaceFiles from "@/lib/workspaceFiles";
+import { toUploadFile } from "@/lib/assetLibrary";
 import anonymousData from "@/lib/anonymousData";
 import { dropCanvasFiles, importCanvasFiles, isCanvasFileDrag } from "./canvasDrop";
 import "@vue-flow/core/dist/style.css";
@@ -215,7 +221,10 @@ const isDesktop = new URLSearchParams(window.location.search).get("desktop") ===
 let copyingNodes = false;
 const showEdges = ref(true);
 const assetsVisible = ref(false);
+const assetPanelVisible = ref(false);
 const assetLibraryRef = ref<InstanceType<typeof assetLibrary>>();
+const assetPanelRef = ref<InstanceType<typeof assetPanel>>();
+const assetSaveRef = ref<InstanceType<typeof assetSaveDialog>>();
 const edgeDisconnect = ref<{ id: string; x: number; y: number }>();
 const flow = useVueFlow(props.runtimeKey);
 onScopeDispose(anonymousData.observeCanvas(() => props.active && canvasId.value
@@ -249,6 +258,25 @@ provide("copyNodeToClipboard", (node: Parameters<typeof copyNodeToClipboard>[0])
 provide("retainNodeFiles", true);
 provide("selectionConnection", shallowRef<NodeConnectionFeedback>());
 provide("saveNodeToAssets", (label: string, outputs: { label: string; output: NodeOutput }[]) => assetLibraryRef.value?.openSave(label, outputs));
+provide("saveNodeToLibrary", (label: string, outputs: { label: string; output: NodeOutput }[], meta?: Record<string, unknown>) => void saveNodeToLibrary(label, outputs, meta));
+
+/** 节点输出入库：媒体输出包装成文件后交给存为资产对话框，提示词等生成信息从节点数据带出。 */
+async function saveNodeToLibrary(label: string, outputs: { label: string; output: NodeOutput }[], meta?: Record<string, unknown>) {
+  const directory = project.value?.directory;
+  const mediaOutputs = outputs.filter(({ output }) => output && typeof output.value === "object" && output.value.url);
+  if (!directory || !mediaOutputs.length) return;
+  try {
+    const files = await Promise.all(mediaOutputs.map(({ label: outputLabel, output }) => {
+      const value = output.value as { url: string };
+      const extension = value.url.match(/\.[^./\\]+$/)?.[0] ?? "";
+      const fileName = mediaOutputs.length > 1 && outputLabel ? `${label}-${outputLabel}${extension}` : `${label}${extension}`;
+      return toUploadFile(value.url, fileName, () => directory);
+    }));
+    assetSaveRef.value?.open({ name: label, files, meta });
+  } catch (error) {
+    ElMessage.error(error instanceof Error ? error.message : "读取节点输出失败");
+  }
+}
 let canvasController = new AbortController();
 let workspaceController = new AbortController();
 const createCanvasContext = useCanvasTools({
@@ -558,7 +586,10 @@ watch(
 
 // ACT: 切换显示面板不会卸载画布；仅清理交互，不中断本轮工具调用。
 watch(() => props.active, (active) => {
-  if (!active) assetsVisible.value = false;
+  if (!active) {
+    assetsVisible.value = false;
+    assetPanelVisible.value = false;
+  }
   edgeDisconnect.value = undefined;
   dragCopy = undefined;
   pointerPosition = undefined;

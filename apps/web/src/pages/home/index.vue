@@ -2,24 +2,18 @@
   <el-container class="home">
     <bg class="pageBackground" />
     <el-header class="pageHeader">
-      <el-badge isDot :hidden="!hasDesktopUpdate">
-        <el-button round size="large" :icon="IconSettings" :aria-label="hasDesktopUpdate ? '设置，有新版本可用' : '设置'" @click="settingsVisible = true">设置</el-button>
-      </el-badge>
-      <div class="githubAction">
-        <span class="arrowHint starHint">
-          点个 Star 支持一下
-          <svg viewBox="0 0 84 44" fill="none" aria-hidden="true">
-            <path d="M4 29C18 40 44 38 44 18C44 1 21 3 24 19C27 37 57 32 77 16M65 17L77 16L73 28" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </span>
-        <el-button round size="large" :icon="IconBrandGithub" tag="a" href="https://github.com/HBAI-Ltd/Toonflow-app" target="_blank" rel="noopener noreferrer">GitHub</el-button>
+      <div class="headerActions">
+        <el-button round size="large" :icon="IconLibrary" aria-label="资产库" @click="router.push('/assets')">资产库</el-button>
+        <el-badge isDot :hidden="!hasDesktopUpdate">
+          <el-button round size="large" :icon="IconSettings" :aria-label="hasDesktopUpdate ? '设置，有新版本可用' : '设置'" @click="settingsVisible = true">设置</el-button>
+        </el-badge>
       </div>
     </el-header>
     <el-main class="pageContent">
       <section class="creationPanel" aria-label="创建项目">
         <div class="brand">
-          <el-image class="brandLogo" :src="logoUrl" fit="contain" alt="Toonflow" />
-          <h1>Toonflow</h1>
+          <el-image class="brandLogo" :src="logoUrl" fit="contain" alt="Catflow" />
+          <h1>Catflow</h1>
         </div>
         <div class="promptArea">
           <span class="arrowHint inspirationHint">
@@ -67,6 +61,7 @@
                 <span class="projectName" :title="project.name">{{ project.name }}</span>
                 <span class="projectPath" :title="project.directory">{{ project.directory }}</span>
                 <span class="projectTime">最近打开 {{ new Date(project.lastOpenedAt).toLocaleString(locale, { hour12: false }) }}</span>
+                <span v-if="authStore.isAdmin && project.ownerUsername" class="projectOwner">归属：{{ project.ownerUsername }}</span>
               </span>
             </button>
             <div class="projectActions">
@@ -90,7 +85,7 @@ import { computed, nextTick, onMounted, ref, watch } from "vue";
 import { useRouter } from "vue-router";
 import { ElMessage, ElMessageBox, type InputInstance } from "element-plus";
 import {
-  IconSettings, IconBrandGithub,
+  IconSettings, IconLibrary,
   IconArrowUp, IconLayoutGrid,
   IconList, IconSortDescending,
   IconSortAscending, IconFolder, IconEdit,
@@ -102,6 +97,7 @@ import { createPastedTextFile, readTextAttachment } from "@/components/agent/tex
 import type { AgentAttachment } from "@/components/agent/types";
 import logoUrl from "@toonflow/assets/logo.svg";
 import { useWorkspaceStore, type Project } from "@/stores/workspace";
+import { useAuthStore } from "@/stores/auth";
 import { hasDesktopUpdate } from "@/stores/desktopUpdate";
 import useWorkspaceFiles from "@/lib/workspaceFiles";
 import settings from "@/components/settings/index.vue";
@@ -118,6 +114,7 @@ const prompt = ref("");
 const promptInput = ref<InputInstance>();
 const promptAttachments = ref<AgentAttachment[]>([]);
 const workspaceStore = useWorkspaceStore();
+const authStore = useAuthStore();
 const { project, projectList } = storeToRefs(workspaceStore);
 const workspaceDirectory = ref(project.value?.directory ?? "");
 const placeholderPhrases = [
@@ -135,6 +132,8 @@ const placeholderPhrases = [
 const promptPlaceholder = ref(translate(placeholderPhrases[0]!));
 
 onMounted(() => {
+  // 项目列表在服务端按用户隔离，进入首页时拉取自己的（管理员为全部）。
+  void workspaceStore.loadProjects().catch(() => {});
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let phraseIndex = 0;
   watch([() => !!prompt.value, locale], ([hasInput], _previous, onCleanup) => {
@@ -318,31 +317,6 @@ async function createProject(fromPrompt = true) {
     justify-content: space-between;
     height: 72px;
     padding: 0 clamp(20px, 4vw, 56px);
-
-    a {
-      text-decoration: none;
-    }
-
-    .githubAction {
-      position: relative;
-
-      .starHint {
-        top: 0;
-        inset-inline-end: calc(100% + 12px);
-        height: 100%;
-
-        &:dir(rtl) svg { transform: scaleX(-1); }
-
-        @media (max-width: 560px) {
-          top: calc(100% + 6px);
-          inset-inline-end: 0;
-          height: auto;
-
-          svg { transform: rotate(-45deg); }
-          &:dir(rtl) svg { transform: scaleX(-1) rotate(-45deg); }
-        }
-      }
-    }
   }
 
   .pageContent {
@@ -511,6 +485,7 @@ async function createProject(fromPrompt = true) {
             .projectName { font-weight: 600; }
             .projectPath { font-size: 13px; color: var(--el-text-color-regular); }
             .projectTime { font-size: 12px; color: var(--el-text-color-secondary); }
+            .projectOwner { font-size: 12px; color: var(--el-color-primary); }
           }
         }
       }

@@ -163,12 +163,41 @@ export function useNodeAi() {
   }
 
   async function generateMedia<T extends "image" | "video">(mediaType: T, input: NodeImageRequest | NodeVideoRequest, signal?: AbortSignal) {
-    return readResult<{ path: string; mimeType: string; mediaType: T }[]>(await fetch("/api/ai/media/generate", {
+    const combined = requestSignal(signal);
+    const { taskId } = await readResult<{ taskId: string }>(await fetch("/api/ai/media/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json", "x-toonflow-workspace": "1" },
       body: JSON.stringify({ ...input, mediaType }),
-      signal: requestSignal(signal),
+      signal: combined,
     }));
+    try {
+      // 提交即返回，生成在服务端后台执行；此处轮询作业状态直到完成。
+      while (true) {
+        const job = await readResult<{ status: "running" | "done" | "failed" | "canceled"; result?: { path: string; mimeType: string; mediaType: T }[]; error?: string }>(
+          await fetch(`/api/ai/media/tasks/get?id=${encodeURIComponent(taskId)}`, { headers: { "x-toonflow-workspace": "1" }, signal: combined })
+        );
+        if (job.status === "done") return job.result!;
+        if (job.status === "failed") throw new Error(job.error || "生成失败");
+        if (job.status === "canceled") throw new Error("生成已取消");
+        await new Promise<void>((resolve, reject) => {
+          const abort = () => { clearTimeout(timer); reject(combined.reason); };
+          const timer = setTimeout(() => { combined.removeEventListener("abort", abort); resolve(); }, 3000);
+          combined.addEventListener("abort", abort, { once: true });
+        });
+        combined.throwIfAborted();
+      }
+    } catch (error) {
+      if (combined.aborted) {
+        // 取消仅停止等待；已提交到供应商的任务照常计费，结果可能稍后由恢复流程落盘。
+        void fetch("/api/ai/media/tasks/cancel", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-toonflow-workspace": "1" },
+          body: JSON.stringify({ id: taskId }),
+        }).catch(() => {});
+        throw new Error("生成已取消");
+      }
+      throw error;
+    }
   }
 
   function generateImage(input: NodeImageRequest, signal?: AbortSignal) {

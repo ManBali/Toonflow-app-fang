@@ -13,6 +13,11 @@
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item v-if="assetOutputs.length && saveNodeToAssets" command="saveAsset" :icon="IconFolderPlus">保存到素材库</el-dropdown-item>
+          <el-dropdown-item v-if="assetOutputs.length && saveNodeToLibrary" command="saveLibrary" :icon="IconLibrary">存为资产</el-dropdown-item>
+          <el-dropdown-item v-if="mediaOutputs.length" command="download" :icon="IconDownload" :disabled="downloadingResources">
+            {{ downloadingResources ? "正在下载…" : "下载资源" }}
+          </el-dropdown-item>
+          <el-dropdown-item v-if="imageOutputs.length" command="fullscreen" :icon="IconMaximize">全屏预览</el-dropdown-item>
           <el-dropdown-item :divided="!!(assetOutputs.length && saveNodeToAssets)" command="copy" :icon="IconCopy">复制节点</el-dropdown-item>
           <el-dropdown-item command="duplicate" :icon="IconCopyPlus">创建副本</el-dropdown-item>
           <el-dropdown-item command="delete" :icon="IconTrash">删除节点</el-dropdown-item>
@@ -162,6 +167,7 @@ import {
   IconCopy,
   IconCopyPlus,
   IconFolderPlus,
+  IconLibrary,
   IconDownload,
   IconMaximize,
   IconBox,
@@ -173,6 +179,7 @@ import { ElCard, ElButton, ElDropdown, ElDropdownMenu, ElDropdownItem, ElMessage
 import type { DropdownInstance } from "element-plus";
 import { validateConnection } from "./connection";
 import { useNodeEvent } from "./nodeEvent";
+import { useNodeFiles } from "./workspaceFiles";
 import type { NodeConnectionFeedback, NodeData, NodeHandle } from "./connection";
 import type { NodeOutput } from "./values";
 
@@ -364,6 +371,10 @@ const saveNodeToAssets = inject<((label: string, outputs: { label: string; outpu
   "saveNodeToAssets",
   undefined
 );
+const saveNodeToLibrary = inject<((label: string, outputs: { label: string; output: NodeOutput }[], meta?: Record<string, unknown>) => void) | undefined>(
+  "saveNodeToLibrary",
+  undefined
+);
 const assetOutputs = computed(() =>
   props.handles.flatMap((handle) => {
     const output = props.outputs[handle.id];
@@ -371,9 +382,42 @@ const assetOutputs = computed(() =>
     return [{ label: handle.label ?? handle.id, output }];
   })
 );
+const mediaOutputs = computed(() =>
+  assetOutputs.value.filter(({ output }) => output && typeof output.value === "object" && output.value.url)
+);
+const imageOutputs = computed(() => assetOutputs.value.filter(({ output }) => output.dataType === "IMAGE"));
+const downloadingResources = ref(false);
+// inject 只能在 setup 期间解析，先在顶层取好引用，下载时再用。
+const nodeFiles = useNodeFiles();
+
+/** 右键菜单下载：读取节点媒体输出并按原文件名触发浏览器下载。 */
+async function downloadMediaOutputs() {
+  if (!mediaOutputs.value.length || downloadingResources.value) return;
+  downloadingResources.value = true;
+  try {
+    for (const { output } of mediaOutputs.value) {
+      const url = (output.value as { url: string }).url;
+      const name = decodeURIComponent(url.split(/[\\/]/).pop() ?? "资源");
+      const content = await nodeFiles.getWorkspaceFiles().read(url);
+      const objectUrl = URL.createObjectURL(new Blob([content]));
+      const link = document.createElement("a");
+      link.href = objectUrl;
+      link.download = name;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(objectUrl), 10_000);
+    }
+  } catch (error) {
+    ElMessage.error(error instanceof Error ? error.message : "下载失败");
+  } finally {
+    downloadingResources.value = false;
+  }
+}
 
 async function handleCommand(command: string) {
+  if (command === "fullscreen") emit("fullscreen");
   if (command === "saveAsset") saveNodeToAssets?.(props.label, assetOutputs.value);
+  if (command === "saveLibrary") saveNodeToLibrary?.(props.label, assetOutputs.value, { ...node.data });
+  if (command === "download") void downloadMediaOutputs();
   if (command === "clipboard" && copyNodeToClipboard && !copyingToClipboard.value) {
     copyingToClipboard.value = true;
     try {

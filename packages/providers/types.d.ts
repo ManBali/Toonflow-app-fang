@@ -97,6 +97,11 @@ interface ProviderTools {
    * @example const ffmpeg = await this.tool.ffmpeg(); const command = ffmpeg("assets/input.mp4").videoCodec("libx264");
    */
   ffmpeg(): Promise<import("@toonflow/ffmpeg/types").FfmpegFactory>;
+  /**
+   * 供应商提交异步任务成功后立即上报任务 ID；宿主落盘以便进程中断后恢复已计费的结果。
+   * 每次提交调用一次；宿主未注入（如调试控制台）时缺省，供应商须容忍缺省。
+   */
+  reportTask?(task: { mediaType: "image" | "video" | "audio"; taskICode: string }): void;
 }
 
 interface ImageRequest extends MediaRequest {
@@ -191,4 +196,13 @@ interface ProviderDefinition<TRules extends readonly ProviderFormRule[] = readon
   generateImage?: GenerateMedia<ImageRequest, ProviderConfig<TRules>>;
   generateVideo?: GenerateMedia<VideoRequest, ProviderConfig<TRules>>;
   generateAudio?: GenerateMedia<AudioRequest, ProviderConfig<TRules>>;
+  /**
+   * 查询已上报任务（reportTask）的当前结果；用于进程中断后恢复已计费的任务。
+   * 任务仍在处理时返回空数组；失败时抛出错误；完成时返回最终媒体数组。
+   * 未实现的方法保持缺省，宿主恢复流程会跳过没有此能力的供应商。
+   */
+  getPendingTask?: (this: ProviderContext<ProviderConfig<TRules>>, request: {
+    mediaType: "image" | "video" | "audio";
+    taskICode: string;
+  }) => Promise<MediaAsset[]>;
 }

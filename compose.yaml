@@ -1,5 +1,6 @@
 services:
-  toonflow:
+  catflow:
+    image: wushuifang/catflow_wu:0.1.2
     build: .
     init: true
     restart: unless-stopped

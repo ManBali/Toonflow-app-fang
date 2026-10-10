@@ -4,8 +4,10 @@ import type { useVueFlow } from "@vue-flow/core";
 import { uploadNodeFile } from "@toonflow/nodes-scaffold/workspaceFiles";
 import type { NodeOutput } from "@toonflow/nodes-scaffold/values";
 import useWorkspaceFiles from "@/lib/workspaceFiles";
+import { assetFileUrl, readAsset } from "@/lib/assetLibrary";
 
 const assetDragType = "application/toonflow-asset";
+const assetRecordDragType = "application/toonflow-asset-id";
 const fileMimeTypes: Record<string, string> = {
   png: "image/png", jpg: "image/jpeg", jpeg: "image/jpeg", webp: "image/webp", gif: "image/gif",
   avif: "image/avif", apng: "image/apng", bmp: "image/bmp", svg: "image/svg+xml", ico: "image/x-icon",
@@ -21,8 +23,15 @@ export function startAssetDrag(event: DragEvent, entry: { type: string; path: st
   event.dataTransfer.setData(assetDragType, entry.path);
 }
 
+/** 资产库条目拖拽：只带资产 ID，落画布时再取记录并复制文件到工作区。 */
+export function startAssetRecordDrag(event: DragEvent, record: { id: string }) {
+  if (!event.dataTransfer) return;
+  event.dataTransfer.effectAllowed = "copy";
+  event.dataTransfer.setData(assetRecordDragType, record.id);
+}
+
 export function isCanvasFileDrag(event: DragEvent) {
-  return event.dataTransfer?.types.some(type => type === assetDragType || type === "Files") ?? false;
+  return event.dataTransfer?.types.some(type => type === assetDragType || type === assetRecordDragType || type === "Files") ?? false;
 }
 
 type CanvasFileContext = {
@@ -35,12 +44,17 @@ type CanvasFileContext = {
 export async function dropCanvasFiles(event: DragEvent, context: CanvasFileContext) {
   const transfer = event.dataTransfer;
   if (!transfer) return;
-  const path = transfer.getData(assetDragType);
+  const assetId = transfer.getData(assetRecordDragType);
+  const path = assetId ? "" : transfer.getData(assetDragType);
   let droppedFiles = Array.from(transfer.files);
   const { signal, flow } = context;
   const position = flow.screenToFlowCoordinate({ x: event.clientX, y: event.clientY });
   try {
     signal.throwIfAborted();
+    if (assetId) {
+      await importAssetRecord(assetId, position, context);
+      return;
+    }
     if (path) {
       const { data } = await axios.get<Blob>("/api/assets/read", { params: { path }, responseType: "blob", signal });
       droppedFiles = [new File([data], path.split("/").pop()!, { type: data.type })];
@@ -51,7 +65,24 @@ export async function dropCanvasFiles(event: DragEvent, context: CanvasFileConte
   }
 }
 
-export async function importCanvasFiles(droppedFiles: File[], position: { x: number; y: number }, context: CanvasFileContext) {
+/** 资产落画布：取记录中首选媒体复制进工作区，节点带上 assetId 供后续追溯与联动。 */
+async function importAssetRecord(assetId: string, position: { x: number; y: number }, context: CanvasFileContext) {
+  const record = await readAsset(assetId);
+  const file = pickAssetFile(record);
+  if (!file) throw new Error(`${record.name}：该资产没有可放置的媒体文件`);
+  const response = await axios.get<Blob>(assetFileUrl(record.id, file.name), { responseType: "blob", signal: context.signal });
+  const name = `${record.name}${file.name.match(/\.[^.]+$/)?.[0] ?? ""}`;
+  const media = new File([response.data], name, { type: file.mimeType });
+  await importCanvasFiles([media], position, context, { assetId: record.id });
+}
+
+function pickAssetFile(record: { files: { name: string; mimeType: string }[] }) {
+  return record.files.find(file => file.mimeType.startsWith("image/"))
+    ?? record.files.find(file => file.mimeType.startsWith("video/"))
+    ?? record.files.find(file => file.mimeType.startsWith("audio/"));
+}
+
+export async function importCanvasFiles(droppedFiles: File[], position: { x: number; y: number }, context: CanvasFileContext, extraData: Record<string, unknown> = {}) {
   const { signal, flow, availableNodes } = context;
   const files = useWorkspaceFiles(context.directory);
   for (const [index, file] of droppedFiles.entries()) {
@@ -77,7 +108,7 @@ export async function importCanvasFiles(droppedFiles: File[], position: { x: num
       }
       signal.throwIfAborted();
       flow.addNodes({ id, type, position: { x: position.x + index * 32, y: position.y + index * 32 },
-        data: kind === "text" ? { label: file.name, textSnapshot } : { label: file.name, outputs: { [kind]: output } } });
+        data: { ...(kind === "text" ? { label: file.name, textSnapshot } : { label: file.name, outputs: { [kind]: output } }), ...extraData } });
     } catch (error) {
       if (copiedPath) await files.remove(copiedPath).catch(showError);
       if (!signal.aborted) showError(error);

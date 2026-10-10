@@ -42,7 +42,9 @@ export default Router().post("/", validateFields(inputSchema.shape), async (req,
     if (requests.has(requestKey)) throw Object.assign(new Error("FFmpeg 请求已在执行"), { status: 409 });
     requests.set(requestKey, controller);
   }
-  const close = () => controller.abort();
+  const close = () => {
+    if (!res.writableEnded) controller.abort();
+  };
   res.once("close", close);
   req.once("aborted", close);
   req.socket.once("close", close);

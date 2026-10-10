@@ -30,3 +30,6 @@ Thumbs.db
 *.p8
 *.keychain
 *.keychain-db
+.claude/
+01-*/
+

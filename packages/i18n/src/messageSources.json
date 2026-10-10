@@ -1,14 +1,26 @@
 {
-  "关闭": [
+  "更新未成功": [
+    "apps/web/src/App.vue"
+  ],
+  "当前运行版本": [
+    "apps/web/src/App.vue"
+  ],
+  "未知版本": [
+    "apps/web/src/App.vue"
+  ],
+  "本次更新目标": [
+    "apps/web/src/App.vue"
+  ],
+  "请前往 GitHub 最新发布页，选择适合当前系统的完整安装包，关闭客户端后重新安装。": [
     "apps/web/src/App.vue",
-    "apps/web/src/components/agent/menu.vue",
-    "apps/web/src/components/languageSelect.vue",
-    "apps/web/src/components/settings/panels/about.vue",
-    "apps/web/src/components/settings/panels/pluginMarket/a2aSettingsDialog.vue",
-    "apps/web/src/components/settings/panels/pluginMarket/agentEditorDialog.vue",
-    "apps/web/src/components/settings/panels/pluginMarket/index.vue",
-    "apps/web/src/components/settings/panels/pluginMarket/skillEditorDialog.vue",
-    "apps/web/src/components/settings/tfRechargeDialog.vue"
+    "apps/web/src/components/settings/panels/about.vue"
+  ],
+  "稍后": [
+    "apps/web/src/App.vue"
+  ],
+  "前往下载页": [
+    "apps/web/src/App.vue",
+    "apps/web/src/components/settings/panels/about.vue"
   ],
   "更新说明的展示记录保存失败，下次启动时可能再次显示。": [
     "apps/web/src/App.vue"
@@ -19,11 +31,22 @@
     "apps/web/src/components/agent/mentionContent.vue",
     "apps/web/src/pages/workspace/panels/canvas/components/assetLibrary.vue"
   ],
+  "还原到输入框": [
+    "apps/web/src/components/agent/attachmentPreview.vue"
+  ],
   "移除 {0}": [
     "apps/web/src/components/agent/attachmentPreview.vue",
     "apps/web/src/components/settings/panels/developer/providerDebugDialog.vue"
   ],
   "移除附件": [
+    "apps/web/src/components/agent/attachmentPreview.vue"
+  ],
+  "正在读取…": [
+    "apps/web/src/components/agent/attachmentPreview.vue",
+    "apps/web/src/components/agent/mentionContent.vue",
+    "apps/web/src/components/settings/panels/personalization.vue"
+  ],
+  "无法读取文本附件，请重试": [
     "apps/web/src/components/agent/attachmentPreview.vue"
   ],
   "对话消息": [
@@ -32,7 +55,7 @@
   "开始新对话": [
     "apps/web/src/components/agent/conversation.vue"
   ],
-  "你好，我是 Toonflow 助手": [
+  "你好，我是 Catflow 助手": [
     "apps/web/src/components/agent/conversation.vue"
   ],
   "从一个想法开始": [
@@ -59,6 +82,9 @@
   "取消": [
     "apps/web/src/components/agent/conversation.vue",
     "apps/web/src/components/agent/menu.vue",
+    "apps/web/src/components/assetLibrary/editDialog.vue",
+    "apps/web/src/components/assetLibrary/saveDialog.vue",
+    "apps/web/src/components/settings/index.vue",
     "apps/web/src/components/settings/panels/developer/index.vue",
     "apps/web/src/components/settings/panels/developer/systemPromptDialog.vue",
     "apps/web/src/components/settings/panels/languageModel/addCustomProviderDialog.vue",
@@ -74,6 +100,7 @@
     "apps/web/src/components/settings/panels/pluginMarket/index.vue",
     "apps/web/src/components/settings/panels/pluginMarket/pluginConfigDialog.vue",
     "apps/web/src/components/settings/panels/pluginMarket/skillEditorDialog.vue",
+    "apps/web/src/components/settings/panels/users/index.vue",
     "apps/web/src/components/settings/tfRechargeDialog.vue",
     "apps/web/src/lib/desktopProtocol.ts",
     "apps/web/src/lib/i18n.ts",
@@ -211,6 +238,7 @@
   "请先打开项目": [
     "apps/web/src/components/agent/conversation.vue",
     "apps/web/src/components/agent/index.vue",
+    "apps/web/src/components/agent/textAttachments.ts",
     "apps/web/src/pages/workspace/panels/canvas/nodeClipboard.ts"
   ],
   "请先选择模型": [
@@ -222,14 +250,25 @@
   "服务端未确认重发，请重新打开对话后重试": [
     "apps/web/src/components/agent/conversation.vue"
   ],
-  "只支持图片和视频文件": [
+  "还原文本附件失败，请重试": [
+    "apps/web/src/components/agent/conversation.vue"
+  ],
+  "无法添加文本附件": [
+    "apps/web/src/components/agent/conversation.vue"
+  ],
+  "只支持图片、视频和纯文本文件": [
     "apps/web/src/components/agent/conversation.vue"
   ],
   "附件不能为空且不能超过 100 MB": [
     "apps/web/src/components/agent/conversation.vue"
   ],
+  "文本附件不能超过 400000 字节": [
+    "apps/web/src/components/agent/conversation.vue",
+    "apps/web/src/components/agent/textAttachments.ts"
+  ],
   "每条消息最多添加 20 个附件": [
-    "apps/web/src/components/agent/conversation.vue"
+    "apps/web/src/components/agent/conversation.vue",
+    "apps/web/src/pages/home/index.vue"
   ],
   "新对话": [
     "apps/web/src/components/agent/index.vue",
@@ -260,10 +299,6 @@
   ],
   "提及内容": [
     "apps/web/src/components/agent/mentionContent.vue"
-  ],
-  "正在读取…": [
-    "apps/web/src/components/agent/mentionContent.vue",
-    "apps/web/src/components/settings/panels/personalization.vue"
   ],
   "…（预览已截取，发送保留完整内容）": [
     "apps/web/src/components/agent/mentionContent.vue"
@@ -500,6 +535,16 @@
   "关闭对话": [
     "apps/web/src/components/agent/menu.vue"
   ],
+  "关闭": [
+    "apps/web/src/components/agent/menu.vue",
+    "apps/web/src/components/languageSelect.vue",
+    "apps/web/src/components/settings/panels/about.vue",
+    "apps/web/src/components/settings/panels/pluginMarket/a2aSettingsDialog.vue",
+    "apps/web/src/components/settings/panels/pluginMarket/agentEditorDialog.vue",
+    "apps/web/src/components/settings/panels/pluginMarket/index.vue",
+    "apps/web/src/components/settings/panels/pluginMarket/skillEditorDialog.vue",
+    "apps/web/src/components/settings/tfRechargeDialog.vue"
+  ],
   "准备中": [
     "apps/web/src/components/agent/menu.vue"
   ],
@@ -537,6 +582,8 @@
   ],
   "保存": [
     "apps/web/src/components/agent/menu.vue",
+    "apps/web/src/components/assetLibrary/editDialog.vue",
+    "apps/web/src/components/assetLibrary/saveDialog.vue",
     "apps/web/src/components/settings/panels/developer/index.vue",
     "apps/web/src/components/settings/panels/developer/systemPromptDialog.vue",
     "apps/web/src/components/settings/panels/mcp/index.vue",
@@ -545,6 +592,7 @@
     "apps/web/src/components/settings/panels/pluginMarket/a2aSettingsDialog.vue",
     "apps/web/src/components/settings/panels/pluginMarket/pluginConfigDialog.vue",
     "apps/web/src/components/settings/panels/pluginMarket/skillEditorDialog.vue",
+    "apps/web/src/components/settings/panels/users/index.vue",
     "apps/web/src/components/settings/tfAccount.vue",
     "apps/web/src/pages/home/index.vue",
     "apps/web/src/pages/home/workspacePicker.vue",
@@ -584,6 +632,12 @@
   "加载技能失败，请重新打开重试": [
     "apps/web/src/components/agent/skillMenu.vue"
   ],
+  "文本附件不能超过 100000 字符": [
+    "apps/web/src/components/agent/textAttachments.ts"
+  ],
+  "粘贴文本": [
+    "apps/web/src/components/agent/textAttachments.ts"
+  ],
   "工具界面加载失败，请停止后重试：{0}": [
     "apps/web/src/components/agent/toolMessage.vue"
   ],
@@ -619,6 +673,84 @@
   ],
   "已中断": [
     "apps/web/src/components/agent/toolMessage.vue"
+  ],
+  "编辑资产": [
+    "apps/web/src/components/assetLibrary/editDialog.vue"
+  ],
+  "资产名称": [
+    "apps/web/src/components/assetLibrary/editDialog.vue",
+    "apps/web/src/components/assetLibrary/saveDialog.vue"
+  ],
+  "分类": [
+    "apps/web/src/components/assetLibrary/editDialog.vue",
+    "apps/web/src/components/assetLibrary/saveDialog.vue"
+  ],
+  "标签": [
+    "apps/web/src/components/assetLibrary/editDialog.vue",
+    "apps/web/src/components/assetLibrary/saveDialog.vue"
+  ],
+  "回车添加标签": [
+    "apps/web/src/components/assetLibrary/editDialog.vue",
+    "apps/web/src/components/assetLibrary/saveDialog.vue"
+  ],
+  "音色 ID": [
+    "apps/web/src/components/assetLibrary/editDialog.vue",
+    "apps/web/src/components/assetLibrary/saveDialog.vue"
+  ],
+  "描述": [
+    "apps/web/src/components/assetLibrary/editDialog.vue",
+    "apps/web/src/components/assetLibrary/saveDialog.vue"
+  ],
+  "资产文件": [
+    "apps/web/src/components/assetLibrary/editDialog.vue"
+  ],
+  "添加文件": [
+    "apps/web/src/components/assetLibrary/editDialog.vue"
+  ],
+  "用途标注": [
+    "apps/web/src/components/assetLibrary/editDialog.vue"
+  ],
+  "删除 {0}": [
+    "apps/web/src/components/assetLibrary/editDialog.vue",
+    "apps/web/src/components/settings/panels/developer/index.vue",
+    "apps/web/src/pages/assets/index.vue",
+    "apps/web/src/pages/home/workspacePicker.vue",
+    "apps/web/src/pages/workspace/panels/canvas/components/canvasMenu.vue"
+  ],
+  "确定删除资产文件「{0}」？": [
+    "apps/web/src/components/assetLibrary/editDialog.vue"
+  ],
+  "删除文件": [
+    "apps/web/src/components/assetLibrary/editDialog.vue"
+  ],
+  "文件已删除": [
+    "apps/web/src/components/assetLibrary/editDialog.vue"
+  ],
+  "删除失败": [
+    "apps/web/src/components/assetLibrary/editDialog.vue"
+  ],
+  "资产已更新": [
+    "apps/web/src/components/assetLibrary/editDialog.vue"
+  ],
+  "保存失败": [
+    "apps/web/src/components/assetLibrary/editDialog.vue",
+    "apps/web/src/components/assetLibrary/saveDialog.vue",
+    "apps/web/src/components/settings/panels/pluginMarket/agentEditorDialog.vue"
+  ],
+  "存为资产": [
+    "apps/web/src/components/assetLibrary/saveDialog.vue"
+  ],
+  "给这份资产起个名字": [
+    "apps/web/src/components/assetLibrary/saveDialog.vue"
+  ],
+  "供应商的音色标识，供语音生成使用": [
+    "apps/web/src/components/assetLibrary/saveDialog.vue"
+  ],
+  "描述这份资产的用途与特征": [
+    "apps/web/src/components/assetLibrary/saveDialog.vue"
+  ],
+  "已存为资产": [
+    "apps/web/src/components/assetLibrary/saveDialog.vue"
   ],
   "语言": [
     "apps/web/src/components/languageSelect.vue",
@@ -683,6 +815,9 @@
   "{0}，有新版本可用": [
     "apps/web/src/components/settings/index.vue"
   ],
+  "退出登录": [
+    "apps/web/src/components/settings/index.vue"
+  ],
   "界面设置": [
     "apps/web/src/components/settings/index.vue"
   ],
@@ -708,6 +843,9 @@
   "个性化": [
     "apps/web/src/components/settings/index.vue"
   ],
+  "用户管理": [
+    "apps/web/src/components/settings/index.vue"
+  ],
   "隐私": [
     "apps/web/src/components/settings/index.vue"
   ],
@@ -715,6 +853,12 @@
     "apps/web/src/components/settings/index.vue"
   ],
   "关于": [
+    "apps/web/src/components/settings/index.vue"
+  ],
+  "确定要退出当前账号吗？": [
+    "apps/web/src/components/settings/index.vue"
+  ],
+  "退出": [
     "apps/web/src/components/settings/index.vue"
   ],
   "请选择非空且不超过 20 MB 的插件文件": [
@@ -740,6 +884,9 @@
   "自定义源": [
     "apps/web/src/components/settings/panels/about.vue"
   ],
+  "查看更新失败原因": [
+    "apps/web/src/components/settings/panels/about.vue"
+  ],
   "更新已就绪": [
     "apps/web/src/components/settings/panels/about.vue"
   ],
@@ -750,6 +897,9 @@
     "apps/web/src/components/settings/panels/about.vue"
   ],
   "构建标识": [
+    "apps/web/src/components/settings/panels/about.vue"
+  ],
+  "上次更新未成功": [
     "apps/web/src/components/settings/panels/about.vue"
   ],
   "GitHub 仓库：HBAI-Ltd/Toonflow-app": [
@@ -770,10 +920,10 @@
   "展示二维码": [
     "apps/web/src/components/settings/panels/about.vue"
   ],
-  "Toonflow 交流群二维码": [
+  "Catflow 交流群二维码": [
     "apps/web/src/components/settings/panels/about.vue"
   ],
-  "Toonflow 是为爱发电的开源项目。欢迎文明交流、友善反馈；回复可能需要一些时间，请避免责问或命令式沟通，感谢你的理解与尊重。": [
+  "Catflow 是为爱发电的开源项目。欢迎文明交流、友善反馈；回复可能需要一些时间，请避免责问或命令式沟通，感谢你的理解与尊重。": [
     "apps/web/src/components/settings/panels/about.vue",
     "apps/web/src/pages/workspace/panels/canvas/components/canvasControls.vue"
   ],
@@ -789,7 +939,7 @@
   "成为赞助商": [
     "apps/web/src/components/settings/panels/about.vue"
   ],
-  "Toonflow 商务合作二维码": [
+  "Catflow 商务合作二维码": [
     "apps/web/src/components/settings/panels/about.vue"
   ],
   "查看 {0} 详情": [
@@ -799,6 +949,9 @@
     "apps/web/src/components/settings/panels/about.vue"
   ],
   "最新版本": [
+    "apps/web/src/components/settings/panels/about.vue"
+  ],
+  "重新读取状态": [
     "apps/web/src/components/settings/panels/about.vue"
   ],
   "重启并更新": [
@@ -811,6 +964,9 @@
     "apps/web/src/components/settings/panels/about.vue"
   ],
   "正在检查更新": [
+    "apps/web/src/components/settings/panels/about.vue"
+  ],
+  "正在读取更新状态": [
     "apps/web/src/components/settings/panels/about.vue"
   ],
   "正在重启并更新": [
@@ -829,6 +985,9 @@
     "apps/web/src/components/settings/panels/about.vue"
   ],
   "正在获取最新版本信息…": [
+    "apps/web/src/components/settings/panels/about.vue"
+  ],
+  "正在确认客户端的更新状态，请稍候…": [
     "apps/web/src/components/settings/panels/about.vue"
   ],
   "客户端即将关闭，更新完成后会自动重新打开。": [
@@ -978,14 +1137,11 @@
     "apps/web/src/components/settings/panels/mediaModel/editProviderDialog.vue",
     "apps/web/src/components/settings/panels/mediaModel/index.vue",
     "apps/web/src/components/settings/panels/personalization.vue",
+    "apps/web/src/components/settings/panels/users/index.vue",
     "apps/web/src/lib/canvasShortcuts.ts",
+    "apps/web/src/pages/assets/index.vue",
     "apps/web/src/pages/home/workspacePicker.vue",
     "apps/web/src/pages/workspace/panels/canvas/components/assetMenu.vue",
-    "apps/web/src/pages/workspace/panels/canvas/components/canvasMenu.vue"
-  ],
-  "删除 {0}": [
-    "apps/web/src/components/settings/panels/developer/index.vue",
-    "apps/web/src/pages/home/workspacePicker.vue",
     "apps/web/src/pages/workspace/panels/canvas/components/canvasMenu.vue"
   ],
   "{0} 的值": [
@@ -1574,7 +1730,10 @@
     "apps/web/src/components/settings/panels/mediaModel/editProviderDialog.vue",
     "apps/web/src/components/settings/panels/personalization.vue",
     "apps/web/src/components/settings/panels/pluginMarket/index.vue",
-    "apps/web/src/pages/workspace/panels/canvas/components/canvasMenu.vue"
+    "apps/web/src/components/settings/panels/users/index.vue",
+    "apps/web/src/pages/assets/index.vue",
+    "apps/web/src/pages/workspace/panels/canvas/components/canvasMenu.vue",
+    "apps/desktop/src/index.ts"
   ],
   "确定删除此供应商及其模型？": [
     "apps/web/src/components/settings/panels/languageModel/index.vue",
@@ -1596,7 +1755,7 @@
   "开启 MCP": [
     "apps/web/src/components/settings/panels/mcp/index.vue"
   ],
-  "允许外部 Coding 工具和 Agent 操作 Toonflow。开启后，将客户端配置添加到对应工具中。": [
+  "允许外部 Coding 工具和 Agent 操作 Catflow。开启后，将客户端配置添加到对应工具中。": [
     "apps/web/src/components/settings/panels/mcp/index.vue"
   ],
   "连接状态": [
@@ -1621,7 +1780,7 @@
     "apps/web/src/components/settings/panels/mcp/index.vue",
     "apps/web/src/pages/workspace/index.vue"
   ],
-  "画布与节点操作需要 Toonflow 界面保持打开。": [
+  "画布与节点操作需要 Catflow 界面保持打开。": [
     "apps/web/src/components/settings/panels/mcp/index.vue"
   ],
   "服务地址": [
@@ -1652,7 +1811,7 @@
   "HTTP 配置包含访问凭证，请仅提供给可信的客户端。": [
     "apps/web/src/components/settings/panels/mcp/index.vue"
   ],
-  "教外部 Agent 组合使用 Toonflow 工具。将 SKILL.md 安装到对应 Coding 工具的技能目录。": [
+  "教外部 Agent 组合使用 Catflow 工具。将 SKILL.md 安装到对应 Coding 工具的技能目录。": [
     "apps/web/src/components/settings/panels/mcp/index.vue"
   ],
   "查看 Skill": [
@@ -1660,7 +1819,8 @@
   ],
   "复制": [
     "apps/web/src/components/settings/panels/mcp/index.vue",
-    "apps/web/src/lib/i18n.ts"
+    "apps/web/src/lib/i18n.ts",
+    "apps/desktop/src/index.ts"
   ],
   "导出 Skill": [
     "apps/web/src/components/settings/panels/mcp/index.vue"
@@ -1947,25 +2107,25 @@
   "模型配置无效": [
     "apps/web/src/components/settings/panels/mediaModel/modelEditorDialog.vue"
   ],
-  "Toonflow 说明": [
+  "Catflow 说明": [
     "apps/web/src/components/settings/panels/personalization.vue"
   ],
   "为所有聊天提供额外说明和上下文。支持 Markdown，保存后下一次发送消息时生效。": [
     "apps/web/src/components/settings/panels/personalization.vue"
   ],
-  "Toonflow 说明内容": [
+  "Catflow 说明内容": [
     "apps/web/src/components/settings/panels/personalization.vue"
   ],
   "有未保存的修改": [
     "apps/web/src/components/settings/panels/personalization.vue"
   ],
-  "重新加载 Toonflow 说明": [
+  "重新加载 Catflow 说明": [
     "apps/web/src/components/settings/panels/personalization.vue"
   ],
   "重新加载": [
     "apps/web/src/components/settings/panels/personalization.vue"
   ],
-  "保存 Toonflow 说明": [
+  "保存 Catflow 说明": [
     "apps/web/src/components/settings/panels/personalization.vue"
   ],
   "启用本地记忆": [
@@ -1983,7 +2143,7 @@
   "查看": [
     "apps/web/src/components/settings/panels/personalization.vue"
   ],
-  "Toonflow 记忆": [
+  "Catflow 记忆": [
     "apps/web/src/components/settings/panels/personalization.vue"
   ],
   "本地记忆内容": [
@@ -2038,7 +2198,7 @@
   "读取本地记忆失败，请重试": [
     "apps/web/src/components/settings/panels/personalization.vue"
   ],
-  "将删除所有工作区共用的本地记忆及未保存的记忆修改，此操作无法撤销。Toonflow 说明会保留。": [
+  "将删除所有工作区共用的本地记忆及未保存的记忆修改，此操作无法撤销。Catflow 说明会保留。": [
     "apps/web/src/components/settings/panels/personalization.vue"
   ],
   "本地记忆已更新，未删除任何内容。请重新查看后重试。": [
@@ -2142,9 +2302,6 @@
     "apps/web/src/components/settings/panels/pluginMarket/agentEditorDialog.vue",
     "apps/web/src/components/settings/panels/pluginMarket/skillEditorDialog.vue"
   ],
-  "保存失败": [
-    "apps/web/src/components/settings/panels/pluginMarket/agentEditorDialog.vue"
-  ],
   "已保存": [
     "apps/web/src/components/settings/panels/pluginMarket/agentEditorDialog.vue",
     "apps/web/src/components/settings/panels/pluginMarket/skillEditorDialog.vue",
@@ -2234,7 +2391,7 @@
   "下载版本：{0} · {1}": [
     "apps/web/src/components/settings/panels/pluginMarket/ffmpeg.vue"
   ],
-  "保存在当前 Toonflow 服务的数据目录，下载后自动复用。": [
+  "保存在当前 Catflow 服务的数据目录，下载后自动复用。": [
     "apps/web/src/components/settings/panels/pluginMarket/ffmpeg.vue"
   ],
   "下载版": [
@@ -2246,13 +2403,13 @@
   "不可用": [
     "apps/web/src/components/settings/panels/pluginMarket/ffmpeg.vue"
   ],
-  "优先使用已下载的版本；未下载时，从当前 Toonflow 服务的系统 PATH 查找。": [
+  "优先使用已下载的版本；未下载时，从当前 Catflow 服务的系统 PATH 查找。": [
     "apps/web/src/components/settings/panels/pluginMarket/ffmpeg.vue"
   ],
   "仅使用此页面下载的版本。": [
     "apps/web/src/components/settings/panels/pluginMarket/ffmpeg.vue"
   ],
-  "仅从当前 Toonflow 服务的系统 PATH 查找 FFmpeg 与 ffprobe。": [
+  "仅从当前 Catflow 服务的系统 PATH 查找 FFmpeg 与 ffprobe。": [
     "apps/web/src/components/settings/panels/pluginMarket/ffmpeg.vue"
   ],
   "等待下载": [
@@ -2317,7 +2474,9 @@
     "apps/web/src/components/settings/panels/pluginMarket/index.vue"
   ],
   "全部": [
-    "apps/web/src/components/settings/panels/pluginMarket/index.vue"
+    "apps/web/src/components/settings/panels/pluginMarket/index.vue",
+    "apps/web/src/pages/assets/index.vue",
+    "apps/web/src/pages/workspace/panels/canvas/components/assetPanel.vue"
   ],
   "测试阶段，暂未开放": [
     "apps/web/src/components/settings/panels/pluginMarket/index.vue"
@@ -2671,7 +2830,7 @@
   "圆润": [
     "apps/web/src/components/settings/panels/ui.vue"
   ],
-  "Toonflow 每一个灵感，都值得被看见": [
+  "Catflow 每一个灵感，都值得被看见": [
     "apps/web/src/components/settings/panels/ui.vue"
   ],
   "这是当前颜色、字体与圆角的实际效果。": [
@@ -2716,6 +2875,103 @@
   ],
   "松石绿": [
     "apps/web/src/components/settings/panels/ui.vue"
+  ],
+  "新增用户": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "用户列表": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "用户名": [
+    "apps/web/src/components/settings/panels/users/index.vue",
+    "apps/web/src/pages/login/index.vue"
+  ],
+  "显示名": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "角色": [
+    "apps/web/src/components/settings/panels/users/index.vue",
+    "apps/web/src/lib/assetLibrary.ts"
+  ],
+  "管理员": [
+    "apps/web/src/components/settings/panels/users/index.vue",
+    "apps/server/src/utils/users/index.ts"
+  ],
+  "普通用户": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "创建时间": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "最近登录": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "从未登录": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "操作": [
+    "apps/web/src/components/settings/panels/users/index.vue",
+    "apps/web/src/pages/home/workspacePicker.vue"
+  ],
+  "编辑用户 {0}": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "删除用户 {0}": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "编辑用户": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "3-32 位字母、数字或下划线": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "留空时与用户名相同": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "重置密码": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "密码": [
+    "apps/web/src/components/settings/panels/users/index.vue",
+    "apps/web/src/pages/login/index.vue"
+  ],
+  "留空则不修改密码": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "至少 6 位": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "读取用户列表失败": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "用户名只能是 3-32 位字母、数字或下划线": [
+    "apps/web/src/components/settings/panels/users/index.vue",
+    "apps/server/src/routes/users/create.ts"
+  ],
+  "密码至少 6 位": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "新密码至少 6 位": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "保存用户失败": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "用户已保存": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "确定删除用户“{0}”吗？删除后该账号无法登录。": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "删除用户": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "删除用户失败": [
+    "apps/web/src/components/settings/panels/users/index.vue"
+  ],
+  "用户已删除": [
+    "apps/web/src/components/settings/panels/users/index.vue",
+    "apps/server/src/routes/users/remove.ts"
   ],
   "账户余额": [
     "apps/web/src/components/settings/tfAccount.vue"
@@ -2832,6 +3088,15 @@
     "apps/web/src/components/updateBox.vue",
     "apps/web/src/pages/hello/index.vue"
   ],
+  "场景": [
+    "apps/web/src/lib/assetLibrary.ts"
+  ],
+  "道具": [
+    "apps/web/src/lib/assetLibrary.ts"
+  ],
+  "声音": [
+    "apps/web/src/lib/assetLibrary.ts"
+  ],
   "成组": [
     "apps/web/src/lib/canvasShortcuts.ts"
   ],
@@ -2885,16 +3150,21 @@
   "撤销": [
     "apps/web/src/lib/canvasShortcuts.ts",
     "apps/web/src/pages/workspace/panels/canvas/components/nodeMenu.vue",
-    "apps/web/src/pages/workspace/panels/document/index.vue"
+    "apps/web/src/pages/workspace/panels/document/index.vue",
+    "apps/desktop/src/index.ts"
   ],
   "重做": [
     "apps/web/src/lib/canvasShortcuts.ts",
     "apps/web/src/pages/workspace/panels/canvas/components/nodeMenu.vue",
-    "apps/web/src/pages/workspace/panels/document/index.vue"
+    "apps/web/src/pages/workspace/panels/document/index.vue",
+    "apps/desktop/src/index.ts"
   ],
   "画布节点搜索": [
     "apps/web/src/lib/canvasShortcuts.ts",
     "apps/web/src/pages/workspace/panels/canvas/components/nodeSearch.vue"
+  ],
+  "复制到剪贴板": [
+    "apps/web/src/lib/canvasShortcuts.ts"
   ],
   "粘贴节点": [
     "apps/web/src/lib/canvasShortcuts.ts"
@@ -2943,7 +3213,7 @@
   "正在安装插件…": [
     "apps/web/src/lib/desktopProtocol.ts"
   ],
-  "安装接口返回了无效响应，请重启或更新 Toonflow 后重试": [
+  "安装接口返回了无效响应，请重启或更新 Catflow 后重试": [
     "apps/web/src/lib/desktopProtocol.ts"
   ],
   "安装接口未返回有效的插件名称，请先检查插件列表，再重试": [
@@ -2955,10 +3225,10 @@
   "安装请求等待超时，请先查看插件是否已安装，再重试": [
     "apps/web/src/lib/desktopProtocol.ts"
   ],
-  "无法连接 Toonflow 本机服务，请确认应用正常运行后重试": [
+  "无法连接 Catflow 本机服务，请确认应用正常运行后重试": [
     "apps/web/src/lib/desktopProtocol.ts"
   ],
-  "安装接口返回异常（HTTP {0}），请重启或更新 Toonflow 后重试": [
+  "安装接口返回异常（HTTP {0}），请重启或更新 Catflow 后重试": [
     "apps/web/src/lib/desktopProtocol.ts"
   ],
   "{0}“{1}”安装失败：{2}": [
@@ -3003,6 +3273,7 @@
   ],
   "返回": [
     "apps/web/src/lib/i18n.ts",
+    "apps/web/src/pages/assets/index.vue",
     "apps/web/src/pages/hello/index.vue"
   ],
   "确认": [
@@ -3182,7 +3453,7 @@
   "通知桌面就绪失败（{0}）": [
     "apps/web/src/main.ts"
   ],
-  "当前 Microsoft Edge WebView2 Runtime 版本过旧。请以管理员身份运行微软最新版安装器；若仍提示已安装，请修复 WebView2 或联系管理员检查更新服务。更新完成后，请完全退出 Toonflow 再重新打开。": [
+  "当前 Microsoft Edge WebView2 Runtime 版本过旧。请以管理员身份运行微软最新版安装器；若仍提示已安装，请修复 WebView2 或联系管理员检查更新服务。更新完成后，请完全退出 Catflow 再重新打开。": [
     "apps/web/src/main.ts"
   ],
   "需要更新 WebView2": [
@@ -3196,6 +3467,45 @@
   ],
   "前往微软官网更新": [
     "apps/web/src/main.ts"
+  ],
+  "资产库": [
+    "apps/web/src/pages/assets/index.vue",
+    "apps/web/src/pages/home/index.vue",
+    "apps/web/src/pages/workspace/panels/canvas/components/assetPanel.vue",
+    "apps/web/src/pages/workspace/panels/canvas/components/canvasControls.vue"
+  ],
+  "共享的项目资产：角色、场景、道具与声音，可在画布中拖拽复用": [
+    "apps/web/src/pages/assets/index.vue"
+  ],
+  "新增资产": [
+    "apps/web/src/pages/assets/index.vue"
+  ],
+  "资产分类": [
+    "apps/web/src/pages/assets/index.vue",
+    "apps/web/src/pages/workspace/panels/canvas/components/assetPanel.vue"
+  ],
+  "搜索名称、描述或标签": [
+    "apps/web/src/pages/assets/index.vue"
+  ],
+  "搜索资产": [
+    "apps/web/src/pages/assets/index.vue",
+    "apps/web/src/pages/workspace/panels/canvas/components/assetPanel.vue"
+  ],
+  "还没有资产。可以在画布生成节点菜单里「存为资产」，或在这里上传文件新增。": [
+    "apps/web/src/pages/assets/index.vue"
+  ],
+  "编辑 {0}": [
+    "apps/web/src/pages/assets/index.vue",
+    "apps/web/src/pages/workspace/panels/canvas/components/canvasMenu.vue"
+  ],
+  "确定删除资产「{0}」？删除后无法恢复。": [
+    "apps/web/src/pages/assets/index.vue"
+  ],
+  "删除资产": [
+    "apps/web/src/pages/assets/index.vue"
+  ],
+  "资产已删除": [
+    "apps/web/src/pages/assets/index.vue"
   ],
   "登录 TF-Router": [
     "apps/web/src/pages/hello/index.vue"
@@ -3230,7 +3540,7 @@
   "稍后配置": [
     "apps/web/src/pages/hello/index.vue"
   ],
-  "© {0} Toonflow · 保留所有权利。": [
+  "© {0} Catflow · 保留所有权利。": [
     "apps/web/src/pages/hello/index.vue"
   ],
   "保存引导状态失败，请重试": [
@@ -3240,7 +3550,8 @@
     "apps/web/src/pages/hello/index.vue"
   ],
   "登录失败": [
-    "apps/web/src/pages/hello/index.vue"
+    "apps/web/src/pages/hello/index.vue",
+    "apps/web/src/stores/auth.ts"
   ],
   "注册成功，请继续登录以自动配置模型": [
     "apps/web/src/pages/hello/index.vue"
@@ -3266,9 +3577,6 @@
   "设置，有新版本可用": [
     "apps/web/src/pages/home/index.vue",
     "apps/web/src/pages/workspace/components/workspaceMenu.vue"
-  ],
-  "点个 Star 支持一下": [
-    "apps/web/src/pages/home/index.vue"
   ],
   "创建项目": [
     "apps/web/src/pages/home/index.vue"
@@ -3363,6 +3671,12 @@
   "从一句话开始，搭建你的创作工作流…": [
     "apps/web/src/pages/home/index.vue"
   ],
+  "添加文本附件失败，请重试": [
+    "apps/web/src/pages/home/index.vue"
+  ],
+  "取回文本失败，请重试": [
+    "apps/web/src/pages/home/index.vue"
+  ],
   "项目“{0}”的文件夹不存在，是否重新选择文件夹？": [
     "apps/web/src/pages/home/index.vue"
   ],
@@ -3420,9 +3734,6 @@
     "apps/web/src/pages/home/workspacePicker.vue",
     "apps/web/src/pages/workspace/panels/canvas/components/assetMenu.vue"
   ],
-  "操作": [
-    "apps/web/src/pages/home/workspacePicker.vue"
-  ],
   "重命名 {0}": [
     "apps/web/src/pages/home/workspacePicker.vue"
   ],
@@ -3450,6 +3761,30 @@
   ],
   "操作失败，请重试": [
     "apps/web/src/pages/home/workspacePicker.vue"
+  ],
+  "登录 Catflow": [
+    "apps/web/src/pages/login/index.vue"
+  ],
+  "验证码": [
+    "apps/web/src/pages/login/index.vue"
+  ],
+  "点击刷新验证码": [
+    "apps/web/src/pages/login/index.vue"
+  ],
+  "验证码图片，点击刷新": [
+    "apps/web/src/pages/login/index.vue"
+  ],
+  "登 录": [
+    "apps/web/src/pages/login/index.vue"
+  ],
+  "获取验证码失败，请刷新页面重试": [
+    "apps/web/src/pages/login/index.vue"
+  ],
+  "请填写用户名、密码和验证码": [
+    "apps/web/src/pages/login/index.vue"
+  ],
+  "登录失败，请重试": [
+    "apps/web/src/pages/login/index.vue"
   ],
   "AI 对话": [
     "apps/web/src/pages/workspace/components/floatingAgent.vue"
@@ -3541,6 +3876,9 @@
   "节点 {0} 的分组关系无效": [
     "apps/web/src/pages/workspace/panels/canvas/arrangeSelection.ts"
   ],
+  "{0}：该资产没有可放置的媒体文件": [
+    "apps/web/src/pages/workspace/panels/canvas/canvasDrop.ts"
+  ],
   "{0}：该文件类型暂不支持导入画布": [
     "apps/web/src/pages/workspace/panels/canvas/canvasDrop.ts"
   ],
@@ -3612,7 +3950,8 @@
     "apps/web/src/pages/workspace/panels/canvas/components/assetLibrary.vue"
   ],
   "关闭音频预览": [
-    "apps/web/src/pages/workspace/panels/canvas/components/assetLibrary.vue"
+    "apps/web/src/pages/workspace/panels/canvas/components/assetLibrary.vue",
+    "apps/web/src/pages/workspace/panels/canvas/components/assetPanel.vue"
   ],
   "保存到素材库": [
     "apps/web/src/pages/workspace/panels/canvas/components/assetLibrary.vue"
@@ -3668,7 +4007,17 @@
   "删除素材": [
     "apps/web/src/pages/workspace/panels/canvas/components/assetMenu.vue"
   ],
+  "关闭资产库": [
+    "apps/web/src/pages/workspace/panels/canvas/components/assetPanel.vue",
+    "apps/web/src/pages/workspace/panels/canvas/components/canvasControls.vue"
+  ],
+  "暂无资产，生成节点菜单里选\"存为资产\"即可入库": [
+    "apps/web/src/pages/workspace/panels/canvas/components/assetPanel.vue"
+  ],
   "打开素材库": [
+    "apps/web/src/pages/workspace/panels/canvas/components/canvasControls.vue"
+  ],
+  "打开资产库": [
     "apps/web/src/pages/workspace/panels/canvas/components/canvasControls.vue"
   ],
   "撤销整理": [
@@ -3722,7 +4071,7 @@
   "使用教程": [
     "apps/web/src/pages/workspace/panels/canvas/components/canvasControls.vue"
   ],
-  "Toonflow 需求/BUG反馈表": [
+  "Catflow 需求/BUG反馈表": [
     "apps/web/src/pages/workspace/panels/canvas/components/canvasControls.vue"
   ],
   "汇报 BUG": [
@@ -3759,9 +4108,6 @@
     "apps/web/src/pages/workspace/panels/canvas/components/canvasMenu.vue"
   ],
   "画布名称": [
-    "apps/web/src/pages/workspace/panels/canvas/components/canvasMenu.vue"
-  ],
-  "编辑 {0}": [
     "apps/web/src/pages/workspace/panels/canvas/components/canvasMenu.vue"
   ],
   "至少保留一个画布": [
@@ -3954,6 +4300,9 @@
   "断开连接": [
     "apps/web/src/pages/workspace/panels/canvas/index.vue"
   ],
+  "读取节点输出失败": [
+    "apps/web/src/pages/workspace/panels/canvas/index.vue"
+  ],
   "画布菜单尚未就绪": [
     "apps/web/src/pages/workspace/panels/canvas/index.vue"
   ],
@@ -3992,6 +4341,12 @@
     "apps/web/src/pages/workspace/panels/canvas/index.vue"
   ],
   "画布保存已取消": [
+    "apps/web/src/pages/workspace/panels/canvas/index.vue"
+  ],
+  "节点已变化，请重新复制": [
+    "apps/web/src/pages/workspace/panels/canvas/index.vue"
+  ],
+  "节点复制失败": [
     "apps/web/src/pages/workspace/panels/canvas/index.vue"
   ],
   "剪贴板中没有可粘贴的节点命令": [
@@ -4290,6 +4645,9 @@
   "复制失败，请检查剪贴板权限": [
     "apps/web/src/pages/workspace/panels/document/index.vue"
   ],
+  "暂时无法确认更新结果，请稍后重新读取状态，或重新打开客户端。": [
+    "apps/web/src/stores/desktopUpdate.ts"
+  ],
   "读取设置失败": [
     "apps/web/src/stores/settings.ts"
   ],
@@ -4427,10 +4785,16 @@
     "apps/server/src/agent/runtime/delegation.ts",
     "apps/server/src/agent/runtime/subAgent.ts"
   ],
-  "请输入消息、提及或添加图片、视频": [
+  "请输入消息、提及或添加附件": [
     "apps/server/src/agent/runtime/index.ts"
   ],
   "附件必须是工作区内非空且不超过 100 MB 的文件": [
+    "apps/server/src/agent/runtime/index.ts"
+  ],
+  "文本附件最多支持 100000 个字符，请缩小内容后重试": [
+    "apps/server/src/agent/runtime/index.ts"
+  ],
+  "文本附件必须是 UTF-8 纯文本": [
     "apps/server/src/agent/runtime/index.ts"
   ],
   "重发需要指定原对话": [
@@ -4746,6 +5110,14 @@
   "你选中的是文件夹，但这里需要的是文件。请重新选择具体文件。": [
     "apps/server/src/app.ts"
   ],
+  "请先登录": [
+    "apps/server/src/lib/auth.ts",
+    "apps/server/src/routes/auth/me.ts",
+    "apps/server/src/routes/users/remove.ts"
+  ],
+  "只有管理员可以管理用户": [
+    "apps/server/src/lib/auth.ts"
+  ],
   "此接口仅在桌面客户端中可用": [
     "apps/server/src/lib/desktop.ts"
   ],
@@ -4821,13 +5193,23 @@
   "模型上下文不能超过 8 MB": [
     "apps/server/src/routes/ai/generate.ts"
   ],
+  "请发送文件原始内容": [
+    "apps/server/src/routes/assets/library/upload.ts",
+    "apps/server/src/routes/assets/save.ts",
+    "apps/server/src/routes/workspaces/files/write.ts"
+  ],
   "只能读取文件": [
     "apps/server/src/routes/assets/read.ts",
     "apps/server/src/routes/workspaces/files/read.ts"
   ],
-  "请发送文件原始内容": [
-    "apps/server/src/routes/assets/save.ts",
-    "apps/server/src/routes/workspaces/files/write.ts"
+  "验证码错误或已过期": [
+    "apps/server/src/routes/auth/login.ts"
+  ],
+  "用户名或密码错误": [
+    "apps/server/src/routes/auth/login.ts"
+  ],
+  "已退出登录": [
+    "apps/server/src/routes/auth/logout.ts"
   ],
   "插件已安装": [
     "apps/server/src/routes/desktop/plugins/install.ts"
@@ -5056,6 +5438,24 @@
   "模型列表分页游标重复": [
     "apps/server/src/utils/ai/models.ts"
   ],
+  "资产记录损坏": [
+    "apps/server/src/utils/assets/library.ts"
+  ],
+  "清理无效更新核验记录失败：": [
+    "apps/server/src/utils/desktop/index.ts"
+  ],
+  "清理已取消更新核验记录失败：": [
+    "apps/server/src/utils/desktop/index.ts"
+  ],
+  "清理已完成更新核验记录失败：": [
+    "apps/server/src/utils/desktop/index.ts"
+  ],
+  "更新重启后的版本或构建号与目标不一致，请下载完整安装包重新安装。": [
+    "apps/server/src/utils/desktop/index.ts"
+  ],
+  "保存更新核验失败信息失败：": [
+    "apps/server/src/utils/desktop/index.ts"
+  ],
   "请选择 .ts 供应商文件": [
     "apps/server/src/utils/desktop/index.ts"
   ],
@@ -5084,6 +5484,9 @@
   "请先下载更新。": [
     "apps/server/src/utils/desktop/index.ts"
   ],
+  "更新包缺少目标版本或构建号，请重新下载。": [
+    "apps/server/src/utils/desktop/index.ts"
+  ],
   "当前操作需要 FFmpeg，请在插件市场下载安装或配置可用版本后重试。": [
     "apps/server/src/utils/ffmpeg/index.ts"
   ],
@@ -5098,7 +5501,7 @@
     "apps/server/src/utils/ffmpeg/index.ts",
     "packages/ffmpeg/src/index.ts"
   ],
-  "只允许 Toonflow 页面访问控制连接": [
+  "只允许 Catflow 页面访问控制连接": [
     "apps/server/src/utils/mcp/control.ts"
   ],
   "页面来源无效": [
@@ -5111,16 +5514,16 @@
     "apps/server/src/utils/mcp/control.ts",
     "packages/mcp/src/index.ts"
   ],
-  "Toonflow 页面已断开，请重新调用 getAppState": [
+  "Catflow 页面已断开，请重新调用 getAppState": [
     "apps/server/src/utils/mcp/control.ts"
   ],
-  "存在多个 Toonflow 页面，请用 target.connectionId 指定操作目标": [
+  "存在多个 Catflow 页面，请用 target.connectionId 指定操作目标": [
     "apps/server/src/utils/mcp/control.ts"
   ],
   "控制连接已存在": [
     "apps/server/src/utils/mcp/control.ts"
   ],
-  "Toonflow 页面已断开，操作已取消": [
+  "Catflow 页面已断开，操作已取消": [
     "apps/server/src/utils/mcp/control.ts"
   ],
   "控制命令已取消或不存在": [
@@ -5240,7 +5643,7 @@
   "未知应用操作：{0}": [
     "apps/server/src/utils/mcp/operations.ts"
   ],
-  "Toonflow 服务尚未就绪": [
+  "Catflow 服务尚未就绪": [
     "apps/server/src/utils/mcp/operations.ts"
   ],
   "素材文件不能超过 20 MB": [
@@ -5288,7 +5691,7 @@
   "不能通过 MCP 修改连接凭证或项目列表": [
     "apps/server/src/utils/mcp/tools.ts"
   ],
-  "在目标 Toonflow 页面打开已有工作目录，并等待工作区就绪；操作前获取 getAppState 的 connectionId。": [
+  "在目标 Catflow 页面打开已有工作目录，并等待工作区就绪；操作前获取 getAppState 的 connectionId。": [
     "apps/server/src/utils/mcp/tools.ts"
   ],
   "切换工作区的 canvas 画布或 document 文档面板，先保存当前编辑。": [
@@ -5309,13 +5712,13 @@
   "合并保存指定顶层设置项，同时更新页面；不修改 mcp 凭证与 stores 项目列表，嵌套设置应先读取再合并。": [
     "apps/server/src/utils/mcp/tools.ts"
   ],
-  "文件正在 Toonflow 中打开，请使用画布或文档工具修改，关闭后再执行文件操作": [
+  "文件正在 Catflow 中打开，请使用画布或文档工具修改，关闭后再执行文件操作": [
     "apps/server/src/utils/mcp/tools.ts"
   ],
-  "列出连接的 Toonflow 页面及其 connectionId、工作目录、画布、项目列表和节点能力。多个页面时必须用 target.connectionId 明确操作对象；无页面连接时只有显式 target.directory 的服务端工具可用。": [
+  "列出连接的 Catflow 页面及其 connectionId、工作目录、画布、项目列表和节点能力。多个页面时必须用 target.connectionId 明确操作对象；无页面连接时只有显式 target.directory 的服务端工具可用。": [
     "apps/server/src/utils/mcp/tools.ts"
   ],
-  "请先打开 Toonflow 桌面或网页": [
+  "请先打开 Catflow 桌面或网页": [
     "apps/server/src/utils/mcp/tools.ts"
   ],
   "尚未绑定画布": [
@@ -5324,7 +5727,7 @@
   "MCP 工具名称重复：{0}": [
     "apps/server/src/utils/mcp/tools.ts"
   ],
-  "工具已禁用，或所需 Toonflow 页面未连接，请重新读取工具列表": [
+  "工具已禁用，或所需 Catflow 页面未连接，请重新读取工具列表": [
     "apps/server/src/utils/mcp/tools.ts"
   ],
   "MCP 不提供内置 Agent 会话能力：{0}": [
@@ -5360,7 +5763,7 @@
   "应用操作不存在，请查询 listAppOperations": [
     "apps/server/src/utils/mcp/tools.ts"
   ],
-  "按用户请求调用 Toonflow 内置 Agent，等待本轮完成并返回对话文件与回复；会使用配置的模型。外部 Agent 可直接操作其他工具，仅需要委托内置 Agent 时调用。支持 MCP 取消，历史保存到工作区。": [
+  "按用户请求调用 Catflow 内置 Agent，等待本轮完成并返回对话文件与回复；会使用配置的模型。外部 Agent 可直接操作其他工具，仅需要委托内置 Agent 时调用。支持 MCP 取消，历史保存到工作区。": [
     "apps/server/src/utils/mcp/tools.ts"
   ],
   "音频输入必须是 Uint8Array": [
@@ -5477,6 +5880,12 @@
   "生成结果不是支持的图片、视频或音频格式": [
     "apps/server/src/utils/media/generation.ts"
   ],
+  "供应商不支持任务恢复": [
+    "apps/server/src/utils/media/generation.ts"
+  ],
+  "超过 48 小时未能取回结果，停止重试": [
+    "apps/server/src/utils/media/generation.ts"
+  ],
   "请输入生成提示词": [
     "apps/server/src/utils/media/generation.ts"
   ],
@@ -5519,7 +5928,7 @@
   "供应商 TypeScript 语法错误：{0}": [
     "apps/server/src/utils/media/provider.ts"
   ],
-  "检测到旧版 Toonflow 供应商 TS，无法在 Toonflow 2.0 中使用。请在「添加自定义媒体供应商」中点击「一键复制提示词」，结合旧代码和接口资料重新生成新版代码后再导入。": [
+  "检测到旧版 Catflow 供应商 TS，无法在 Catflow 2.0 中使用。请在「添加自定义媒体供应商」中点击「一键复制提示词」，结合旧代码和接口资料重新生成新版代码后再导入。": [
     "apps/server/src/utils/media/provider.ts"
   ],
   "供应商须通过 export default 导出对象": [
@@ -5705,7 +6114,7 @@
   "节点文件实际是 HTML 网页，不是节点脚本，请重新上传构建生成的 .umd.js 文件": [
     "apps/server/src/utils/plugins/install.ts"
   ],
-  "文件不是兼容的 Toonflow 节点，请使用节点脚手架构建生成的 .umd.js 文件": [
+  "文件不是兼容的 Catflow 节点，请使用节点脚手架构建生成的 .umd.js 文件": [
     "apps/server/src/utils/plugins/install.ts"
   ],
   "文件名与节点导出名不一致：{0} 需要导出 toonflowNodes.{1}，请按实际节点名修改文件名": [
@@ -6041,6 +6450,18 @@
   "团队文件路径无效": [
     "apps/server/src/utils/teams/install.ts"
   ],
+  "用户名已存在": [
+    "apps/server/src/utils/users/index.ts"
+  ],
+  "用户不存在": [
+    "apps/server/src/utils/users/index.ts"
+  ],
+  "系统至少需要保留一个管理员": [
+    "apps/server/src/utils/users/index.ts"
+  ],
+  "不能删除当前登录的账号": [
+    "apps/server/src/utils/users/index.ts"
+  ],
   "不能通过符号链接操作文件": [
     "apps/server/src/utils/workspace/files.ts"
   ],
@@ -6075,6 +6496,15 @@
   "读取启动设置失败，使用默认启动动画：": [
     "apps/desktop/src/index.ts"
   ],
+  "剪切": [
+    "apps/desktop/src/index.ts"
+  ],
+  "粘贴": [
+    "apps/desktop/src/index.ts"
+  ],
+  "全选": [
+    "apps/desktop/src/index.ts"
+  ],
   "原生启动画面创建失败：": [
     "apps/desktop/src/index.ts"
   ],
@@ -6091,6 +6521,9 @@
     "apps/desktop/src/index.ts"
   ],
   "桌面启动失败：": [
+    "apps/desktop/src/index.ts"
+  ],
+  "更新启动结果写入失败：": [
     "apps/desktop/src/index.ts"
   ],
   "安装链接不能超过 8192 个字符": [
@@ -6183,13 +6616,34 @@
   "保存文件失败：{0}": [
     "apps/desktop/src/saveFile.ts"
   ],
+  "更新事务标识无效": [
+    "apps/desktop/src/update/windowsUpdater.ts"
+  ],
   "更新缓存目录不能是链接": [
     "apps/desktop/src/update/windowsUpdater.ts"
   ],
   "桌面安装标识无效，请重新安装": [
     "apps/desktop/src/update/windowsUpdater.ts"
   ],
+  "本次更新失败，已保留旧版本": [
+    "apps/desktop/src/update/windowsUpdater.ts"
+  ],
+  "更新已取消，请重新准备更新": [
+    "apps/desktop/src/update/windowsUpdater.ts"
+  ],
+  "更新助手就绪状态已丢失，请重新准备更新": [
+    "apps/desktop/src/update/windowsUpdater.ts"
+  ],
+  "更新助手就绪状态无效或已过期，请重新准备更新": [
+    "apps/desktop/src/update/windowsUpdater.ts"
+  ],
+  "更新助手已退出，请重新准备更新": [
+    "apps/desktop/src/update/windowsUpdater.ts"
+  ],
   "旧版本文件暂时无法清理：": [
+    "apps/desktop/src/update/windowsUpdater.ts"
+  ],
+  "更新后版本核验失败，已保留旧版本备份，请使用完整安装包更新": [
     "apps/desktop/src/update/windowsUpdater.ts"
   ],
   "上次更新失败，已保留旧版本": [
@@ -6208,6 +6662,9 @@
     "apps/desktop/src/update/windowsUpdater.ts"
   ],
   "更新清单不匹配当前应用": [
+    "apps/desktop/src/update/windowsUpdater.ts"
+  ],
+  "更新源版本 {0} 早于当前版本 {1}，已阻止降级": [
     "apps/desktop/src/update/windowsUpdater.ts"
   ],
   "更新包安装标识不匹配": [
@@ -6252,6 +6709,9 @@
   "更新助手未就绪，已取消本次更新": [
     "apps/desktop/src/update/windowsUpdater.ts"
   ],
+  "更新交接已超时，已保留旧版本，请重试": [
+    "apps/desktop/src/update/windowsUpdater.ts"
+  ],
   "工具不存在或已停用：{0}": [
     "packages/mcp/src/index.ts"
   ],
@@ -6273,7 +6733,7 @@
   "远程 MCP 必须使用 HTTPS；本机连接允许 HTTP": [
     "packages/mcp/src/stdio.ts"
   ],
-  "运行信息文件只允许指向本机 Toonflow": [
+  "运行信息文件只允许指向本机 Catflow": [
     "packages/mcp/src/stdio.ts"
   ],
   "MCP URL 不允许包含账号或密码": [

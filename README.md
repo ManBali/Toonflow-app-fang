@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Toonflow&fontSize=90&fontColor=ffffff&animation=fadeIn&fontAlignY=50" alt="Toonflow" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Catflow&fontSize=90&fontColor=ffffff&animation=fadeIn&fontAlignY=50" alt="Catflow" width="100%" />
 
 <p>
   <a href="https://github.com/HBAI-Ltd/Toonflow-app">
@@ -45,13 +45,13 @@
 <div align="center">
 
 <p align="center">
-  <img src="./docs/images/logo.png" alt="Toonflow Logo" width="120" height="120" />
+  <img src="./docs/images/logo.png" alt="Catflow Logo" width="120" height="120" />
 </p>
 
 <a href="https://git.io/typing-svg">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Toonflow;AI%E7%9F%AD%E5%89%A7%E5%B7%A5%E5%8E%82;%E8%AE%A9%E7%81%B5%E6%84%9F%E6%88%90%E4%B8%BA%E7%9C%8B%E5%BE%97%E8%A7%81%E7%9A%84%E6%95%85%E4%BA%8B" />
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=000000&center=true&vCenter=true&width=600&lines=Toonflow;AI%E7%9F%AD%E5%89%A7%E5%B7%A5%E5%8E%82;%E8%AE%A9%E7%81%B5%E6%84%9F%E6%88%90%E4%B8%BA%E7%9C%8B%E5%BE%97%E8%A7%81%E7%9A%84%E6%95%85%E4%BA%8B" alt="Toonflow · AI 短剧工厂 · 让灵感成为看得见的故事" width="600" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Catflow;AI%E7%9F%AD%E5%89%A7%E5%B7%A5%E5%8E%82;%E8%AE%A9%E7%81%B5%E6%84%9F%E6%88%90%E4%B8%BA%E7%9C%8B%E5%BE%97%E8%A7%81%E7%9A%84%E6%95%85%E4%BA%8B" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=000000&center=true&vCenter=true&width=600&lines=Catflow;AI%E7%9F%AD%E5%89%A7%E5%B7%A5%E5%8E%82;%E8%AE%A9%E7%81%B5%E6%84%9F%E6%88%90%E4%B8%BA%E7%9C%8B%E5%BE%97%E8%A7%81%E7%9A%84%E6%95%85%E4%BA%8B" alt="Catflow · AI 短剧工厂 · 让灵感成为看得见的故事" width="600" />
   </picture>
 </a>
 
@@ -112,12 +112,12 @@
     <tr>
       <td width="50%" align="center">
         <a href="./docs/images/gStar.png">
-          <img src="./docs/images/gStar.png" alt="Toonflow AtomGit G-Star 认证证书 No.540" width="100%" />
+          <img src="./docs/images/gStar.png" alt="Catflow AtomGit G-Star 认证证书 No.540" width="100%" />
         </a>
       </td>
       <td width="50%" align="center">
         <a href="./docs/images/gvp.jpg">
-          <img src="./docs/images/gvp.jpg" alt="Toonflow Gitee GVP 认证证书" width="100%" />
+          <img src="./docs/images/gvp.jpg" alt="Catflow Gitee GVP 认证证书" width="100%" />
         </a>
       </td>
     </tr>
@@ -136,7 +136,7 @@
 
 ## 1. 💛 赞助与支持
 
-感谢以下合作伙伴对 Toonflow 开源项目的支持。
+感谢以下合作伙伴对 Catflow 开源项目的支持。
 
 <table>
   <tr>
@@ -180,7 +180,7 @@
 
 ## 2. 🌟 亮点
 
-Toonflow 是面向短剧、漫剧与短视频制作的开源 AI 创作平台，把剧本、资产与视频片段整合进同一张无限画布。
+Catflow 是面向短剧、漫剧与短视频制作的开源 AI 创作平台，把剧本、资产与视频片段整合进同一张无限画布。
 
 | 能力 | 说明 |
 | --- | --- |
@@ -204,25 +204,25 @@ Toonflow 是面向短剧、漫剧与短视频制作的开源 AI 创作平台，�
 
 <div align="center">
 
-<a href="./docs/images/screenshots/projectHome.png"><img src="./docs/images/screenshots/projectHome.png" alt="Toonflow 项目首页与灵感创作" width="80%" /></a><br /><sub>项目首页与灵感创作</sub>
+<a href="./docs/images/screenshots/projectHome.png"><img src="./docs/images/screenshots/projectHome.png" alt="Catflow 项目首页与灵感创作" width="80%" /></a><br /><sub>项目首页与灵感创作</sub>
 
-<a href="./docs/images/screenshots/quickStart.png"><img src="./docs/images/screenshots/quickStart.png" alt="Toonflow 首次启动与快速配置" width="80%" /></a><br /><sub>首次启动与快速配置</sub>
+<a href="./docs/images/screenshots/quickStart.png"><img src="./docs/images/screenshots/quickStart.png" alt="Catflow 首次启动与快速配置" width="80%" /></a><br /><sub>首次启动与快速配置</sub>
 
-<a href="./docs/images/screenshots/canvasDark.png"><img src="./docs/images/screenshots/canvasDark.png" alt="Toonflow 深色主题画布与 AI 助手" width="80%" /></a><br /><sub>创作画布 · 深色主题</sub>
+<a href="./docs/images/screenshots/canvasDark.png"><img src="./docs/images/screenshots/canvasDark.png" alt="Catflow 深色主题画布与 AI 助手" width="80%" /></a><br /><sub>创作画布 · 深色主题</sub>
 
-<a href="./docs/images/screenshots/canvasLight.png"><img src="./docs/images/screenshots/canvasLight.png" alt="Toonflow 浅色主题画布与 AI 助手" width="80%" /></a><br /><sub>创作画布 · 浅色主题</sub>
+<a href="./docs/images/screenshots/canvasLight.png"><img src="./docs/images/screenshots/canvasLight.png" alt="Catflow 浅色主题画布与 AI 助手" width="80%" /></a><br /><sub>创作画布 · 浅色主题</sub>
 
-<a href="./docs/images/screenshots/assetCanvas.png"><img src="./docs/images/screenshots/assetCanvas.png" alt="Toonflow 角色、场景与道具资产画布" width="80%" /></a><br /><sub>角色、场景与道具资产</sub>
+<a href="./docs/images/screenshots/assetCanvas.png"><img src="./docs/images/screenshots/assetCanvas.png" alt="Catflow 角色、场景与道具资产画布" width="80%" /></a><br /><sub>角色、场景与道具资产</sub>
 
-<a href="./docs/images/screenshots/directorStudio.png"><img src="./docs/images/screenshots/directorStudio.png" alt="Toonflow 3D 导演台与镜头预演" width="80%" /></a><br /><sub>3D 导演台与镜头预演</sub>
+<a href="./docs/images/screenshots/directorStudio.png"><img src="./docs/images/screenshots/directorStudio.png" alt="Catflow 3D 导演台与镜头预演" width="80%" /></a><br /><sub>3D 导演台与镜头预演</sub>
 
-<a href="./docs/images/screenshots/characterImageGeneration.png"><img src="./docs/images/screenshots/characterImageGeneration.png" alt="Toonflow 角色三视图图片生成" width="80%" /></a><br /><sub>角色三视图与图片生成</sub>
+<a href="./docs/images/screenshots/characterImageGeneration.png"><img src="./docs/images/screenshots/characterImageGeneration.png" alt="Catflow 角色三视图图片生成" width="80%" /></a><br /><sub>角色三视图与图片生成</sub>
 
-<a href="./docs/images/screenshots/videoGeneration.png"><img src="./docs/images/screenshots/videoGeneration.png" alt="Toonflow 多参考素材视频生成" width="80%" /></a><br /><sub>多参考素材视频生成</sub>
+<a href="./docs/images/screenshots/videoGeneration.png"><img src="./docs/images/screenshots/videoGeneration.png" alt="Catflow 多参考素材视频生成" width="80%" /></a><br /><sub>多参考素材视频生成</sub>
 
-<a href="./docs/images/screenshots/nodeMenu.png"><img src="./docs/images/screenshots/nodeMenu.png" alt="Toonflow 节点菜单与分组操作" width="80%" /></a><br /><sub>节点菜单与分组操作</sub>
+<a href="./docs/images/screenshots/nodeMenu.png"><img src="./docs/images/screenshots/nodeMenu.png" alt="Catflow 节点菜单与分组操作" width="80%" /></a><br /><sub>节点菜单与分组操作</sub>
 
-<a href="./docs/images/screenshots/pluginMarket.png"><img src="./docs/images/screenshots/pluginMarket.png" alt="Toonflow 插件市场" width="80%" /></a><br /><sub>插件市场</sub>
+<a href="./docs/images/screenshots/pluginMarket.png"><img src="./docs/images/screenshots/pluginMarket.png" alt="Catflow 插件市场" width="80%" /></a><br /><sub>插件市场</sub>
 
 </div>
 
@@ -239,14 +239,14 @@ Toonflow 是面向短剧、漫剧与短视频制作的开源 AI 创作平台，�
 
 Windows 安装器会自动检测并安装 WebView2；如果安装后打开闪退，请前往 [WebView2 下载页面](https://developer.microsoft.com/microsoft-edge/webview2/) 手动安装运行时。
 
-macOS（Apple Silicon）将 Toonflow 拖入“应用程序”后直接打开即可，无需预先执行终端命令。若遇到系统安全提示，请按以下顺序处理。
+macOS（Apple Silicon）将 Catflow 拖入“应用程序”后直接打开即可，无需预先执行终端命令。若遇到系统安全提示，请按以下顺序处理。
 
 <details>
 <summary><strong>macOS 无法安装或打开时的处理方法</strong></summary>
 
-**1. 在“隐私与安全性”中允许 Toonflow**
+**1. 在“隐私与安全性”中允许 Catflow**
 
-如果提示“无法验证开发者”或“Apple 无法检查 App 是否包含恶意软件”，先尝试打开 Toonflow，再前往“系统设置 → 隐私与安全性”，找到 Toonflow 被阻止的提示，点击“仍要打开”，并按提示确认。详见 [Apple 官方说明](https://support.apple.com/zh-cn/102445)。
+如果提示“无法验证开发者”或“Apple 无法检查 App 是否包含恶意软件”，先尝试打开 Catflow，再前往“系统设置 → 隐私与安全性”，找到 Catflow 被阻止的提示，点击“仍要打开”，并按提示确认。详见 [Apple 官方说明](https://support.apple.com/zh-cn/102445)。
 
 **2. 仍因系统隔离限制无法打开时，再尝试移除隔离属性**
 
@@ -285,7 +285,7 @@ sudo spctl --master-disable
 
 ```sh
 git clone https://github.com/HBAI-Ltd/Toonflow-app.git
-cd Toonflow-app
+cd Catflow-app
 docker compose up -d --build
 ```
 
@@ -339,7 +339,7 @@ bun --version
 
 ```sh
 git clone https://github.com/HBAI-Ltd/Toonflow-app.git
-cd Toonflow-app
+cd Catflow-app
 bun install --frozen-lockfile
 
 # 构建内置节点、工具、Web 与 Server
@@ -365,7 +365,7 @@ bun run start:server
 
 ### 4.5 云平台部署
 
-合作平台 [智星云](https://www.ai-galaxy.com/) 提供官方授权的 Toonflow 商用镜像，可直接使用预装环境。具体步骤见 [镜像部署图文教程](https://mp.weixin.qq.com/s/lq9X1ovQ1_TKeXMOLgicKg?scene=1)。
+合作平台 [智星云](https://www.ai-galaxy.com/) 提供官方授权的 Catflow 商用镜像，可直接使用预装环境。具体步骤见 [镜像部署图文教程](https://mp.weixin.qq.com/s/lq9X1ovQ1_TKeXMOLgicKg?scene=1)。
 
 ---
 
@@ -395,19 +395,19 @@ https://github.com/user-attachments/assets/2d9fddac-dfdf-4640-b030-b09d7f7287e9
   </a>
 </p>
 
-TF-Router 是 Toonflow 自营的官方模型中转平台，欢迎使用。其平台源码已完全开源，可自行部署审计：[HBAI-Ltd/TF-Router](https://github.com/HBAI-Ltd/TF-Router)。
+TF-Router 是 Catflow 自营的官方模型中转平台，欢迎使用。其平台源码已完全开源，可自行部署审计：[HBAI-Ltd/TF-Router](https://github.com/HBAI-Ltd/TF-Router)。
 
 <details>
-<summary><strong>致 Toonflow 社区的一封信（发于2026-06-08）</strong></summary>
+<summary><strong>致 Catflow 社区的一封信（发于2026-06-08）</strong></summary>
 
-> ### 致 Toonflow 社区的一封信
+> ### 致 Catflow 社区的一封信
 > 130天。
 > 不长，但足够让我们看清楚一些事情。
 > 从第一行代码提交到今天，我们走过了 130天，发布了 20个版本，留下了 800+ 次Commits，写下了 213,765 行代码、640,810 个字符。
 > 两次重构，一套供应商系统，一个我们引以为傲的工作流程。
 > 我们以为这已经足够了。
 > 但它不够。
-> 有人跟我们说，想在 Toonflow 里加一个自己的模块，改半天看不懂。
+> 有人跟我们说，想在 Catflow 里加一个自己的模块，改半天看不懂。
 > 有人跟我们说，社区太小，遇到问题找不到人。
 > 有人跟我们说，商业条款让他们的项目无法落地。
 > 我们听到了。
@@ -415,7 +415,7 @@ TF-Router 是 Toonflow 自营的官方模型中转平台，欢迎使用。其平
 > 不是因为我们有多少钱。
 > 是因为我们相信这件事值得做。
 > 所以，我们决定进行第三次重构。
-> Toonflow 的每一次重构，都往更开源更开放的方向发展。
+> Catflow 的每一次重构，都往更开源更开放的方向发展。
 > 这一次重构，我们选择：彻底开放。
 > 　
 > 一、MIT License
@@ -450,9 +450,9 @@ TF-Router 是 Toonflow 自营的官方模型中转平台，欢迎使用。其平
 > 重构需要时间。这段时间里，服务器在跑，域名在续费，团队在熬夜，咖啡在涨价。
 > 我们没有融资，没有广告，没有任何隐藏的商业计划。
 > 但我们需要活着，才能继续把这件事做完。
-> 所以我们上线了「Toonflow 官方中转平台」 TF-Router。
+> 所以我们上线了「Catflow 官方中转平台」 TF-Router。
 > 说实话，这个平台我们犹豫了很久。
-> 这个平台，不是我们想做的，我们不想因为一个中转平台，让人觉得 Toonflow 开始"恰饭"了。
+> 这个平台，不是我们想做的，我们不想因为一个中转平台，让人觉得 Catflow 开始"恰饭"了。
 > 这个包袱，我们背了很久。
 > 但很多用户没有开白资格，用不上 Seedance 2.0，反复问我们有没有办法。
 > 我们想了很久，没办法最后只能决定搭一个，我们自己和火山签了Seedance年框合同。
@@ -462,11 +462,11 @@ TF-Router 是 Toonflow 自营的官方模型中转平台，欢迎使用。其平
 > 你不信任我们？没关系，你可以自己看代码，自己部署，自己跑。
 > 这就是我们的态度。
 > 如果你愿意去试用，是对我们目前唯一能支撑下去的方式投一票信任。
-> 如果你不愿意，也没关系，继续用 Toonflow，继续骂我们，继续提需求。
+> 如果你不愿意，也没关系，继续用 Catflow，继续骂我们，继续提需求。
 > 我们都在。
 > 最后说一句真心话
 > 我们只是一群相信「创作工具应该属于每个人」的普通人。
-> Toonflow 从来不是我们的产品。
+> Catflow 从来不是我们的产品。
 > 它是我们一起写的故事。
 > 第三次重构，不是终点。
 > 是我们重新出发的地方。
@@ -482,7 +482,7 @@ TF-Router 是 Toonflow 自营的官方模型中转平台，欢迎使用。其平
 
 拉群小助手:
 
-<img src="./docs/images/qr.png" alt="Toonflow QR" height="400"/>
+<img src="./docs/images/qr.png" alt="Catflow QR" height="400"/>
 
 也可以点击图标加入 Discord：
 
@@ -494,15 +494,15 @@ TF-Router 是 Toonflow 自营的官方模型中转平台，欢迎使用。其平
 
 ## 8. 💌 联系我们
 
-📧 邮箱：[ltlctools@outlook.com](mailto:ltlctools@outlook.com?subject=Toonflow咨询)
+📧 邮箱：[ltlctools@outlook.com](mailto:ltlctools@outlook.com?subject=Catflow咨询)
 
 ---
 
 ## 9. 📜 开源许可
 
-Toonflow 采用 [MIT 许可证](./LICENSE)。第三方依赖和素材遵循各自的许可与版权声明。
+Catflow 采用 [MIT 许可证](./LICENSE)。第三方依赖和素材遵循各自的许可与版权声明。
 
-[![Toonflow Star History](https://api.star-history.com/svg?repos=HBAI-Ltd/Toonflow-app&type=Date)](https://www.star-history.com/#HBAI-Ltd/Toonflow-app&Date)
+[![Catflow Star History](https://api.star-history.com/svg?repos=HBAI-Ltd/Toonflow-app&type=Date)](https://www.star-history.com/#HBAI-Ltd/Toonflow-app&Date)
 
 > **不追溯条款**：v1.0.8 发布前基于 AGPL-3.0 使用的用户，继续按 AGPL-3.0 执行，v1.0.8 ~ v1.1.8 继续按 Apache-2.0 与附加协议执行，不受本协议变更约束。
 
@@ -523,4 +523,4 @@ Copyright © 2026 北京爱阿科技有限公司
 
 </div>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=90&section=footer" alt="Toonflow 页脚" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=90&section=footer" alt="Catflow 页脚" width="100%" />

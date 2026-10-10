@@ -21,6 +21,17 @@
             <icon-folders :size="17" />
           </el-button>
         </el-tooltip>
+        <el-tooltip :showArrow="false" :content="assetPanelVisible ? '关闭资产库' : '打开资产库'" placement="top" :hideAfter="0" :enterable="false" :triggerKeys="[]">
+          <el-button
+            class="toolButton"
+            text
+            :type="assetPanelVisible ? 'primary' : 'default'"
+            :aria-pressed="assetPanelVisible"
+            aria-label="资产库"
+            @click="assetPanelVisible = !assetPanelVisible">
+            <icon-library :size="17" />
+          </el-button>
+        </el-tooltip>
         <!-- trigger 用 contextmenu 是为了让整理按钮只由 arrangeNodes 控制显隐，同时仍保留点击外部自动关闭 -->
         <el-tooltip :showArrow="false" content="整理画布" placement="top" :hideAfter="0" :enterable="false" :triggerKeys="[]" :disabled="undoPopoverVisible">
           <span class="toolTrigger">
@@ -138,7 +149,7 @@
                   href="https://docs.qq.com/smartsheet/form/EmvmQBrmlPmr%2Fss_vsqk2v%2FvhiGzE?tab=ss_vsqk2v"
                   target="_blank"
                   rel="noopener noreferrer"
-                  title="Toonflow 需求/BUG反馈表"
+                  title="Catflow 需求/BUG反馈表"
                   @click="helpVisible = false">
                   汇报 BUG
                 </el-button>
@@ -171,7 +182,7 @@
 import { computed, onBeforeUnmount, ref, watch } from "vue";
 import { Panel, useVueFlow, type XYPosition } from "@vue-flow/core";
 import { MiniMap } from "@vue-flow/minimap";
-import { IconMap, IconMagnet, IconFocusCentered, IconHelp, IconBook, IconBug, IconBrandWechat, IconBriefcase } from "@tabler/icons-vue";
+import { IconMap, IconMagnet, IconFocusCentered, IconHelp, IconBook, IconBug, IconBrandWechat, IconBriefcase, IconLibrary } from "@tabler/icons-vue";
 import { ElMessage } from "element-plus";
 import { QRCode } from "tdesign-vue-next";
 import { arrangeCanvas } from "../arrangeCanvas";
@@ -184,6 +195,7 @@ const props = defineProps<{
 const snapEnabled = defineModel<boolean>("snapEnabled", { required: true });
 const showEdges = defineModel<boolean>("showEdges", { required: true });
 const assetsVisible = defineModel<boolean>("assetsVisible", { default: false });
+const assetPanelVisible = defineModel<boolean>("assetPanelVisible", { default: false });
 const showMap = ref(false);
 const zoomMenuVisible = ref(false);
 const helpVisible = ref(false);
@@ -193,7 +205,7 @@ const contacts = {
   community: {
     title: "加入交流群",
     url: "https://work.weixin.qq.com/u/vc36adcc89845edcbe?v=5.0.3.63936&bb=85b8d228e8",
-    tip: "Toonflow 是为爱发电的开源项目。欢迎文明交流、友善反馈；回复可能需要一些时间，请避免责问或命令式沟通，感谢你的理解与尊重。",
+    tip: "Catflow 是为爱发电的开源项目。欢迎文明交流、友善反馈；回复可能需要一些时间，请避免责问或命令式沟通，感谢你的理解与尊重。",
   },
   business: {
     title: "商务合作",

@@ -5,6 +5,7 @@ import { resolve } from "node:path";
 import type { Request, Response, NextFunction } from "express";
 import buildRoute from "@/core";
 import { error } from "@/lib/responseFormat";
+import { authRequest } from "@/lib/auth";
 import desktopRequest from "@/lib/desktop";
 import initializePlugins from "@/utils/plugins/initialize";
 import { languageRequest, resolveRequestLocale, runWithLocale, setLocaleFallback, translateError, translateMessage } from "@/lib/i18n";
@@ -54,10 +55,12 @@ export async function createApp({
   app.use(cors());
   app.use(languageRequest);
   app.use("/a2a", express.json({ limit: "2mb" }));
-  app.use(["/api/workspaces/files/write", "/api/assets/save"], express.raw({ type: "application/octet-stream", limit: "100mb" }));
+  app.use(["/api/workspaces/files/write", "/api/assets/save", "/api/assets/library/upload"], express.raw({ type: "application/octet-stream", limit: "100mb" }));
   app.use(express.json({ limit: "100mb" }));
   app.use(express.urlencoded({ extended: true, limit: "100mb" }));
   app.use("/api/desktop", desktopRequest);
+  // 登录系统：/api 全部要求登录（白名单见 lib/auth.ts），MCP 与 A2A 接口保留各自授权机制。
+  app.use("/api", authRequest);
 
   const { default: initializeProviderModels } = await import("@/utils/ai/initialize");
   await initializeProviderModels();
@@ -76,6 +79,8 @@ export async function createApp({
   }));
   const { createA2aRouter } = await import("@/agent/a2a");
   app.use("/a2a", createA2aRouter());
+  const { getLibraryDirectory } = await import("@/utils/assets");
+  app.use("/api/assets/library/files", express.static(await getLibraryDirectory()));
   app.use(express.static(webRoot));
 
   // 错误处理

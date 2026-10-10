@@ -1,4 +1,5 @@
 import { createApp, h, nextTick } from "vue";
+import axios from "axios";
 import { ElButton, ElResult } from "element-plus";
 import { createPinia } from "pinia";
 import { createPersistedState } from "pinia-plugin-persistedstate";
@@ -36,14 +37,27 @@ async function notifyDesktopReady(failed = false) {
 
 // ACT: 已安装客户端的自动更新不经过 NSIS；启动时阻止缺少所需 API 的旧 WebView2 进入业务页面。
 (requiresWebView2Update
-  ? Promise.reject(new Error("当前 Microsoft Edge WebView2 Runtime 版本过旧。请以管理员身份运行微软最新版安装器；若仍提示已安装，请修复 WebView2 或联系管理员检查更新服务。更新完成后，请完全退出 Toonflow 再重新打开。"))
-  : loadSettings()).then(async () => {
+  ? Promise.reject(new Error("当前 Microsoft Edge WebView2 Runtime 版本过旧。请以管理员身份运行微软最新版安装器；若仍提示已安装，请修复 WebView2 或联系管理员检查更新服务。更新完成后，请完全退出 Catflow 再重新打开。"))
+  : loadSettings().catch((startupError) => {
+      // 未登录时照常挂载，由路由守卫引导到登录页；其余启动错误仍进入错误页。
+      if (axios.isAxiosError(startupError) && startupError.response?.status === 401) return;
+      throw startupError;
+    })).then(async () => {
   app.use(createPinia().use(createPersistedState({ storage: settingsStorage })));
   app.use(router);
   await router.isReady();
   app.onUnmount(registerAnonymousData());
   app.mount("#app");
   isMounted = true;
+  // 会话过期：任何非登录接口返回 401 时整页重载，由登录守卫接管。
+  axios.interceptors.response.use(undefined, (requestError) => {
+    if (axios.isAxiosError(requestError) && requestError.response?.status === 401
+      && !String(requestError.config?.url ?? "").includes("/api/auth/")
+      && router.currentRoute.value.path !== "/login") {
+      window.location.reload();
+    }
+    return Promise.reject(requestError);
+  });
   if (!isDesktop) return;
   app.onUnmount(registerDesktopProtocol());
   app.onUnmount(registerDesktopDownloads());

@@ -6,34 +6,36 @@
           <component :is="currentComponent" />
         </transition>
       </router-view>
-      <ffmpegRequired />
-      <updateBox
-        v-if="updateBoxBuild && !installFailure"
-        v-model="updateBoxVisible"
-        :version="updateBoxBuild.version"
-        :buildCode="updateBoxBuild.hash"
-        @opened="rememberUpdateBox"
-        @close="rememberUpdateBox" />
-      <el-dialog v-if="installFailure" v-model="installFailureVisible" title="更新未成功" width="min(520px, 92vw)" alignCenter appendToBody :closeOnClickModal="false">
-        <div v-if="installFailure" class="installFailureContent">
-          <p class="failureMessage">{{ installFailure.message }}</p>
-          <dl class="failureVersions">
-            <div>
-              <dt>当前运行版本</dt>
-              <dd><strong>{{ installFailure.currentVersion ? `v${installFailure.currentVersion}` : "未知版本" }}</strong><code>{{ installFailure.currentHash || "构建标识未知" }}</code></dd>
-            </div>
-            <div>
-              <dt>本次更新目标</dt>
-              <dd><strong>{{ installFailure.targetVersion ? `v${installFailure.targetVersion}` : "未知版本" }}</strong><code>{{ installFailure.targetHash || "构建标识未知" }}</code></dd>
-            </div>
-          </dl>
-          <p class="failureHint">请前往 GitHub 最新发布页，选择适合当前系统的完整安装包，关闭客户端后重新安装。</p>
-        </div>
-        <template #footer>
-          <el-button @click="installFailureVisible = false">稍后</el-button>
-          <el-button tag="a" type="primary" :href="installFailure.downloadUrl" target="_blank" rel="noopener noreferrer">前往下载页</el-button>
-        </template>
-      </el-dialog>
+      <template v-if="authStore.user">
+        <ffmpegRequired />
+        <updateBox
+          v-if="updateBoxBuild && !installFailure"
+          v-model="updateBoxVisible"
+          :version="updateBoxBuild.version"
+          :buildCode="updateBoxBuild.hash"
+          @opened="rememberUpdateBox"
+          @close="rememberUpdateBox" />
+        <el-dialog v-if="installFailure" v-model="installFailureVisible" title="更新未成功" width="min(520px, 92vw)" alignCenter appendToBody :closeOnClickModal="false">
+          <div v-if="installFailure" class="installFailureContent">
+            <p class="failureMessage">{{ installFailure.message }}</p>
+            <dl class="failureVersions">
+              <div>
+                <dt>当前运行版本</dt>
+                <dd><strong>{{ installFailure.currentVersion ? `v${installFailure.currentVersion}` : "未知版本" }}</strong><code>{{ installFailure.currentHash || "构建标识未知" }}</code></dd>
+              </div>
+              <div>
+                <dt>本次更新目标</dt>
+                <dd><strong>{{ installFailure.targetVersion ? `v${installFailure.targetVersion}` : "未知版本" }}</strong><code>{{ installFailure.targetHash || "构建标识未知" }}</code></dd>
+              </div>
+            </dl>
+            <p class="failureHint">请前往 GitHub 最新发布页，选择适合当前系统的完整安装包，关闭客户端后重新安装。</p>
+          </div>
+          <template #footer>
+            <el-button @click="installFailureVisible = false">稍后</el-button>
+            <el-button tag="a" type="primary" :href="installFailure.downloadUrl" target="_blank" rel="noopener noreferrer">前往下载页</el-button>
+          </template>
+        </el-dialog>
+      </template>
     </config-provider>
   </el-config-provider>
 </template>
@@ -56,11 +58,13 @@ import { chatLocale } from "@/lib/i18n";
 import { saveSettings, settings, uiSettings } from "@/stores/settings";
 import { desktopUpdateSnapshot, stopDesktopUpdateObservation } from "@/stores/desktopUpdate";
 import { useMcpControl } from "@/lib/mcpControl";
+import { useAuthStore } from "@/stores/auth";
 import ffmpegRequired from "@/components/settings/ffmpegRequired.vue";
 import updateBox from "@/components/updateBox.vue";
 import "element-plus/theme-chalk/dark/css-vars.css";
 
 useMcpControl();
+const authStore = useAuthStore();
 
 // ACT: TDesign 缺少的语言使用英语基底，聊天控件由应用字典补齐。
 const tdesignLocales = {

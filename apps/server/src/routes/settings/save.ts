@@ -5,6 +5,7 @@ import { validateFields } from "@/lib/middleware";
 import { success } from "@/lib/responseFormat";
 import { maxSystemPromptLength } from "@/agent/runtime/prompt";
 import { t } from "@/lib/i18n";
+import { getCurrentRequestUser } from "@/lib/auth";
 
 const router = Router();
 
@@ -19,6 +20,13 @@ export default router.put("/", validateFields({ settings: z.record(z.string(), z
 }) }), async (req, res) => {
   u.mcpControl.assertAppRequest(req);
   const { settings } = req.body;
+  const requester = getCurrentRequestUser();
+  if (requester && requester.role !== "admin") {
+    // 普通用户不能改动全局供应商配置与 Key；自己的 Key 走 /api/profile/keys 单独管理。
+    const current = u.conf.get("settings", {}) as { customProviders?: unknown; mediaProviderConfigs?: unknown };
+    settings.customProviders = current.customProviders;
+    settings.mediaProviderConfigs = current.mediaProviderConfigs;
+  }
   u.removeLegacySettings(settings);
   u.conf.set("settings", settings);
   await u.mcpRuntime.reloadMcpRuntime();
