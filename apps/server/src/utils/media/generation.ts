@@ -266,6 +266,72 @@ export function startMediaTaskResume() {
   interval.unref?.();
 }
 
+type MediaGenerationJobStatus = "running" | "done" | "failed" | "canceled";
+
+interface MediaGenerationJob {
+  status: MediaGenerationJobStatus;
+  result?: GeneratedMedia[];
+  error?: string;
+  createdAt: string;
+}
+
+// ACT: 生成作业状态仅存内存（分钟级生命周期，重启即失）。供应商任务仍由 journal 恢复机制取回落盘，
+// 进程重启后已计费任务不会丢失，仅前端轮询会得到任务不存在并需重新发起。
+const mediaGenerationJobs = new Map<string, MediaGenerationJob>();
+const activeGenerationControllers = new Map<string, AbortController>();
+const mediaGenerationJobRetention = 30 * 60_000;
+
+function pruneMediaGenerationJobs() {
+  const cutoff = Date.now() - mediaGenerationJobRetention;
+  for (const [id, job] of mediaGenerationJobs) {
+    if (job.status !== "running" && Date.parse(job.createdAt) < cutoff) mediaGenerationJobs.delete(id);
+  }
+}
+
+function updateMediaGenerationJob(id: string, patch: Partial<MediaGenerationJob>) {
+  const job = mediaGenerationJobs.get(id);
+  if (job) Object.assign(job, patch);
+}
+
+/** 提交媒体生成作业：立即返回作业 ID，生成在服务端后台继续；结果经 getMediaGeneration 轮询获取。 */
+export function startMediaGeneration(
+  cwd: string,
+  mediaType: "image" | "video" | "audio",
+  request: MediaGenerationRequest,
+): string {
+  pruneMediaGenerationJobs();
+  const generationId = crypto.randomUUID();
+  const controller = new AbortController();
+  mediaGenerationJobs.set(generationId, { status: "running", createdAt: new Date().toISOString() });
+  activeGenerationControllers.set(generationId, controller);
+  void generateMedia(cwd, mediaType, request, controller.signal)
+    .then(result => {
+      const job = mediaGenerationJobs.get(generationId);
+      if (job?.status === "running") updateMediaGenerationJob(generationId, { status: "done", result });
+    })
+    .catch(error => {
+      const job = mediaGenerationJobs.get(generationId);
+      if (!job || job.status !== "running") return;
+      updateMediaGenerationJob(generationId, controller.signal.aborted
+        ? { status: "canceled", error: "生成已取消" }
+        : { status: "failed", error: error instanceof Error ? error.message : String(error) });
+    })
+    .finally(() => activeGenerationControllers.delete(generationId));
+  return generationId;
+}
+
+export function getMediaGeneration(id: string) {
+  return mediaGenerationJobs.get(id);
+}
+
+/** 取消等待中的生成：后台任务停止轮询；已提交到供应商的任务照常计费，结果可能稍后由恢复流程落盘。 */
+export function cancelMediaGeneration(id: string): boolean {
+  const controller = activeGenerationControllers.get(id);
+  if (!controller) return false;
+  controller.abort();
+  return true;
+}
+
 export async function generateMedia(
   cwd: string,
   mediaType: "image" | "video" | "audio",

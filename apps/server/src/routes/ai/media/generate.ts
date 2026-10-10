@@ -16,17 +16,7 @@ export default Router().post("/", validateFields({
     return;
   }
   const cwd = await u.workspace.resolveWorkspace(req, directory);
-  const controller = new AbortController();
-  const close = () => controller.abort();
-  res.once("close", close);
-  req.once("aborted", close);
-  req.socket.once("close", close);
-  try {
-    const files = await u.mediaGeneration.generateMedia(cwd, mediaType, parsed.data, controller.signal);
-    if (!res.destroyed) res.json(success(files));
-  } finally {
-    res.off("close", close);
-    req.off("aborted", close);
-    req.socket.off("close", close);
-  }
+  // 异步作业：立即返回任务 ID，生成在服务端后台继续；长时间生成不再受反向代理（如 Cloudflare 100 秒）超时影响。
+  const taskId = u.mediaGeneration.startMediaGeneration(cwd, mediaType, parsed.data);
+  res.json(success({ taskId }));
 });
