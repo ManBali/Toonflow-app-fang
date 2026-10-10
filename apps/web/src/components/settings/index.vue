@@ -49,6 +49,7 @@ import {
   IconUserCog,
   IconSubtitlesAi,
   IconUsersGroup,
+  IconKey,
   IconLogout,
 } from "@tabler/icons-vue";
 
@@ -63,6 +64,7 @@ const settingsPanels = [
     component: defineAsyncComponent(() => import("./panels/languageModel/index.vue")),
   },
   { id: "mediaModel", label: "媒体模型", icon: IconPhotoVideo, component: defineAsyncComponent(() => import("./panels/mediaModel/index.vue")) },
+  { id: "apiKeys", label: "API 密钥", icon: IconKey, groupLabel: "模型", component: defineAsyncComponent(() => import("./panels/keys/index.vue")) },
   {
     id: "pluginMarket",
     label: "插件市场",
@@ -78,8 +80,9 @@ const settingsPanels = [
   { id: "about", label: "关于", icon: IconInfoCircle, component: defineAsyncComponent(() => import("./panels/about.vue")) },
 ];
 const authStore = useAuthStore();
-// 用户管理仅管理员可见。
-const visiblePanels = computed(() => settingsPanels.filter(item => item.id !== "users" || authStore.isAdmin));
+// 供应商管理与用户管理仅管理员可见；普通用户通过"API 密钥"面板配置自己的 Key。
+const adminOnlyPanels = new Set(["languageModel", "mediaModel", "users"]);
+const visiblePanels = computed(() => settingsPanels.filter(item => !adminOnlyPanels.has(item.id) || authStore.isAdmin));
 const activePanel = shallowRef(settingsPanels[0]!);
 const visible = defineModel<boolean>({ default: false });
 

@@ -92,6 +92,7 @@ declare module 'vue' {
     IconTextSize: typeof import('@tabler/icons-vue')['IconTextSize']
     IconX: typeof import('@tabler/icons-vue')['IconX']
     KeyInput: typeof import('./../components/settings/panels/general/keyInput.vue')['default']
+    Keys: typeof import('./../components/settings/panels/keys/index.vue')['default']
     LanguageModel: typeof import('./../components/settings/panels/languageModel/index.vue')['default']
     LanguageSelect: typeof import('./../components/languageSelect.vue')['default']
     MarkdownImage: typeof import('./../components/markdownImage.vue')['default']

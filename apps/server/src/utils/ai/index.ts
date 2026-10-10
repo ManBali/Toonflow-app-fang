@@ -6,6 +6,7 @@ import type { Context, Model } from "@earendil-works/pi-ai";
 import { z } from "zod";
 import conf from "@/utils/conf";
 import { readReference } from "@/utils/media/generation";
+import { getCurrentRequestUser } from "@/lib/auth";
 import modelContextLimits from "@/utils/ai/modelContextLimits";
 
 export { fetchProviderModels } from "@/utils/ai/models";
@@ -47,6 +48,13 @@ export function getConfiguredModel(providerId: string, modelId: string) {
   const parsed = providerSchema.safeParse(Array.isArray(providers) ? providers.find(item => item?.id === providerId) : undefined);
   if (!parsed.success) throw Object.assign(new Error("请先在设置中配置模型供应商"), { status: 400 });
   const provider = parsed.data;
+  // 登录用户只能使用自己配置的 API Key：全局 Key 仅作为管理员拉取模型列表等管理动作使用。
+  const requester = getCurrentRequestUser();
+  if (requester) {
+    const userKey = requester.languageProviderKeys?.[providerId]?.trim() ?? "";
+    if (!userKey && provider.apiKey.trim()) throw Object.assign(new Error("该供应商尚未配置你的 API Key，请在 设置 → API 密钥 中填写后再使用"), { status: 400 });
+    provider.apiKey = userKey;
+  }
   const model = provider.models.find(item => item.id === modelId);
   if (!model) throw Object.assign(new Error("所选模型不存在，请重新选择"), { status: 400 });
   const baseUrl = new URL(provider.apiUrl);

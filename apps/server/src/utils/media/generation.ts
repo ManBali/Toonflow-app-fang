@@ -5,6 +5,8 @@ import { dirname, join, relative } from "node:path";
 import { mediaProviders, type Provider } from "@toonflow/providers";
 import type { GeneratedMedia, MediaGenerationRequest, MediaModel, MediaReference } from "@toonflow/tools-scaffold/runtime";
 import conf from "@/utils/conf";
+import { getCurrentRequestUser } from "@/lib/auth";
+import { findUserById } from "@/utils/users";
 import { getMediaProvider, listMediaProviders, loadMediaProviderSource } from "@/utils/media/provider";
 import { lockWorkspaceFiles, resolveWorkspacePath, writeWorkspaceFile } from "@/utils/workspace/files";
 
@@ -28,6 +30,8 @@ interface PendingMediaTask {
   updatedAt: string;
   status: "running" | "done" | "failed";
   error?: string;
+  // 记录发起者，中断恢复时用该用户自己的 API Key 取回结果。
+  requesterId?: string;
 }
 
 const activeTaskCodes = new Set<string>();
@@ -210,7 +214,14 @@ async function writeGeneratedAssets(
 async function recoverPendingTask(entry: PendingMediaTask): Promise<MediaAsset[]> {
   const providerInfo = await getMediaProvider(entry.providerId);
   const configurations = record(conf.get("settings", {}).mediaProviderConfigs);
-  const provider = await loadMediaProviderSource(providerInfo.source, record(configurations[providerInfo.id]), undefined, fetch, entry.cwd);
+  let providerConfig = record(configurations[providerInfo.id]);
+  // 用任务发起者自己的 API Key 取回结果；旧任务没有记录时沿用全局 Key。
+  if (entry.requesterId) {
+    const requester = await findUserById(entry.requesterId);
+    const userKey = requester?.mediaProviderKeys?.[providerInfo.id]?.trim() ?? "";
+    if (userKey) providerConfig = { ...providerConfig, apiKey: userKey };
+  }
+  const provider = await loadMediaProviderSource(providerInfo.source, providerConfig, undefined, fetch, entry.cwd);
   if (typeof provider.getPendingTask !== "function") throw new Error("供应商不支持任务恢复");
   return provider.getPendingTask({ mediaType: entry.mediaType, taskICode: entry.taskICode });
 }
@@ -270,6 +281,15 @@ export async function generateMedia(
   const model = providerInfo.models.find(model => model.id === request.modelId && model.type === mediaType);
   if (!model) invalid("所选媒体模型不存在或类型不匹配，请重新选择");
   const configurations = record(conf.get("settings", {}).mediaProviderConfigs);
+  // 登录用户只能使用自己配置的 API Key；无用户上下文的通道（MCP、后台恢复旧任务）沿用全局 Key。
+  let providerConfig = record(configurations[providerInfo.id]);
+  const requester = getCurrentRequestUser();
+  if (requester) {
+    const userKey = requester.mediaProviderKeys?.[providerInfo.id]?.trim() ?? "";
+    if (!userKey && typeof providerConfig.apiKey === "string" && providerConfig.apiKey.trim())
+      invalid("该供应商尚未配置你的 API Key，请在 设置 → API 密钥 中填写后再使用");
+    providerConfig = { ...providerConfig, apiKey: userKey };
+  }
   const reportedTasks: PendingMediaTask[] = [];
   const onTask = (task: { mediaType: "image" | "video" | "audio"; taskICode: string }) => {
     if (reportedTasks.some(item => item.taskICode === task.taskICode)) return;
@@ -277,12 +297,13 @@ export async function generateMedia(
     const entry: PendingMediaTask = {
       taskICode: task.taskICode, providerId: providerInfo.id, mediaType,
       cwd: directory, outputDirectory, createdAt: now, updatedAt: now, status: "running",
+      requesterId: requester?.id,
     };
     reportedTasks.push(entry);
     activeTaskCodes.add(task.taskICode);
     writeJournal([...readJournal().filter(item => item.taskICode !== task.taskICode), entry]);
   };
-  const provider = await loadMediaProviderSource(providerInfo.source, record(configurations[providerInfo.id]), signal, undefined, directory, onTask);
+  const provider = await loadMediaProviderSource(providerInfo.source, providerConfig, signal, undefined, directory, onTask);
   const generate = mediaType === "image" ? provider.generateImage : mediaType === "video" ? provider.generateVideo : provider.generateAudio;
   if (typeof generate !== "function") invalid(t`此供应商不支持${translateMessage({ image: "图片", video: "视频", audio: "音频" }[mediaType])}生成`);
   const rules = Array.isArray(provider.rules) ? provider.rules : [];

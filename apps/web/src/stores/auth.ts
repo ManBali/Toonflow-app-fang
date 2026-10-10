@@ -30,7 +30,7 @@ export const useAuthStore = defineStore("auth", () => {
     return user.value;
   }
 
-  async function login(payload: { username: string; password: string; captchaId: string; captcha: string }) {
+  async function login(payload: { username: string; password: string; code: string }) {
     const { data } = await axios.post("/api/auth/login", payload);
     if (data.code !== 200) throw new Error(data.message || "登录失败");
     user.value = data.data.user;

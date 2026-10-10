@@ -2,9 +2,6 @@ import { readFile, writeAtomic } from "@toonflow/file";
 import { randomBytes, randomUUID, scryptSync, timingSafeEqual } from "node:crypto";
 import { join, resolve } from "node:path";
 import type { Request } from "express";
-import { createCaptcha, verifyCaptcha } from "./captcha";
-
-export { createCaptcha, verifyCaptcha };
 
 export type userRole = "admin" | "user";
 
@@ -18,9 +15,12 @@ export interface userRecord {
   createdAt: string;
   updatedAt: string;
   lastLoginAt?: string;
+  // 每个用户独立的模型 API Key，按 providerId 隔离，与全局供应商配置分开存储。
+  languageProviderKeys?: Record<string, string>;
+  mediaProviderKeys?: Record<string, string>;
 }
 
-export type publicUser = Omit<userRecord, "passwordHash" | "salt">;
+export type publicUser = Omit<userRecord, "passwordHash" | "salt" | "languageProviderKeys" | "mediaProviderKeys">;
 
 export const sessionCookieName = "toonflow_session";
 const sessionTtl = 7 * 24 * 60 * 60 * 1000;
@@ -43,8 +43,18 @@ async function loadUsers(): Promise<{ users: userRecord[] }> {
   const file = raw ? (JSON.parse(raw) as { users: userRecord[] }) : { users: [] };
   if (!file.users.length) {
     // ACT: 首次启动自动创建内置管理员 admin/admin123，部署后请在用户管理中修改密码。
+    // 升级时把全局供应商 Key 继承给管理员作为自己的 Key，普通用户必须各自配置。
+    const { default: conf } = await import("@/utils/conf");
+    const settings = conf.get("settings", {}) as { customProviders?: { id: string; apiKey: string }[]; mediaProviderConfigs?: Record<string, { apiKey?: string }> };
     const now = new Date().toISOString();
-    file.users = [{ id: randomUUID(), username: "admin", displayName: "管理员", role: "admin", ...hashPassword("admin123"), createdAt: now, updatedAt: now }];
+    const admin: userRecord = { id: randomUUID(), username: "admin", displayName: "管理员", role: "admin", ...hashPassword("admin123"), createdAt: now, updatedAt: now };
+    for (const provider of Array.isArray(settings.customProviders) ? settings.customProviders : []) {
+      if (provider?.id && typeof provider.apiKey === "string" && provider.apiKey.trim()) (admin.languageProviderKeys ??= {})[provider.id] = provider.apiKey.trim();
+    }
+    for (const [providerId, config] of Object.entries(settings.mediaProviderConfigs ?? {})) {
+      if (config && typeof config.apiKey === "string" && config.apiKey.trim()) (admin.mediaProviderKeys ??= {})[providerId] = config.apiKey.trim();
+    }
+    file.users = [admin];
     await writeAtomic(usersFilePath, JSON.stringify(file, null, 2));
   }
   usersCache = file;
@@ -66,9 +76,11 @@ export function verifyPassword(password: string, record: userRecord) {
 }
 
 export function toPublicUser(record: userRecord): publicUser {
-  const { passwordHash, salt, ...rest } = record;
+  const { passwordHash, salt, languageProviderKeys, mediaProviderKeys, ...rest } = record;
   void passwordHash;
   void salt;
+  void languageProviderKeys;
+  void mediaProviderKeys;
   return rest;
 }
 
@@ -84,7 +96,7 @@ async function findUserRecordById(id: string) {
   return (await loadUsers()).users.find(user => user.id === id);
 }
 
-export async function getRequestUser(req: Request) {
+export async function getRequestRecord(req: Request) {
   const token = readSessionToken(req);
   const session = token ? sessions.get(token) : undefined;
   if (!token || !session) return undefined;
@@ -92,7 +104,11 @@ export async function getRequestUser(req: Request) {
     sessions.delete(token);
     return undefined;
   }
-  const record = await findUserRecordById(session.userId);
+  return findUserRecordById(session.userId);
+}
+
+export async function getRequestUser(req: Request) {
+  const record = await getRequestRecord(req);
   return record ? toPublicUser(record) : undefined;
 }
 
@@ -178,4 +194,23 @@ export async function removeUser(id: string, currentUserId: string) {
     throw Object.assign(new Error("系统至少需要保留一个管理员"), { status: 400 });
   await saveUsers({ users: remaining });
   destroyUserSessions(id);
+}
+
+export async function findUserById(id: string) {
+  return findUserRecordById(id);
+}
+
+export async function findUserProviderKeys(id: string, kind: "language" | "media") {
+  const record = await findUserRecordById(id);
+  return kind === "language" ? record?.languageProviderKeys ?? {} : record?.mediaProviderKeys ?? {};
+}
+
+export async function setProviderKeys(id: string, patch: { languageProviderKeys?: Record<string, string>; mediaProviderKeys?: Record<string, string> }) {
+  const file = await loadUsers();
+  const record = file.users.find(user => user.id === id);
+  if (!record) throw Object.assign(new Error("用户不存在"), { status: 404 });
+  if (patch.languageProviderKeys) record.languageProviderKeys = patch.languageProviderKeys;
+  if (patch.mediaProviderKeys) record.mediaProviderKeys = patch.mediaProviderKeys;
+  record.updatedAt = new Date().toISOString();
+  await saveUsers(file);
 }
