@@ -30,6 +30,17 @@ export type NodeImageRequest = {
 export type NodeImageResult = { path: string; mimeType: string; mediaType: "image" };
 export type NodeVideoRequest = Omit<MediaGenerationRequest, "size"> & { directory: string; outputDirectory: string };
 export type NodeVideoResult = { path: string; mimeType: string; mediaType: "video" };
+export type NodeAudioRequest = {
+  directory: string;
+  providerId: string;
+  modelId: string;
+  prompt: string;
+  outputDirectory: string;
+  voice?: string;
+  speed?: number;
+  duration?: number;
+};
+export type NodeAudioResult = { path: string; mimeType: string; mediaType: "audio" };
 export type NodeAiRequest = {
   providerId: string;
   modelId: string;
@@ -162,7 +173,7 @@ export function useNodeAi() {
     return readModels<NodeMediaModel>("/api/ai/media/models", requestSignal(signal));
   }
 
-  async function generateMedia<T extends "image" | "video">(mediaType: T, input: NodeImageRequest | NodeVideoRequest, signal?: AbortSignal) {
+  async function generateMedia<T extends "image" | "video" | "audio">(mediaType: T, input: NodeImageRequest | NodeVideoRequest | NodeAudioRequest, signal?: AbortSignal) {
     const combined = requestSignal(signal);
     const { taskId } = await readResult<{ taskId: string }>(await fetch("/api/ai/media/generate", {
       method: "POST",
@@ -206,6 +217,10 @@ export function useNodeAi() {
 
   function generateVideo(input: NodeVideoRequest, signal?: AbortSignal) {
     return generateMedia("video", input, signal);
+  }
+
+  function generateAudio(input: NodeAudioRequest, signal?: AbortSignal) {
+    return generateMedia("audio", input, signal);
   }
 
   async function generate(input: NodeAiRequest): Promise<NodeAiResult> {
@@ -258,5 +273,5 @@ export function useNodeAi() {
     return { text, ...(reasoning ? { reasoning } : {}) };
   }
 
-  return { getModels, getMediaModels, generateImage, generateVideo, generate };
+  return { getModels, getMediaModels, generateImage, generateVideo, generateAudio, generate };
 }

@@ -144,10 +144,12 @@ interface VideoRequest extends MediaRequest {
 interface AudioRequest extends MediaRequest {
   text: string;
   audios?: MediaInput[];
-  /** 音色标识，由供应商映射到平台的音色参数。 */
+  /** 音色标识，由供应商映射到平台的音色参数；音色设计类模型可用自由文本描述。 */
   voice?: string;
   /** 语速倍率，1 为正常语速。 */
   speed?: number;
+  /** 请求的音频最大时长（秒），BGM 类模型使用；实际时长以成品为准。 */
+  duration?: number;
   /** 音量增益，单位 dB，0 为原始音量。 */
   volume?: number;
   /** 输出编码格式，如 mp3、wav、pcm。 */

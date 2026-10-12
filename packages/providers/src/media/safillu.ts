@@ -11,6 +11,7 @@ const rules = [
 const siteUrl = "https://api.safillu.com";
 const videoApiUrl = `${siteUrl}/tfrouter-frames/v1`;
 const imageApiUrl = `${siteUrl}/runninghub-image/v1`;
+const audioApiUrl = `${siteUrl}/runninghub-audio/v1`;
 
 function object(value: unknown): Record<string, unknown> {
   if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error("Safillu 响应格式错误");
@@ -158,6 +159,52 @@ async function generateImageTask(context: ProviderContext, body: unknown) {
   }
 }
 
+/** 查询一次音频任务（音色设计 / BGM 共用）：成功返回音频地址，失败抛错，null 表示仍在进行中。 */
+async function audioTaskState(context: ProviderContext, taskICode: string, signal?: AbortSignal): Promise<MediaAsset[] | null> {
+  const apiKey = typeof context.config.apiKey === "string" ? context.config.apiKey.trim().replace(/^Bearer\s+/i, "").trim() : "";
+  if (!apiKey) throw new Error("请填写 Safillu API Key");
+  signal?.throwIfAborted();
+  const response = await context.tool.fetch(`${audioApiUrl}/tasks/${encodeURIComponent(taskICode)}`, {
+    headers: { Authorization: `Bearer ${apiKey}` },
+    signal,
+  });
+  if (!response.ok) throw new Error(`查询任务失败：HTTP ${response.status}`);
+  const data = object(await response.json());
+  const status = typeof data.status === "string" ? data.status : "";
+  if (status === "success") {
+    const url = typeof data.audio_url === "string" && data.audio_url.trim() ? data.audio_url.trim() : "";
+    if (!url) throw new Error("任务成功但未返回音频地址");
+    return [{ mediaType: "audio", type: "url", url }];
+  }
+  if (status === "failed") {
+    throw new Error((typeof data.error === "string" && data.error) || context.tool.errorMessage?.(data) || "音频生成失败");
+  }
+  return null;
+}
+
+async function generateAudioTask(context: ProviderContext, path: string, body: unknown) {
+  // ACT: 音频任务按 30 分钟兜底等待；任务 ID 提交后上报宿主落盘，中断后可按 ID 恢复。
+  const signal = AbortSignal.any([AbortSignal.timeout(30 * 60_000), ...(context.signal ? [context.signal] : [])]);
+  const apiKey = typeof context.config.apiKey === "string" ? context.config.apiKey.trim().replace(/^Bearer\s+/i, "").trim() : "";
+  if (!apiKey) throw new Error("请填写 Safillu API Key");
+  const submitResponse = await context.tool.fetch(`${audioApiUrl}/${path}`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+    signal,
+  });
+  if (!submitResponse.ok) throw new Error(`提交任务失败：HTTP ${submitResponse.status}`);
+  const submitData = object(await submitResponse.json());
+  const taskId = typeof submitData.task_id === "string" && submitData.task_id.trim() ? submitData.task_id.trim() : "";
+  if (!taskId) throw new Error("提交任务未返回任务 ID");
+  try { context.tool.reportTask?.({ mediaType: "audio", taskICode: taskId }); } catch { /* ACT: 上报失败不影响生成本身。 */ }
+  while (true) {
+    const files = await audioTaskState(context, taskId, signal);
+    if (files) return files;
+    await wait(signal);
+  }
+}
+
 export default {
   id: "safillu",
   label: "Safillu",
@@ -180,6 +227,16 @@ export default {
       mode: ["text"],
       imageSizes: ["1K", "2K"],
       imageRatios: ["1:1", "16:9", "9:16", "4:3", "3:4", "3:2", "2:3", "21:9"],
+    },
+    {
+      id: "Qwen3-TTS-VoiceDesign",
+      label: "音色设计语音",
+      type: "audio",
+    },
+    {
+      id: "YuE2-BGM",
+      label: "BGM 纯音乐",
+      type: "audio",
     },
   ] satisfies ProviderModel[],
   async generateVideo(request: VideoRequest): Promise<MediaAsset[]> {
@@ -236,6 +293,25 @@ export default {
       resolution,
     });
   },
+  async generateAudio(request: AudioRequest): Promise<MediaAsset[]> {
+    const isVoice = request.model.toLowerCase().includes("voicedesign");
+    const text = request.text.trim();
+    if (isVoice) {
+      const voicePrompt = request.voice?.trim() ?? "";
+      if (!voicePrompt) throw new Error("音色设计需要填写音色描述（角色声线、语气与风格）");
+      return generateAudioTask(this, "voice-design", {
+        model: request.model,
+        text,
+        voice_prompt: voicePrompt,
+        ...(typeof request.speed === "number" ? { speed: request.speed } : {}),
+      });
+    }
+    return generateAudioTask(this, "bgm", {
+      model: request.model,
+      prompt: text,
+      ...(typeof request.duration === "number" ? { duration: request.duration } : {}),
+    });
+  },
   async getPendingTask(request: { mediaType: "image" | "video" | "audio"; taskICode: string }): Promise<MediaAsset[]> {
     if (request.mediaType === "video") {
       const files = await taskState(this, request.taskICode);
@@ -243,6 +319,10 @@ export default {
     }
     if (request.mediaType === "image") {
       const files = await imageTaskState(this, request.taskICode);
+      return files ?? [];
+    }
+    if (request.mediaType === "audio") {
+      const files = await audioTaskState(this, request.taskICode);
       return files ?? [];
     }
     throw new Error("Safillu 暂不支持此媒体类型的任务恢复");

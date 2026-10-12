@@ -380,7 +380,8 @@ export async function generateMedia(
   const assets = mediaType === "audio"
     ? await provider.generateAudio!({
       model: request.modelId, text: request.prompt, audios: await references(request.audios, "audio"),
-      voice: request.voice, speed: request.speed, volume: request.volume, format: request.format, sampleRate: request.sampleRate,
+      voice: request.voice, speed: request.speed, duration: request.duration, volume: request.volume,
+      format: request.format, sampleRate: request.sampleRate,
     })
     : mediaType === "image"
     ? await provider.generateImage!({ model: request.modelId, prompt: request.prompt, images, ratio: request.ratio, size: request.size })
