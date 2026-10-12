@@ -1,6 +1,6 @@
 services:
   catflow:
-    image: wushuifang/catflow_wu:0.1.2
+    image: wushuifang/catflow_wu:0.1.3
     build: .
     init: true
     restart: unless-stopped
