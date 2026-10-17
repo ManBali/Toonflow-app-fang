@@ -1,7 +1,10 @@
 node_modules/
 dist/
 /build/
-/data/
+/data/*
+!/data/nodes/
+/data/nodes/*
+!/data/nodes/*.umd.js
 /work/
 /backup/
 .playwright-mcp/
