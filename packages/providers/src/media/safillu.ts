@@ -34,8 +34,18 @@ async function fetchJson(context: ProviderContext, path: string, body?: unknown,
     body: JSON.stringify(body),
     signal,
   });
-  if (!response.ok) throw new Error(`Safillu 请求失败（HTTP ${response.status}）`);
+  if (!response.ok) await responseError(context, response, "Safillu 请求失败");
   return object(await response.json());
+}
+
+/** 带 failReason 的插件错误也走 HTTP 200，但鉴权/网关错误体各异，非 2xx 时尽力附上响应正文。 */
+async function responseError(context: ProviderContext, response: Response, label: string): Promise<never> {
+  const body = await response.text().catch(() => "");
+  let detail = "";
+  if (body) {
+    try { detail = context.tool.errorMessage(JSON.parse(body)); } catch { detail = body.slice(0, 200); }
+  }
+  throw new Error(`${label}（HTTP ${response.status}）${detail ? `：${detail}` : ""}`);
 }
 
 function mediaUrl(input: MediaInput) {
@@ -47,7 +57,7 @@ function mediaUrl(input: MediaInput) {
   return data.startsWith("data:") ? data : `data:${input.mimeType};base64,${data}`;
 }
 
-// ACT: Safillu 接口限制——参考文件解码后单个 30 MiB、合计 64 MiB、合计 9 个；提交前本地拦截，避免无意义请求。
+// ACT: Safillu 接口限制——参考文件解码后单个 30 MiB、合计 64 MiB、合计 13 个（9 图 + 3 音频 + 1 视频）；提交前本地拦截，避免无意义请求。
 function checkReferences(inputs: MediaInput[]) {
   let total = 0;
   for (const input of inputs) {
@@ -58,7 +68,7 @@ function checkReferences(inputs: MediaInput[]) {
     if (bytes > 30 * 1024 * 1024) throw new Error("Safillu 参考文件解码后单个不能超过 30 MiB");
   }
   if (total > 64 * 1024 * 1024) throw new Error("Safillu 参考文件解码后合计不能超过 64 MiB");
-  if (inputs.length > 9) throw new Error("Safillu 参考文件合计不能超过 9 个");
+  if (inputs.length > 13) throw new Error("Safillu 参考文件合计不能超过 13 个");
 }
 
 function mediaAsset(value: unknown): MediaAsset[] {
@@ -70,7 +80,7 @@ function mediaAsset(value: unknown): MediaAsset[] {
   return [{ mediaType: "video", type: "base64", mimeType: data[1], data: data[2] }];
 }
 
-function wait(signal: AbortSignal) {
+function wait(signal: AbortSignal, interval = 3000) {
   signal.throwIfAborted();
   return new Promise<void>((resolve, reject) => {
     const abort = () => {
@@ -80,7 +90,7 @@ function wait(signal: AbortSignal) {
     const timer = setTimeout(() => {
       signal.removeEventListener("abort", abort);
       resolve();
-    }, 3000);
+    }, interval);
     signal.addEventListener("abort", abort, { once: true });
   });
 }
@@ -105,7 +115,8 @@ async function generateTask(context: ProviderContext, body: unknown) {
   while (true) {
     const files = await taskState(context, task.data, signal);
     if (files) return files;
-    await wait(signal);
+    // 官方文档建议每 10–15 秒查询一次，过频可能触发限流。
+    await wait(signal, 10_000);
   }
 }
 
@@ -208,16 +219,16 @@ async function generateAudioTask(context: ProviderContext, path: string, body: u
 export default {
   id: "safillu",
   label: "Safillu",
-  version: "2.0.0",
-  readme: "Safillu（api.safillu.com）：MiniMax-H3 视频生成，4–15 秒、768p/1080p/2k，生成音轨；混合参考图 ≤5、音频 ≤3、视频 ≤1，合计 ≤9；首尾帧模式需同时提供首帧与尾帧且仅支持 768p/2k。Z-Image 纯文生图，1K/2K 同价，不支持参考图。参考文件解码后单个 ≤30 MiB、合计 ≤64 MiB。生成结果为上游地址，非永久存储，请及时使用。",
+  version: "2.1.0",
+  readme: "Safillu（api.safillu.com）：MiniMax-H3 视频生成，4–15 秒、480p/768p/1080p/2k 四档，生成音轨；混合参考图 ≤9、音频 ≤3、视频 ≤1，合计 ≤13；首尾帧模式需同时提供首帧与尾帧（不能混用参考媒体），四档分辨率均可用，画幅默认 adaptive。Z-Image 纯文生图，1K/2K 同价，不支持参考图。参考文件解码后单个 ≤30 MiB、合计 ≤64 MiB。生成结果为公开直链，非永久存储，请及时使用。",
   rules,
   models: [
     {
       id: "MiniMax-H3",
       label: "MiniMax-H3",
       type: "video",
-      mode: ["text", "startEndRequired", ["imageReference:5", "audioReference:3", "videoReference:1"]],
-      durationResolutionMap: [{ duration: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], resolution: ["768p", "1080p", "2k"] }],
+      mode: ["text", "startEndRequired", ["imageReference:9", "audioReference:3", "videoReference:1"]],
+      durationResolutionMap: [{ duration: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], resolution: ["480p", "768p", "1080p", "2k"] }],
       audio: true,
     },
     {
@@ -250,11 +261,12 @@ export default {
     ];
     const mode = request.mode ?? (frames.length ? "startEndRequired" : audios.length ? [] : images.length ? "singleImage" : "text");
     const isFrames = mode === "startEndRequired" || mode === "endFrameOptional" || mode === "startFrameOptional";
-    // 1080p 仅参考/文生模式支持；首尾帧工作流只有 768p/2k 档位，提交前拦截避免上游 400。
-    if (isFrames && String(request.resolution ?? "").toLowerCase() === "1080p") {
-      throw new Error("Safillu 首尾帧模式仅支持 768p / 2k，1080p 请使用文生或混合参考模式");
-    }
+    // 首尾帧默认 adaptive 跟随首帧比例；文生/参考模式固定 16:9 且服务端拒收 adaptive。
+    const ratio = request.ratio ?? (isFrames ? "adaptive" : "16:9");
+    if (!isFrames && ratio === "adaptive") throw new Error("Safillu 文生/参考模式不支持 adaptive 画幅");
     const frameImages = frames.length ? frames : images.map((url, index) => ({ url, role: index === 0 ? "first_frame" : "last_frame" }));
+    // 首尾帧必须恰好一首一尾共 2 张，不能只传一帧，也不能混入参考媒体。
+    if (isFrames && frameImages.length !== 2) throw new Error("Safillu 首尾帧模式需要同时提供首帧与尾帧");
     const references: Record<string, unknown>[] = [];
     if (Array.isArray(mode)) {
       references.push(...images.map((url) => ({ role: "reference_image", type: "image_url", image_url: { url } })));
@@ -271,8 +283,9 @@ export default {
       duration: request.duration,
       resolution: request.resolution,
       metadata: {
-        ...(typeof request.generateAudio === "boolean" ? { generate_audio: request.generateAudio } : {}),
-        ratio: request.ratio ?? "16:9",
+        // generate_audio 只能传 true 或省略，不支持 false。
+        ...(request.generateAudio === true ? { generate_audio: true } : {}),
+        ratio,
         references,
         resolution: request.resolution,
       },
